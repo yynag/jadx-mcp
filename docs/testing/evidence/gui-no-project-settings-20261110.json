@@ -1,0 +1,96 @@
+{
+  "historical_only": true,
+  "current_support_note": "Dated no-project and port behavior evidence for the recorded artifact. Full-JDK 21 acceptance and package hashes: httpclient-jdk21-validation-20261110.json.",
+  "date": "2026-11-10",
+  "scope": "GUI tests only, not four-module full rerun",
+  "user_screenshot": {
+    "source": "User-supplied remote Windows11 screenshot; text transcribed, no user settings read",
+    "window": "Jadx MCP",
+    "state": "DISABLED: Waiting for project",
+    "counts": [
+      0,
+      0,
+      0
+    ],
+    "ip": "127.0.0.1",
+    "port": 9010,
+    "apply_feedback": "Connection settings failed"
+  },
+  "confirmed_product_issue": "Old reconfigure constructed an HTTP transport before checking whether a project endpoint was bound; local configuration should be independent of project/network activation",
+  "fix": "Save settings while no project; defer HTTP bridge construction until successful project binding; preserve idle state and acknowledge Applied!",
+  "remote_installed_file": {
+    "sha256": "3fa6f5c69bdb4ef103f46394bcd4fd8a1ead9a16ca5d43b312d9f56a31106272",
+    "matches": "prior formal release before staged runtime diagnostics",
+    "boundary": "Installation-directory file hash does not prove current GUI classloader loaded this file"
+  },
+  "tests": {
+    "tests": 99,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "real_gui_checks": {
+    "full_jdk_no_bound_project_ip9010": "PASS",
+    "menu_reset_unload_reload": "PASS",
+    "bound_project_port_switch": {
+      "status": "PASS",
+      "failure_injection": false,
+      "gui_exit": 0,
+      "master_exits": [
+        143,
+        143
+      ],
+      "checks": [
+        {
+          "check": "invalid port rejected inline",
+          "passed": true
+        },
+        {
+          "check": "offline destination still acknowledges saved settings Applied!",
+          "passed": true
+        },
+        {
+          "check": "offline HTTP is not a settings failure",
+          "passed": true
+        },
+        {
+          "check": "offline destination enters bounded backoff",
+          "passed": true
+        },
+        {
+          "check": "service started later recovers without another Apply",
+          "passed": true
+        },
+        {
+          "check": "business command succeeds on newly started destination",
+          "passed": true
+        },
+        {
+          "check": "cycle 0 switch back to existing service succeeds",
+          "passed": true
+        },
+        {
+          "check": "cycle 0 switch to other existing service succeeds",
+          "passed": true
+        },
+        {
+          "check": "cycle 1 switch back to existing service succeeds",
+          "passed": true
+        },
+        {
+          "check": "cycle 1 switch to other existing service succeeds",
+          "passed": true
+        }
+      ],
+      "owned_processes_reaped": true
+    }
+  },
+  "earlier_harness_failure": "First window check ran before asynchronous host menu executor opened it; bounded UI readiness fixed; no product retry/sleep masking business behavior",
+  "artifacts": {
+    "jadx-mcp-gui-plugin.jar": "6e7b14b2dfbf977c0aa66ade179d13be1e2aa3aa636b0d31bd43f14e2e540fba",
+    "jadx-mcp.jar": "a0f425c2fce312de6bcba9ec7f5f4a8f32bfd86b53371b6c363b451cc6e14799"
+  },
+  "network_target": "Remote127.0.0.1 refers to Windows, not Mac; invalid destination affects connection not local persistence",
+  "remote_mutations": false,
+  "cleanup": "Owned processes ended; exact temporary smoke copies removed after collecting results"
+}

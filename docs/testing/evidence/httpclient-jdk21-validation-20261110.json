@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-10",
+  "working_tree": "Uncommitted; no reset/clean/stash/commit/push",
+  "runtime": "Full Temurin JDK 21.0.12.1+1; actual JADX 1.5.6 release JAR; macOS",
+  "runtime_policy": "JADX 1.5.6 ZIP without embedded JRE plus separate full JDK 21 including runtime, explicitly used by GUI and Server",
+  "build": {
+    "command": "./gradlew --offline --no-daemon --no-parallel --max-workers=1 -Dorg.gradle.java.installations.auto-download=false -PjadxGuiDistribution=<existing-jadx-1.5.6-all.jar> test releaseArtifacts :gui-plugin:guiMenuSmoke --rerun-tasks",
+    "exit": 0,
+    "timeout_seconds": 900,
+    "log_sha256": "e34329a13ad501028762a201dfebd6d675f7d40f1339c8a7e3778020a95db662",
+    "modules": {
+      "protocol": {"tests": 14, "failures": 0, "errors": 0, "skipped": 0, "suites": 2, "ordered_xml_sha256": "7eb134fb1cd14b446b2a9bf8e70b80927debee1827aa203a4130e5dc7f2ccd01"},
+      "analysis": {"tests": 71, "failures": 0, "errors": 0, "skipped": 0, "suites": 14, "ordered_xml_sha256": "7e3523e50c5131adbe7abd71ac7de4bb332ce4ce081b2e5020083250e40788e7"},
+      "app": {"tests": 61, "failures": 0, "errors": 0, "skipped": 0, "suites": 9, "ordered_xml_sha256": "ea25498ce6856521fa2aaa49d8cff94ae3be30aa1b135948881c46ac0c6b92db"},
+      "gui-plugin": {"tests": 111, "failures": 0, "errors": 0, "skipped": 0, "suites": 19, "ordered_xml_sha256": "65d3bbd793a8cb5be341d6c2f29226251e4d742b8dbc4078e0acfbb958ef8bfc"}
+    },
+    "total_tests": 257,
+    "xml_hash_method": "Per module, sort TEST-*.xml by name; SHA256 of concatenated filename UTF8, NUL, then raw XML bytes",
+    "http_transport_tests": 23,
+    "http_coverage": ["five POST routes and typed bodies", "Content-Type/Accept application/json and exact UTF8 Content-Length", "typed and non-JSON errors", "redirect refusal", "cancel before send and in flight", "cancel closes actual socket without disturbing heartbeat", "upload/TLS/header/chunked/trickled whole-call deadlines", "outgoing size and declared/chunked/unknown-length response limits"],
+    "real_menu": ["external provider initialized with real GUI context", "unique menu after host resets", "unload/reloadPasses", "no bound project: Apply IP127.0.0.1/9010 gives Applied! and Waiting for project", "Reconnect disabled without project"]
+  },
+  "scenarios": [
+    {
+      "label": "sample-core", "driver": "scripts/smoke/gui_live_status.py", "status": "PASS", "checks": 45,
+      "raw_evidence_sha256": "fa41fbef5dd2c5600d1ce4d0a9848a496305eab9ae12d3106e8c0695d3945533",
+      "all_owned_processes_reaped": true,
+      "coverage": "single modeless window, validation/Apply, counters and expiry, safe terminal error, explicit Reconnect, Master stop/start, uncertain completion exactly once and edit restoration, GUI/HEADLESS core chains, explicit close remains disabled, unload timer/menu cleanup, unchanged copied input"
+    },
+    {
+      "label": "port-switch", "driver": "gui-plugin/src/guiSmoke/python/settings_port_switch.py", "status": "PASS", "checks": 10,
+      "raw_evidence_sha256": "343981c49fce8cb824387f98c0d3d772f1085aa07c4221f7191064a4f2bd0923",
+      "all_owned_processes_reaped": true,
+      "coverage": "invalid port, offline Applied!, bounded retry, service-start recovery, business call on new destination, two cycles switching between two owned Masters"
+    },
+    {
+      "label": "save-failure", "driver": "gui-plugin/src/guiSmoke/python/settings_port_switch.py --fail-preferences", "status": "PASS", "checks": 4,
+      "raw_evidence_sha256": "b8cf34620b5bd62bcc8cc043707d616674f29a653e5935f675ccaac3809932e6",
+      "all_owned_processes_reaped": true,
+      "coverage": "in-memory Preferences factory injects BackingStoreException; stage/type shown without raw detail; original bridge stays connected"
+    },
+    {
+      "label": "apk-acceptance", "driver": "scripts/smoke/gui_acceptance.py", "status": "PASS", "checks": 58,
+      "raw_evidence_sha256": "412c6327fcbef96cf29b52ad8567a05bdcc0bf23eaa9ea2dc57c2986eef4da30",
+      "input_sha256": "df3d1ed4bfb024a36c06d938da9d3fba4a7805f61c9f037daee11542e4d67ebb",
+      "fixture": "Temporary private JSON discovered via actual meta_summary.main_activity and meta_class.methods descriptor on an authorized workspace APK copy; discovery session closed and Master reaped",
+      "original_unchanged": "SHA256, inode, size and mtime checked before/after discovery; original hash rechecked at final cleanup",
+      "all_owned_processes_reaped": true,
+      "coverage": "sample core behaviors on same APK plus GUI/HEADLESS manifest-summary-MAIN_ACTIVITY agreement and exact named method source",
+      "debug_negative": {"debug_get_threads": "DISCONNECTED", "debug_get_stack_frames": "DISCONNECTED", "debug_get_variables": "DISCONNECTED"}
+    }
+  ],
+  "artifacts": {
+    "build/release/jadx-mcp.jar": {"sha256": "a0f425c2fce312de6bcba9ec7f5f4a8f32bfd86b53371b6c363b451cc6e14799", "bytes": 30028128, "httpclient_class": "com/yyang/jadxmcp/process/HttpWorkerTransport.class"},
+    "build/release/jadx-mcp-gui-plugin.jar": {"sha256": "dc21d92abdb080ca1deb13755cb9ce95175ae0b34f0cd603c2d937e821465805", "bytes": 2811544, "httpclient_class": "com/yyang/jadxmcp/bridge/HttpGuiChannelPort.class"}
+  },
+  "package_scan": "Both ZIP entry lists and project-class bytes checked; HttpClient references present; correct Master manifest and plugin service entry",
+  "source_sha256": {
+    "gui-plugin/src/main/kotlin/com/yyang/jadxmcp/bridge/HttpGuiChannelPort.kt": "bef3854136db685ad9866165dbf81b8ec2107e5b2344dff911dbc36746c30866",
+    "protocol/src/main/kotlin/com/yyang/jadxmcp/protocol/ProtocolCodec.kt": "b2e736a9d9a826d2aaa70a6ed3c94b0461d5cd32b504a9a77aff69caf49f290f",
+    "gui-plugin/build.gradle.kts": "2bf1f767d649f228704718169de542422c04162a93617972824bbf99fe2a7d90",
+    "scripts/smoke/gui_live_status.py": "3e971bb677af43c5997ea072445a3a330ecfeadd83fd25e2594d376292f41a02",
+    "gui-plugin/src/guiSmoke/python/settings_port_switch.py": "b032d401edc97777dec799ccc5f31b2752aff97b160feb08de771a4ed1f32305"
+  },
+  "cleanup": {
+    "status": "COMPLETE",
+    "all_owned_processes_reaped": true,
+    "original_apk_sha256_rechecked": "df3d1ed4bfb024a36c06d938da9d3fba4a7805f61c9f037daee11542e4d67ebb",
+    "removed_owned_trees": ["build/smoke/live-status-cb548be2e975", "build/smoke/port-switch-489f02931410", "build/smoke/port-switch-177ba7d950ce", "build/smoke/gui-acceptance-9c475d306412", ".agent/tmp/httpclient-gui-verification"],
+    "retained": "Formal source/tests, current minimal evidence, release packages and module build/test reports; unrelated prior run trees untouched",
+    "raw_records": "Only compact outcomes/hashes retained; raw source-bearing responses/private fixture JSON/copies are removed, not public evidence"
+  },
+  "exclusions": ["No Windows GUI execution", "No attached/suspended debug-device success", "Not all 27-tool parameter combinations or stress/race proof", "Historical seven-configuration logging and rename matrices not rerun", "No existing GUI/service/Preferences/native project/root runtime JAR/log modifications", "No installation/download/remote CI/commit/push"]
+}

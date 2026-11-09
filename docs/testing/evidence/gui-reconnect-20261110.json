@@ -1,0 +1,59 @@
+{
+  "historical_only": true,
+  "current_support_note": "Earlier artifact/product evidence, not latest package acceptance. Current full-JDK rerun: httpclient-jdk21-validation-20261110.json.",
+  "date": "2026-11-10",
+  "scope": "GUI bridge terminal-error recovery and no-project safety",
+  "unit_tests": {
+    "task": ":gui-plugin:test",
+    "tests": 112,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "build": {
+    "tasks": [
+      ":releaseArtifacts",
+      ":gui-plugin:compileGuiMenuSmoke"
+    ],
+    "offline": true,
+    "no_parallel": true,
+    "status": "PASS"
+  },
+  "isolated_gui_master_smoke": {
+    "driver": "scripts/smoke/gui_live_status.py",
+    "driver_sha256": "28c99dece8e59d4efb08be17fb765b653bfe231e2a356c021b2378d53a82cbe8",
+    "status": "PASS",
+    "assertions": 45,
+    "checks": {
+      "single_nonmodal_jadx_mcp_window": true,
+      "typed_invalid_argument_shown_as_safe_terminal_error": true,
+      "explicit_reconnect_registered_fresh_gui_lease": true,
+      "master_stop_start_recovered_automatically": true,
+      "uncertain_edit_completion_not_replayed_and_edit_remained_exactly_once": true,
+      "all_owned_processes_reaped": true
+    },
+    "master_artifact_sha256": "a0f425c2fce312de6bcba9ec7f5f4a8f32bfd86b53371b6c363b451cc6e14799",
+    "gui_plugin_artifact_sha256": "3437b611cea8ee1f46ed119053201ae976859ec372506329bca9e30b37e7a657",
+    "fixture": "checked-in sample.jar copied into isolated smoke workspace"
+  },
+  "no_project_mainwindow_smoke": {
+    "class": "MainWindowPluginsMenuSmoke",
+    "status": "PASS",
+    "checks": {
+      "no_bound_project": true,
+      "status_remained_waiting_for_project": true,
+      "reconnect_button_disabled": true,
+      "menu_entry_unique_after_host_resets": true
+    },
+    "master_started": false,
+    "preferences": "in-memory isolated factory",
+    "project_input": "checked-in sample.jar"
+  },
+  "source_sha256": {
+    "GuiBridgeClient.kt": "e15759f91ec4e6ecdf6917009972d02ff520d962901a6ee7788a581c20c9b09b"
+  },
+  "limits": [
+    "The typed INVALID_ARGUMENT was injected by the isolated test proxy; this does not identify the cause of the user's original server response.",
+    "No remote Windows service, GUI, preferences, registry, or user project was accessed by these validation runs."
+  ]
+}

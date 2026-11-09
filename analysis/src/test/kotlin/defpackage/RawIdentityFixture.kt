@@ -1,0 +1,3 @@
+package defpackage
+
+class RawIdentityFixture

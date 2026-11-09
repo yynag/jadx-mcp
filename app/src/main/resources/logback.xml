@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration scan="true" scanPeriod="30 seconds">
+<configuration>
+    <turboFilter class="com.yyang.jadxmcp.bootstrap.DependencyLogFilter" />
 
     <!-- 定义日志输出目录与格式 -->
     <property name="LOG_DIR" value="logs" />
     <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
 
-    <!-- 1. 控制台 Appender (只显示 INFO 及以上核心生命周期日志) -->
+    <!-- Console inherits the selected root level; no hard-coded INFO threshold. -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>${LOG_PATTERN}</pattern>
             <charset>UTF-8</charset>
         </encoder>
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>INFO</level>
-        </filter>
     </appender>
 
-    <!-- 2. 全量滚动文件 Appender (logs/server.log) -->
+    <!-- Rolling files use the same selected level as the console. -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_DIR}/server.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -49,11 +47,9 @@
         </filter>
     </appender>
 
-    <!-- 4. 针对 JADX 核心 SDK 降低日志刷屏，仅记录 ERROR 级别错误 -->
-    <logger name="jadx" level="ERROR" />
 
     <!-- 根日志配置 -->
-    <root level="INFO">
+    <root level="${jadx.mcp.logLevel:-INFO}">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="FILE" />
         <appender-ref ref="ERROR_FILE" />

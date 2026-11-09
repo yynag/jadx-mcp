@@ -26,3 +26,9 @@ app/logs
 .DS_Store
 Thumbs.db
 
+.agent
+NOTE.md
+
+# Python smoke-driver bytecode is regenerated locally.
+__pycache__/
+*.py[cod]

@@ -1,0 +1,123 @@
+{
+  "date": "2026-11-09",
+  "revision": "e875e099a39902e53d9c0fefb34c1a8bf34f0531",
+  "working_tree": "uncommitted implementation and documentation; no commit/push",
+  "command": "./gradlew --offline --no-parallel --max-workers=1 --console=plain test releaseArtifacts --rerun-tasks",
+  "build": "SUCCESSFUL",
+  "exit_status": 0,
+  "seconds": 106,
+  "executed_tasks": 23,
+  "modules": {
+    "protocol": {
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 2,
+      "xml_sha256": {
+        "TEST-com.yyang.jadxmcp.protocol.GuiTransportCodecTest.xml": "34a8e4cc1dbca7544a18a7fe24fd5fa66db5307a82a33a397e0d8c9ab12bf26d",
+        "TEST-com.yyang.jadxmcp.protocol.ProtocolCodecTest.xml": "5501d30bb43d651af16d490cff1b0241b15d4b0cea16460e813e9c7d22adf4a8"
+      }
+    },
+    "analysis": {
+      "tests": 71,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 14,
+      "xml_sha256": {
+        "TEST-com.yyang.jadxmcp.analysis.cache.GenerationCacheTest.xml": "02e0f3f05b6baf55794b72225f0debe3db10114adfb15406e37eb60d322f62af",
+        "TEST-com.yyang.jadxmcp.analysis.metadata.ManifestModelTest.xml": "7c7afe55e8caf0234b1d4dfbd0a60b815821debcb1e47aea4a784b9c3bf671c2",
+        "TEST-com.yyang.jadxmcp.analysis.metadata.MetadataServiceTest.xml": "2ee7ea56d0f1cf5f1220c5ac5c7fb3d514beca7e57b21f1036675aca761ee468",
+        "TEST-com.yyang.jadxmcp.analysis.project.JadxProjectServiceTest.xml": "3e9d731d2716491ce708f3f4337f8ec283f007e38964193a9420e8dd45a4eb21",
+        "TEST-com.yyang.jadxmcp.analysis.project.ProjectDataCodecTest.xml": "8a424fa250abfed24f500e659f4ed8840acca1163c5a76abed4798461d16ec73",
+        "TEST-com.yyang.jadxmcp.analysis.project.ProjectDataEditsTest.xml": "deeef649be8d32c87e146aafba587bbbdc47879b701dc006dee8de813f7e0f4a",
+        "TEST-com.yyang.jadxmcp.analysis.project.ProjectOverrideRenameTest.xml": "4aa3020fd8517a7e1e2c3efbe7ef225299ad7c15cc61ecaf13140dd27f764192",
+        "TEST-com.yyang.jadxmcp.analysis.reference.ReferenceServiceTest.xml": "368d2ecf44491e10ce5d6a602479e91d331e986ed32d23e7ece51984a63523b2",
+        "TEST-com.yyang.jadxmcp.analysis.resource.P4RegressionTest.xml": "523d9eff58c7e6ad57ff1da8f1f0159121b5e18e9ed721a47b1b2f941dfceab5",
+        "TEST-com.yyang.jadxmcp.analysis.resource.ResourceServiceTest.xml": "83f9047d8f8c775244e78a68bc628f42a0c1ecaf10af29da1151f3dae8532f26",
+        "TEST-com.yyang.jadxmcp.analysis.search.SearchServiceTest.xml": "956154d44dbda60fc8635f50fd55d2b46a74bff61824c60de9d2f28fbb55b079",
+        "TEST-com.yyang.jadxmcp.analysis.source.JadxSourceServiceTest.xml": "f0c50a41870cf9eac0f377a1b9d64b15f5521e2717039e9d97891a7c5f61926b",
+        "TEST-com.yyang.jadxmcp.analysis.source.SourcePresentationTest.xml": "99f28e032db1b53367aff5b9a4e42812266f4d5fdde08582253ca2db78e8cfac",
+        "TEST-com.yyang.jadxmcp.analysis.workspace.JadxWorkspaceTest.xml": "a2106ac3ea641a082d0b08314aec717d9f096bb5b76005e43bdeecbff1bdde1b"
+      }
+    },
+    "app": {
+      "tests": 61,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 9,
+      "xml_sha256": {
+        "TEST-com.yyang.jadxmcp.api.CommandSchemaTest.xml": "afb178e66e8b11a93c9b7ab6aebcda8d4936348f45672df5fc2c40b26f4a57c0",
+        "TEST-com.yyang.jadxmcp.api.MasterApiIntegrationTest.xml": "3dbc157e08b035733b146c99b935fae78b666029ca73b8c5f1a6063ce7fc5e7c",
+        "TEST-com.yyang.jadxmcp.backend.AnalysisWorkerIntegrationTest.xml": "59845e4f0f99e958d2b03765030bc6fd1a6ea4377b1ac3f55b7853e9cc183e4b",
+        "TEST-com.yyang.jadxmcp.bootstrap.LoggingTest.xml": "6619a070256b62772f26be8408a7cd75d929dae7b6bd615fa75388697b63c269",
+        "TEST-com.yyang.jadxmcp.bootstrap.MasterRuntimeIntegrationTest.xml": "82bf727d891e63f293312b70911225424468e0924a7bfe752a02f5227f35fea4",
+        "TEST-com.yyang.jadxmcp.process.WorkerBackendTest.xml": "0fd3e6e5bf15703fb44cd04db5c82241973167acfc69f1cbfb773a92cc34313e",
+        "TEST-com.yyang.jadxmcp.session.SessionServiceTest.xml": "a6ec2f81d82a5420facc65311151da37ab7a055e94575787b41717d2bc7c46b9",
+        "TEST-com.yyang.jadxmcp.worker.OwnedWorkerCacheTest.xml": "07e20a0f200a6df7253d27d1b6493a63ec23f0b4a9043438d2f0a90d47aee9b7",
+        "TEST-com.yyang.jadxmcp.worker.WorkerIntegrationTest.xml": "5622a23ff7d43fde30c88243b089967f73f1038fa13b11e6b7dc60759b896c2d"
+      }
+    },
+    "gui-plugin": {
+      "tests": 94,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 17,
+      "xml_sha256": {
+        "TEST-com.yyang.jadxmcp.bridge.BridgeStatusModelTest.xml": "92e5c70129da963bb176822af7bee840f432a8cf573504c9a99a963d00c554be",
+        "TEST-com.yyang.jadxmcp.bridge.GuiBridgeClientTest.xml": "e4eb6eb0b2d6387f092c6a864151318435bdd014ba7e78c3b89413d4c673590f",
+        "TEST-com.yyang.jadxmcp.bridge.HttpGuiChannelPortTest.xml": "ff49e096de0820c649da6b494204eb715bd419ee9a65624f4a36176e81671935",
+        "TEST-com.yyang.jadxmcp.debug.GuiDebuggerPortTest.xml": "8a341dffb223b49d20ba44394ad891411cc02c9b0ffa294a5026a8745cc1337c",
+        "TEST-com.yyang.jadxmcp.debug.Jadx156DebuggerCompatibilityTest.xml": "7d899a61e32510f2631511df20cf140430a4ffc64a743b542bcf8e9d5349789f",
+        "TEST-com.yyang.jadxmcp.project.GuiProjectEditAdapterTest.xml": "2b48af21b8f720ac7e6a931b0b4ef93569a7eb7c1e7eaeaf5d7c7443e4ac9691",
+        "TEST-com.yyang.jadxmcp.project.GuiProjectOwnerTest.xml": "f5f6f2160449b8c1f8b5c4e1fb2f49af765298ae9115a34ae4569018be5a3612",
+        "TEST-com.yyang.jadxmcp.project.P6GuiIntegrationTest.xml": "78907fb8b5563909542dc7f5c46a42d6d7da4a340410a84cc8b320a9476c83fb",
+        "TEST-com.yyang.jadxmcp.runtime.BorrowedRuntimeTest.xml": "f28ad4c182501dd0f2e50c4ea34707425cb085ecbc51aa9a2ec800f825a270a6",
+        "TEST-com.yyang.jadxmcp.runtime.BridgeStatusPanelTest.xml": "796dbaa3f74593d3c1d471b65c5f10160626aa713533ad28c5e87e4a77aaedba",
+        "TEST-com.yyang.jadxmcp.runtime.GuiConnectionMenuTest.xml": "8982e0bb62783b62a6535ed7165b5ea59e197a380bc770a5b24638a39d5ecb6d",
+        "TEST-com.yyang.jadxmcp.runtime.GuiRuntimeTest.xml": "d1ddd5a07a4cbf04be7c687224ee31aa992b1a97183d0ccb19d84c7d8543e7fa",
+        "TEST-com.yyang.jadxmcp.runtime.MasterConnectionPanelTest.xml": "9ea77c3d806f00f449228d97cd9adf38651aaae837a5a5ed077ed3e9da2a7782",
+        "TEST-com.yyang.jadxmcp.runtime.MasterConnectionSettingsTest.xml": "5548224044c653f97d38da7449d29f56145c4ba295682110749d023a7f54b685",
+        "TEST-com.yyang.jadxmcp.ui.Gui156CompatibilityTest.xml": "22a55f1c4e1e70c32f9271f570a97ed2df1c079a520e3b1a09d38a0929476c59",
+        "TEST-com.yyang.jadxmcp.ui.GuiContextAdapterTest.xml": "e197ab90f9dbe6f6d4e3f3380d006748ecdb385d6c1875b03ef50c33e8603315",
+        "TEST-com.yyang.jadxmcp.ui.GuiQueryAdapterTest.xml": "98ba7057c2233c3d010600c5ecf1b6081ca68f7f36082118d20bdb384ba8041f"
+      }
+    }
+  },
+  "total_tests": 239,
+  "artifacts_sha256": {
+    "build/release/jadx-mcp-gui-plugin.jar": "3fa6f5c69bdb4ef103f46394bcd4fd8a1ead9a16ca5d43b312d9f56a31106272",
+    "build/release/jadx-mcp.jar": "a0f425c2fce312de6bcba9ec7f5f4a8f32bfd86b53371b6c363b451cc6e14799"
+  },
+  "java": "openjdk version \"21.0.12.1\" 2026-08-18 LTS\nOpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode)",
+  "scope": "final full forced serial offline suite and both release packages after kotlin-logging banner fix; not native GUI acceptance rerun",
+  "superseded_attempts": [
+    "Initial full suite/build passed 239 tests, before fixing packaged OFF banner",
+    "First packaged matrix passed DEFAULT/TRACE/DEBUG/INFO/WARN/ERROR but failed OFF-empty-output assertion",
+    "Isolated OFF diagnostic reproduced kotlin-logging stdout factory banner; disabled before SDK loading, then full suite/build rerun"
+  ],
+  "warnings": [
+    "Existing Kotlin warnings: java.lang.Object monitor, unnecessary non-null assertions, GUI data-class copy visibility",
+    "macOS input-method diagnostics emitted by GUI fixture tests; not packaged Master logging"
+  ],
+  "closeout": {
+    "release_sha256_reverified": true,
+    "module_xml_sha256_reverified": true,
+    "git_diff_check_exit_status": 0,
+    "python_ast_files": 6,
+    "markdown_files_checked": 10,
+    "relative_links_and_anchors_checked": 171,
+    "footnotes_and_whitespace": "pass",
+    "public_json_files_parsed": 13,
+    "release_entry_descriptors": "pass",
+    "packaged_driver_sha256": "588c2d46248d737187dbcfa7e028e4bec255f5cba17553c4ca7f5e3e29b95e06",
+    "packaged_matrix_final_rerun_after_cleanup_signal_guard": "pass 7/7 configurations and 5/5 CLI cases",
+    "owned_scratch_directories_remaining": 0,
+    "owned_process_groups": "reaped and checked by driver for each configuration",
+    "existing_services_root_runtime_jars_and_logs": "not updated/restarted/cleaned; driver verifies root JAR hashes unchanged",
+    "no_remote_ci_commit_push_or_install": true
+  }
+}

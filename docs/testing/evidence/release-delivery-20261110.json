@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-10",
+  "status": "DELIVERABLE_WITH_SCOPED_ACCEPTANCE",
+  "verification": "Read existing XML/log/outcome records and hash release packages only; no build or runtime test executed by documentation closeout.",
+  "build": {
+    "log": "build/field-rename-release.log",
+    "sha256": "b2042b710a7b0d19d4a3186e18b3d9bd8e84aee7a5367d367f06ab1d2b545d1b",
+    "markers": [
+      "> Task :analysis:test",
+      "> Task :app:test",
+      "> Task :gui-plugin:test",
+      "> Task :protocol:test",
+      "> Task :releaseArtifacts",
+      "BUILD SUCCESSFUL in 2m 6s",
+      "23 actionable tasks: 23 executed"
+    ]
+  },
+  "junit": {
+    "input_pattern": "<module>/build/test-results/test/TEST-*.xml",
+    "method": "Sum tests/failures/errors/skipped attributes from every current testsuite root using Python 3.12 ElementTree; compare each XML SHA-256 with the archived delivery-validation.json inventory.",
+    "modules": {
+      "protocol": {"xml_files": 2, "tests": 15, "failures": 0, "errors": 0, "skipped": 0},
+      "analysis": {"xml_files": 14, "tests": 76, "failures": 0, "errors": 0, "skipped": 0},
+      "app": {"xml_files": 10, "tests": 72, "failures": 0, "errors": 0, "skipped": 0},
+      "gui-plugin": {"xml_files": 20, "tests": 128, "failures": 0, "errors": 0, "skipped": 0}
+    },
+    "total": {"xml_files": 46, "tests": 291, "failures": 0, "errors": 0, "skipped": 0},
+    "all_current_xml_hashes_match_archive": true,
+    "inventory": "build/field-rename-evidence/delivery-validation.json",
+    "inventory_sha256": "77bbf9ac0380ed944f7a323e9b006b0268998fc171f752fd48a8c4022c0679e5"
+  },
+  "artifacts": {
+    "build/release/jadx-mcp.jar": "b0cb0c3f2b8dde740392101587d5aa5fe2dd98719ba0bc3a48f5be2552b4e9ec",
+    "build/release/jadx-mcp-gui-plugin.jar": "3130fe27a8e03a5ae9ae82d818c5ba46a96d571adcf0175e396ad98a7d7d7a2f"
+  },
+  "archived_smokes": {
+    "staged_field": {
+      "evidence": "build/field-rename-evidence/field.json",
+      "sha256": "f66358c6e6f11ce086bd5e53d31045d1b0410ef263d30116126f622d85966212",
+      "status": "PASS", "passed": 13, "total": 13, "cycles": 2,
+      "native_class_loading_errors": 0,
+      "master_sha256": "aa0631e754773ee730880a8b155fa6a4b8c735d325588e7fe9db94181536a588",
+      "same_plugin_as_final_release": true,
+      "same_master_as_final_release": false
+    },
+    "final_release_all": {
+      "evidence": "build/field-rename-evidence/final-release-all.json",
+      "sha256": "06d301f6c0063f6ba6143125b5aa7b0e7033b8a28053eb0caf1a2388fb114cdb",
+      "status": "PASS", "passed": 39, "total": 39, "cycles": 2,
+      "targets": ["CLASS", "METHOD", "FIELD"],
+      "native_class_loading_errors": 0,
+      "both_artifact_hashes_match_final_release": true,
+      "input_bytes_unchanged": true,
+      "owned_processes_reaped": true
+    }
+  },
+  "limits": [
+    "Scoped sample.jar rename, immediate readback and restoration evidence, not exhaustive GUI editing or race acceptance.",
+    "No attached paused debugger or device success tested.",
+    "Earlier APK and multi-GUI identity matrices were not rerun on this package pair.",
+    "No native save/reopen persistence claim from rename readback results.",
+    "Original temporary smoke roots no longer exist; archived small outcome records were used.",
+    "Root-cause analysis is outside this read-only delivery snapshot."
+  ]
+}

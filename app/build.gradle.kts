@@ -18,6 +18,8 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":protocol"))
+    implementation(project(":analysis"))
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation(libs.junit.jupiter.engine)
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
@@ -45,7 +47,8 @@ java {
 }
 
 application {
-    mainClass.set("com.yyang.jadx_server.MainKt")
+    // The master owns HTTP serving and isolated analysis workers.
+    mainClass.set("com.yyang.jadxmcp.bootstrap.MasterMain")
 }
 
 tasks.named<Test>("test") {
@@ -53,6 +56,15 @@ tasks.named<Test>("test") {
     maxHeapSize = "4G"
 }
 
+tasks.named<Jar>("jar") {
+    // Keep the thin JAR for internal consumers, separate from the release artifact.
+    archiveBaseName.set("jadx-mcp")
+    archiveClassifier.set("plain")
+}
+
 tasks.withType<ShadowJar> {
+    archiveBaseName.set("jadx-mcp")
+    archiveClassifier.set("")
+    archiveFileName.set("jadx-mcp.jar")
     mergeServiceFiles()
 }

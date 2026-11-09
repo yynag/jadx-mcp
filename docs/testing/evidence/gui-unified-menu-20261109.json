@@ -1,0 +1,155 @@
+{
+  "historical_only": true,
+  "fresh_final_verification": false,
+  "original_record_sha256": "0902b3782d8e8bcc264d2bdf61c9de201a98b057729f7f93880c3ac049c8eca7",
+  "record": {
+    "scope": "GUI module only; not all modules rerun; bridge unchanged",
+    "tests": {
+      "tests": 91,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integration": {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "repeated clicks focus exactly one non-modal unified window",
+          "passed": true
+        },
+        {
+          "check": "unified window stays non-modal",
+          "passed": true
+        },
+        {
+          "check": "network maintenance excluded",
+          "passed": true
+        },
+        {
+          "check": "Apply keeps same unified window open",
+          "passed": true
+        },
+        {
+          "check": "background preferences save and bridge reconfiguration acknowledged",
+          "passed": true
+        },
+        {
+          "check": "Cancel restores successfully applied master URL",
+          "passed": true
+        },
+        {
+          "check": "MCP business request succeeds after Apply",
+          "passed": true
+        },
+        {
+          "check": "live timer refresh remains compatible with configuration Apply",
+          "passed": true
+        },
+        {
+          "check": "rolling live refresh expires 5-second count",
+          "passed": true
+        },
+        {
+          "check": "closing unified window stops timer",
+          "passed": true
+        },
+        {
+          "check": "single menu restored after actual MainWindow reset",
+          "passed": true
+        },
+        {
+          "check": "unload disposes unified window",
+          "passed": true
+        },
+        {
+          "check": "unload stops timer and removes menu listener",
+          "passed": true
+        }
+      ],
+      "exits": {
+        "gui": 0,
+        "master": 143
+      },
+      "all_owned_processes_reaped": true
+    },
+    "attempts": [
+      {
+        "status": "FAIL",
+        "checks": [
+          {
+            "error": "RuntimeError(\"Readiness timeout: URLError(ConnectionRefusedError(61, 'Connection refused'))\")"
+          }
+        ],
+        "exits": {
+          "gui": null,
+          "master": 1
+        },
+        "all_owned_processes_reaped": true
+      },
+      {
+        "status": "PASS",
+        "checks": [
+          {
+            "check": "repeated clicks focus exactly one non-modal unified window",
+            "passed": true
+          },
+          {
+            "check": "unified window stays non-modal",
+            "passed": true
+          },
+          {
+            "check": "network maintenance excluded",
+            "passed": true
+          },
+          {
+            "check": "Apply keeps same unified window open",
+            "passed": true
+          },
+          {
+            "check": "background preferences save and bridge reconfiguration acknowledged",
+            "passed": true
+          },
+          {
+            "check": "Cancel restores successfully applied master URL",
+            "passed": true
+          },
+          {
+            "check": "MCP business request succeeds after Apply",
+            "passed": true
+          },
+          {
+            "check": "live timer refresh remains compatible with configuration Apply",
+            "passed": true
+          },
+          {
+            "check": "rolling live refresh expires 5-second count",
+            "passed": true
+          },
+          {
+            "check": "closing unified window stops timer",
+            "passed": true
+          },
+          {
+            "check": "single menu restored after actual MainWindow reset",
+            "passed": true
+          },
+          {
+            "check": "unload disposes unified window",
+            "passed": true
+          },
+          {
+            "check": "unload stops timer and removes menu listener",
+            "passed": true
+          }
+        ],
+        "exits": {
+          "gui": 0,
+          "master": 143
+        },
+        "all_owned_processes_reaped": true
+      }
+    ],
+    "plugin_sha256": "e958b8d48559e4951341e7f16886b4baadaaf6b6c8cbd6f106794c19d4858c88",
+    "build": "BUILD SUCCESSFUL in 1m47s; 15 tasks executed"
+  }
+}

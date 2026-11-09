@@ -1,0 +1,550 @@
+{
+  "date": "2026-11-09",
+  "status": "PASS_WITH_EXPLICIT_LIMITS",
+  "scope": "Dated five-file smoke verification against the recorded release packages; later app logging source is not packaged or validated here",
+  "revision": "e875e099a39902e53d9c0fefb34c1a8bf34f0531",
+  "working_tree": "uncommitted and dirty; pre-existing user work preserved",
+  "java": [
+    "openjdk 21.0.12.1 2026-08-18 LTS",
+    "OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)",
+    "OpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode)"
+  ],
+  "distribution": {
+    "name": "jadx-1.5.6-all.jar",
+    "sha256": "fe3e12c45acf75f92369685fd02d1d7a7323385dc725680a9b98a0dac0ea554b"
+  },
+  "artifacts": {
+    "jadx-mcp-gui-plugin.jar": "3fa6f5c69bdb4ef103f46394bcd4fd8a1ead9a16ca5d43b312d9f56a31106272",
+    "jadx-mcp.jar": "cb1e8106b91165a7ae0a65dd47cbbba01db9400ea204b7becf87dbe2c40b99c8"
+  },
+  "host_classes": {
+    "MainWindowPluginsMenuSmoke$2.class": "f0bd0686a355ced843541ce32abcb9cf60c13e9db0cad60845cf46a45dcf8179",
+    "MainWindowPluginsMenuSmoke$MemoryPreferences.class": "5ef23c304bf211b44079591a1a3104e849ea142fa4f71b7ee94d76cf6f0e0d7c",
+    "MainWindowPluginsMenuSmoke$1.class": "ce56a7787fb36c626fac0330ae1aabf40e41f95e1b803f5efca5fb50e12b347b",
+    "MainWindowPluginsMenuSmoke.class": "5aca060c1c135c7791047d6bf1b611a8b4e70577571275f430db25a7e374bc31",
+    "GuiBridgeIntegrationSmoke.class": "5318ad9c053f1d6d19c2953cb3c176bd89e7683fcef1c286c3bcbdf06debaec8",
+    "MainWindowPluginsMenuSmoke$MemoryPreferencesFactory.class": "7effe27ff59aeb971be5038f9947cdd2a24b5823b0dd02dd2f927a24b90d3479"
+  },
+  "support_files": {
+    "apk-e2e-logback.xml": "3efa18fe6d6f830087d099fdeef91e4ae26825ba89b1942805a270f54d46866a",
+    "apk_http_smoke.py": "556117b02f7d6873d4d031ff54d3748fd85a9d2c059650030b1ce684ea5685e7",
+    "gui_acceptance.py": "d6e6a098d1493df7cc5f4e86afc4afc1c5513b93043e8008a3b67564da78c06c",
+    "gui_live_status.py": "9151eb21c40aab98296d2c8e31a68b77cdfddade4ccc6cb1a67080a9c2e8f73e",
+    "mcp_helper.py": "3180acd5f99f8c688918a387b9892b80dd93f748aa1811bbac4058a0830854ac"
+  },
+  "commands": [
+    "python3.12 -B scripts/smoke/gui_acceptance.py (sample; 330s outer timeout)",
+    "python3.12 -B scripts/smoke/gui_live_status.py (sample; 330s outer timeout)",
+    "JADX_SMOKE_INPUT=<workspace-copy.apk> JADX_GUI_FIXTURE=<local-derived-descriptor.json> python3.12 -B scripts/smoke/gui_acceptance.py (330s outer timeout)",
+    "JADX_SMOKE_INPUT=<authorized-original.apk> python3.12 -B scripts/smoke/apk_http_smoke.py prepare (30s outer timeout)",
+    "JADX_SMOKE_INPUT=<authorized-original.apk> python3.12 -B scripts/smoke/apk_http_smoke.py run build/smoke/apk-e2e-20261109T232729-baee2327 (630s outer timeout)",
+    "python3.12 -B scripts/smoke/apk_http_smoke.py publish build/smoke/apk-e2e-20261109T232729-baee2327 (30s outer timeout)",
+    "./gradlew --offline --no-daemon --no-parallel --max-workers=1 :analysis:test --tests com.yyang.jadxmcp.analysis.source.JadxSourceServiceTest.methodSliceUsesCurrentCodeMetadataNotMutableNativeDefinitionPosition :gui-plugin:test --tests com.yyang.jadxmcp.ui.GuiQueryAdapterTest.exactMethodIdentitySurvivesStalePositionsAliasesInnerClassesAndCacheHits (240s outer timeout)"
+  ],
+  "execution": "background, bounded and serial; no dependency installation/download; no competing Gradle wrapper/test process observed before start",
+  "gui_runs": [
+    {
+      "run": "build/smoke/gui-acceptance-24cb01043173",
+      "status": "FAIL",
+      "assertions": 44,
+      "passed": 43,
+      "failed_checks": [
+        "plugin unload disposes owned live status window"
+      ],
+      "original_evidence_sha256": "71910d7a4e10a85e374d5e09be8c05acc4549f0de31dd7848e87a7123a0a0e45",
+      "driver_sha256": null,
+      "input_sha256": null,
+      "fixture": "sample.jar copy; first failed attempt",
+      "gui_exit": 143,
+      "master_exit": 143,
+      "all_owned_processes_reaped": true
+    },
+    {
+      "run": "build/smoke/gui-acceptance-936de77b1e27",
+      "status": "PASS",
+      "assertions": 45,
+      "passed": 45,
+      "failed_checks": [],
+      "original_evidence_sha256": "182f049237faa8c4bf3a7076cb5f55bd904ce54743f0053b5918ef28f7315076",
+      "driver_sha256": "8e69732097275ada7c12ef80f2419784bd9f9290b02b20cf494c4e1ac7ca35bb",
+      "input_sha256": "803f0c54b6b4c47ee9ecf52d28d91d93f40faced9acfb22925701c0839ecc09e",
+      "fixture": "checked-in sample.jar copy",
+      "gui_exit": 0,
+      "master_exit": 143,
+      "all_owned_processes_reaped": true
+    },
+    {
+      "run": "build/smoke/live-status-760b34594080",
+      "status": "PASS",
+      "assertions": 42,
+      "passed": 42,
+      "failed_checks": [],
+      "original_evidence_sha256": "2550b1a36cc524355aceb288dc75b068bdafca2cfe4c00be2fb361a377d507aa",
+      "driver_sha256": "9151eb21c40aab98296d2c8e31a68b77cdfddade4ccc6cb1a67080a9c2e8f73e",
+      "input_sha256": "803f0c54b6b4c47ee9ecf52d28d91d93f40faced9acfb22925701c0839ecc09e",
+      "fixture": "checked-in sample.jar copy",
+      "gui_exit": 0,
+      "master_exit": 143,
+      "all_owned_processes_reaped": true
+    },
+    {
+      "run": "build/smoke/gui-acceptance-0825046553e6",
+      "status": "PASS",
+      "assertions": 55,
+      "passed": 55,
+      "failed_checks": [],
+      "original_evidence_sha256": "ada0097c626bf203931768f92b8d6196f5b9fc4602aa32624bee306a9be9a2a1",
+      "driver_sha256": "9151eb21c40aab98296d2c8e31a68b77cdfddade4ccc6cb1a67080a9c2e8f73e",
+      "input_sha256": "df3d1ed4bfb024a36c06d938da9d3fba4a7805f61c9f037daee11542e4d67ebb",
+      "fixture": "authorized copied APK",
+      "gui_exit": 0,
+      "master_exit": 143,
+      "all_owned_processes_reaped": true
+    }
+  ],
+  "gui_primary_assertions": [
+    "repeated menu clicks focus exactly one non-modal window",
+    "only Apply exists; Cancel removed",
+    "URL input rejected in numeric IP field",
+    "invalid port rejected inline",
+    "successful background IP/Port Apply shows exact Applied! text",
+    "Apply leaves live window open",
+    "registration/poll/heartbeat excluded at idle",
+    "meta_summary success",
+    "real GUI timer refreshes received business counter",
+    "real 5/10 second expiry with no traffic",
+    "real Swing timer returns all three idle windows to zero",
+    "close stops owned timer",
+    "status menu restored after real host menu reset",
+    "debug_get_threads disconnected negative only",
+    "debug_get_stack_frames disconnected negative only",
+    "debug_get_variables disconnected negative only",
+    "meta_summary success",
+    "meta_manifest success",
+    "decompile success",
+    "GUI MAIN_ACTIVITY agrees with summary launcher",
+    "GUI launcher resolved from manifest component",
+    "meta_class success",
+    "search success",
+    "decompile success",
+    "get_method_by_name success",
+    "real GUI named method resolves correct declaration",
+    "add_comment success",
+    "completion delivered but acknowledgement deliberately lost",
+    "visible reconnect state during real Master outage",
+    "GUI automatically recovers after actual Master kill/restart",
+    "fresh generation empty: no automatic command replay",
+    "list_comments success",
+    "uncertain completion edit remains exactly once after reconnection",
+    "proxy observed exactly one edit completion across lost acknowledgement and restart",
+    "add_comment success",
+    "list_comments success",
+    "isolated edit restored after reconnect without modifying original input",
+    "meta_summary success",
+    "HEADLESS session_create through MCP",
+    "HEADLESS meta_summary core chain",
+    "HEADLESS search core chain",
+    "HEADLESS decompile core chain",
+    "HEADLESS decompile core chain",
+    "HEADLESS launcher meta_summary success",
+    "HEADLESS launcher meta_manifest success",
+    "HEADLESS launcher decompile success",
+    "HEADLESS MAIN_ACTIVITY agrees with summary launcher",
+    "same APK GUI and HEADLESS launcher agree",
+    "owned HEADLESS session closed and generated cache cleared",
+    "session_close success",
+    "explicit session_close remains disabled",
+    "explicitly closed GUI session never auto-resurrects",
+    "unload stops captured Swing timer and removes single menu observer",
+    "plugin unload disposes owned live status window",
+    "isolated analysis/edit input remains byte-identical"
+  ],
+  "gui_debug_negative": {
+    "debug_get_threads": "DISCONNECTED",
+    "debug_get_stack_frames": "DISCONNECTED",
+    "debug_get_variables": "DISCONNECTED"
+  },
+  "sample_acceptance_revision_note": "45/45 preceded final prerequisite/cleanup guards only; final independent sample and APK acceptance use final driver hash",
+  "http": {
+    "status_counts": {
+      "PASS": 60,
+      "NO_OBJECT": 4
+    },
+    "calls": 38,
+    "operation_counts": {
+      "session_create": 2,
+      "meta_summary": 4,
+      "meta_manifest": 4,
+      "meta_class": 3,
+      "decompile": 10,
+      "search": 4,
+      "xref": 1,
+      "rename": 1,
+      "resource": 4,
+      "fetch_current_class": 1,
+      "session_close": 4
+    },
+    "rows": [
+      {
+        "name": "health_loopback_no_cache_root",
+        "status": "PASS"
+      },
+      {
+        "name": "create_headless_first_and_new_cache_name",
+        "status": "PASS"
+      },
+      {
+        "name": "summary",
+        "status": "PASS"
+      },
+      {
+        "name": "summary_actual_classes",
+        "status": "PASS"
+      },
+      {
+        "name": "manifest_all",
+        "status": "PASS"
+      },
+      {
+        "name": "manifest_activities",
+        "status": "PASS"
+      },
+      {
+        "name": "manifest_exported_activities",
+        "status": "PASS"
+      },
+      {
+        "name": "exported_filter_consistency",
+        "status": "PASS"
+      },
+      {
+        "name": "class_list_main_app",
+        "status": "PASS"
+      },
+      {
+        "name": "class_metadata_actual",
+        "status": "PASS"
+      },
+      {
+        "name": "java_source",
+        "status": "PASS"
+      },
+      {
+        "name": "java_source_nonempty",
+        "status": "PASS"
+      },
+      {
+        "name": "java_cache_repeat",
+        "status": "PASS"
+      },
+      {
+        "name": "java_cache_repeat_consistent",
+        "status": "PASS"
+      },
+      {
+        "name": "exact_method_source",
+        "status": "PASS"
+      },
+      {
+        "name": "exact_method_identity_and_nonempty",
+        "status": "PASS"
+      },
+      {
+        "name": "smali_source",
+        "status": "PASS"
+      },
+      {
+        "name": "smali_nonempty",
+        "status": "PASS"
+      },
+      {
+        "name": "class_search",
+        "status": "PASS"
+      },
+      {
+        "name": "class_search_has_actual_hit",
+        "status": "PASS"
+      },
+      {
+        "name": "dex_string_constants_search",
+        "status": "PASS"
+      },
+      {
+        "name": "dex_constants_actual_hit_no_decompile",
+        "status": "PASS"
+      },
+      {
+        "name": "xref_class_candidate",
+        "status": "PASS"
+      },
+      {
+        "name": "xref_actual_reference",
+        "status": "PASS"
+      },
+      {
+        "name": "rename_in_memory",
+        "status": "PASS"
+      },
+      {
+        "name": "rename_truthful_persistence",
+        "status": "PASS"
+      },
+      {
+        "name": "java_after_rename",
+        "status": "PASS"
+      },
+      {
+        "name": "rename_invalidates_cached_source",
+        "status": "PASS"
+      },
+      {
+        "name": "resource_list",
+        "status": "PASS"
+      },
+      {
+        "name": "resource_strings",
+        "status": "PASS"
+      },
+      {
+        "name": "resource_strings_actual_entries",
+        "status": "PASS"
+      },
+      {
+        "name": "resource_file_xml",
+        "status": "PASS"
+      },
+      {
+        "name": "resource_file_actual_xml",
+        "status": "PASS"
+      },
+      {
+        "name": "resource_public_ids_file",
+        "status": "NO_OBJECT"
+      },
+      {
+        "name": "resource_r_string_smali",
+        "status": "PASS"
+      },
+      {
+        "name": "resource_r_string_smali_fields",
+        "status": "NO_OBJECT"
+      },
+      {
+        "name": "resource_r_string_java",
+        "status": "NO_OBJECT"
+      },
+      {
+        "name": "resource_id_from_actual_r_string_java",
+        "status": "NO_OBJECT"
+      },
+      {
+        "name": "resource_id_from_actual_application_smali",
+        "status": "PASS"
+      },
+      {
+        "name": "reject_unknown_field",
+        "status": "PASS"
+      },
+      {
+        "name": "reject_page_zero",
+        "status": "PASS"
+      },
+      {
+        "name": "reject_lowercase_enum",
+        "status": "PASS"
+      },
+      {
+        "name": "reject_invalid_timeout",
+        "status": "PASS"
+      },
+      {
+        "name": "reject_exported_without_type",
+        "status": "PASS"
+      },
+      {
+        "name": "reject_smali_presentation",
+        "status": "PASS"
+      },
+      {
+        "name": "missing_class_typed",
+        "status": "PASS"
+      },
+      {
+        "name": "gui_only_explicitly_unsupported",
+        "status": "PASS"
+      },
+      {
+        "name": "create_same_apk_second_exclusive_session",
+        "status": "PASS"
+      },
+      {
+        "name": "worker_logs_and_plugin_dirs_inside_each_session",
+        "status": "PASS"
+      },
+      {
+        "name": "session_directories_are_distinct",
+        "status": "PASS"
+      },
+      {
+        "name": "second_session_unmodified_source",
+        "status": "PASS"
+      },
+      {
+        "name": "rename_isolation_between_workers",
+        "status": "PASS"
+      },
+      {
+        "name": "close_first_clear_cache",
+        "status": "PASS"
+      },
+      {
+        "name": "clear_cache_preserves_active_sibling_input_and_native_project",
+        "status": "PASS"
+      },
+      {
+        "name": "sibling_still_analyzes_after_first_clear",
+        "status": "PASS"
+      },
+      {
+        "name": "bounded_deadline",
+        "status": "PASS"
+      },
+      {
+        "name": "close_second_clear_cache_after_deadline",
+        "status": "PASS"
+      },
+      {
+        "name": "second_owned_directory_deleted",
+        "status": "PASS"
+      },
+      {
+        "name": "master_and_workers_reaped",
+        "status": "PASS"
+      },
+      {
+        "name": "original_apk_hash_and_metadata_unchanged",
+        "status": "PASS"
+      },
+      {
+        "name": "downloads_and_original_jadx_metadata_unchanged",
+        "status": "PASS"
+      },
+      {
+        "name": "workspace_input_and_native_sentinel_unchanged",
+        "status": "PASS"
+      },
+      {
+        "name": "input_directory_only_expected_entries",
+        "status": "PASS"
+      },
+      {
+        "name": "all_worker_generated_files_contained_in_input_cache",
+        "status": "PASS"
+      }
+    ],
+    "driver_sha256": "556117b02f7d6873d4d031ff54d3748fd85a9d2c059650030b1ce684ea5685e7",
+    "input_sha256": "df3d1ed4bfb024a36c06d938da9d3fba4a7805f61c9f037daee11542e4d67ebb",
+    "raw_report_sha256": "6e324b17c2eb08d2deb7979b006a105c3cbdecc1bbf8aa4031ecf2bb98f75136",
+    "summary_sha256": "2275f17901f0caa17d2bad0690c0f84cc1ca01288a84f3b56390b5920345c355",
+    "relative_path_publish_exit": 0,
+    "original_apk_hash_and_metadata_unchanged": true,
+    "original_parent_and_native_siblings_unchanged": true,
+    "survivors": [],
+    "resource_resolution": "Observed Smali ID resolved to name, not string value"
+  },
+  "formal_regressions": {
+    "status": "PASS",
+    "executed_test_tasks": 2,
+    "other_required_tasks_up_to_date": 10,
+    "tests": [
+      {
+        "xml": "analysis/build/test-results/test/TEST-com.yyang.jadxmcp.analysis.source.JadxSourceServiceTest.xml",
+        "xml_sha256": "76e3fe622fc02ab65568ad8f079888661d0bfdba57bf03568222152bb96d2c2d",
+        "source": "analysis/src/test/kotlin/com/yyang/jadxmcp/analysis/source/JadxSourceServiceTest.kt",
+        "source_sha256": "24410c0956c266ea2a39bd0001b8641ef2118015aef5ae1147393d65bdf96c52",
+        "counts": {
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "test_names": [
+          "methodSliceUsesCurrentCodeMetadataNotMutableNativeDefinitionPosition()"
+        ]
+      },
+      {
+        "xml": "gui-plugin/build/test-results/test/TEST-com.yyang.jadxmcp.ui.GuiQueryAdapterTest.xml",
+        "xml_sha256": "3a45455cf163ff16a40ca39c2a145090df8d92e468b1a69f550ccda6eceb05cc",
+        "source": "gui-plugin/src/test/kotlin/com/yyang/jadxmcp/ui/GuiQueryAdapterTest.kt",
+        "source_sha256": "9ded32bd08f643d369732cdc021b05e1cc25632507bc4353e5a6ea338c717e4e",
+        "counts": {
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "test_names": [
+          "exactMethodIdentitySurvivesStalePositionsAliasesInnerClassesAndCacheHits()"
+        ]
+      }
+    ],
+    "production_or_fixture_source_changes_needed": false,
+    "release_rebuilt": false
+  },
+  "failed_attempts": [
+    {
+      "entry": "gui_acceptance.py",
+      "exit": 1,
+      "passed_before_failure": 43,
+      "failed_check": "plugin unload disposes owned live status window",
+      "cause": "Old reader reused previous STATUS_VISIBLE output after unload; now reads only current command output",
+      "product_defect": false
+    },
+    {
+      "entry": "apk_http_smoke.py publish",
+      "exit": 1,
+      "cause": "Relative output path could not be printed relative to absolute workspace after summary write; root now resolved before publishing",
+      "rerun_exit": 0,
+      "product_defect": false
+    }
+  ],
+  "not_covered": [
+    "Later app logging source and --log-level acceptance",
+    "Full module test suite rerun",
+    "Retired private Android lifecycle/constructor before-after fixture",
+    "Debugger-positive/device execution",
+    "Native save/reopen and broader race/stress",
+    "Every parameter/input/resource representation",
+    "Remote CI"
+  ],
+  "cleanup": {
+    "roots": [
+      "build/smoke/gui-acceptance-24cb01043173",
+      "build/smoke/gui-acceptance-936de77b1e27",
+      "build/smoke/live-status-760b34594080",
+      "build/smoke/gui-acceptance-0825046553e6",
+      "build/smoke/apk-e2e-20261109T232729-baee2327"
+    ],
+    "owned_processes_reaped": true,
+    "status": "REMOVED",
+    "protected": "Original APK/native projects, user settings, existing service/window, root runtime JAR/logs and unrelated build outputs",
+    "open_file_pids_before_removal": [],
+    "all_exact_roots_absent": true
+  },
+  "static_validation": {
+    "support_files": 5,
+    "python_ast": 4,
+    "source_eval_exec_calls": 0,
+    "cli_help_exits": [
+      0,
+      0,
+      0
+    ],
+    "markdown_local_links": 128,
+    "json_files_parsed": 11,
+    "tracked_diff_check": "PASS",
+    "edited_untracked_script_and_markdown_whitespace": "PASS",
+    "support_hashes_match": true,
+    "retired_source_files_absent": true
+  }
+}

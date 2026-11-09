@@ -1,0 +1,258 @@
+{
+  "historical_only": true,
+  "excerpt_note": "Historical excerpt; operation rows are partial. Aggregate outcomes describe the original run, not a new execution or the retained subset.",
+  "fresh_final_verification": false,
+  "original_record_sha256": "ee947311684f908be40d130f10a7b188d9dab34ccbc6de734c669ca4f8a51200",
+  "record": {
+    "date": "2026-11-09",
+    "transport": "real jadxmcp MCP tools through functions.execute; no REST/mock",
+    "evidence_format": "Compact observed request/response summaries, not full wire captures. Merge request_defaults into each request. elapsed_ms null means not measured, never inferred.",
+    "request_defaults": {
+      "session_id_redacted": true,
+      "project_epoch": 2,
+      "timeout_ms": 15000
+    },
+    "main_class_redacted": true,
+    "raw_isError_visible": false,
+    "error_observation": "Code Mode surfaces failing MCP calls as thrown Error containing JSON error.code/message/retryable; invalid scope is client schema validation. Raw CallToolResult.isError is not exposed, so direct flag verification remains unclaimed.",
+    "rows": [
+      {
+        "operation": "session_list",
+        "elapsed_ms": 106,
+        "status": "PASS"
+      },
+      {
+        "operation": "meta_summary",
+        "elapsed_ms": null,
+        "status": "PASS"
+      },
+      {
+        "operation": "search",
+        "elapsed_ms": 54,
+        "status": "PASS"
+      },
+      {
+        "operation": "xref",
+        "elapsed_ms": 145,
+        "status": "PASS"
+      },
+      {
+        "operation": "meta_class",
+        "elapsed_ms": 734,
+        "status": "PASS"
+      },
+      {
+        "operation": "decompile",
+        "elapsed_ms": 39,
+        "status": "PASS"
+      },
+      {
+        "operation": "meta_manifest",
+        "elapsed_ms": 60,
+        "status": "PASS"
+      },
+      {
+        "operation": "resource",
+        "elapsed_ms": 120,
+        "status": "PASS"
+      },
+      {
+        "operation": "fetch_current_class",
+        "elapsed_ms": 29,
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "No editor tab is active",
+          "retryable": false
+        },
+        "status": "NO_ACTIVE_EDITOR"
+      },
+      {
+        "operation": "get_selected_text",
+        "elapsed_ms": 26,
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "No editor tab is active",
+          "retryable": false
+        },
+        "status": "NO_ACTIVE_EDITOR"
+      },
+      {
+        "operation": "get_cache_stats",
+        "elapsed_ms": 22,
+        "status": "PASS"
+      },
+      {
+        "operation": "debug_get_threads",
+        "elapsed_ms": 100,
+        "error": {
+          "code": "DISCONNECTED",
+          "message": "Debugger is not connected",
+          "retryable": false
+        },
+        "status": "NO_DEBUGGER"
+      },
+      {
+        "operation": "debug_get_stack_frames",
+        "elapsed_ms": 139,
+        "error": {
+          "code": "DISCONNECTED",
+          "message": "Debugger is not connected",
+          "retryable": false
+        },
+        "status": "NO_DEBUGGER"
+      },
+      {
+        "operation": "debug_get_variables",
+        "elapsed_ms": 16,
+        "error": {
+          "code": "DISCONNECTED",
+          "message": "Debugger is not connected",
+          "retryable": false
+        },
+        "status": "NO_DEBUGGER"
+      },
+      {
+        "operation": "decompile",
+        "elapsed_ms": 13,
+        "error": {
+          "code": "INVALID_ARGUMENT",
+          "message": "className must not be blank",
+          "retryable": false
+        },
+        "status": "EXPECTED_REJECTION"
+      },
+      {
+        "operation": "xref",
+        "elapsed_ms": 11,
+        "error": {
+          "code": "INVALID_ARGUMENT",
+          "message": "target.memberName must not be blank",
+          "retryable": false
+        },
+        "status": "EXPECTED_REJECTION"
+      },
+      {
+        "operation": "resource",
+        "elapsed_ms": 9,
+        "error": {
+          "code": "INVALID_ARGUMENT",
+          "message": "resourceId is required",
+          "retryable": false
+        },
+        "status": "EXPECTED_REJECTION"
+      },
+      {
+        "operation": "search",
+        "elapsed_ms": 6,
+        "error": {
+          "layer": "client_schema",
+          "message": "scope: Expected CLASS | STRING | CODE | METHOD_NAME | FIELD | COMMENT"
+        },
+        "status": "EXPECTED_REJECTION"
+      },
+      {
+        "operation": "meta_summary",
+        "elapsed_ms": 10,
+        "error": {
+          "code": "CONFLICT",
+          "message": "Project epoch changed",
+          "retryable": false
+        },
+        "status": "EXPECTED_REJECTION"
+      },
+      {
+        "operation": "meta_summary",
+        "elapsed_ms": 13,
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "Unknown or closed session",
+          "retryable": false
+        },
+        "status": "EXPECTED_REJECTION"
+      },
+      {
+        "operation": "get_method_by_name",
+        "elapsed_ms": 94,
+        "status": "PASS"
+      },
+      {
+        "operation": "resource",
+        "elapsed_ms": 122,
+        "status": "PASS"
+      },
+      {
+        "operation": "get_main_application_classes_names",
+        "elapsed_ms": 99,
+        "status": "PASS"
+      },
+      {
+        "operation": "list_comments",
+        "elapsed_ms": 58,
+        "status": "PASS"
+      },
+      {
+        "operation": "search",
+        "elapsed_ms": 30,
+        "status": "PASS_ZERO_SOURCE_BUDGET"
+      },
+      {
+        "operation": "search",
+        "elapsed_ms": 31,
+        "status": "PASS_NO_MATCH"
+      },
+      {
+        "operation": "decompile",
+        "elapsed_ms": 24,
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "Class 'mcp.smoke.NoSuchClass20261109' not found",
+          "retryable": false
+        },
+        "status": "EXPECTED_REJECTION"
+      },
+      {
+        "operation": "get_cache_stats",
+        "elapsed_ms": 17,
+        "status": "PASS"
+      },
+      {
+        "operation": "get_package_tree",
+        "elapsed_ms": 34,
+        "status": "PASS"
+      },
+      {
+        "operation": "decompile",
+        "elapsed_ms": 20,
+        "status": "PASS"
+      },
+      {
+        "operation": "get_cache_stats",
+        "elapsed_ms": 16,
+        "status": "PASS_CACHE_HIT"
+      }
+    ],
+    "safety": {
+      "user_gui_closed": false,
+      "project_switched": false,
+      "edits_called": false,
+      "clear_cache_called": false,
+      "debugger_attached_or_evaluated": false,
+      "apk_installed_or_run": false,
+      "window_manipulated": false,
+      "runtime_response_cache_warmed": true
+    },
+    "headless_edit_acceptance": {
+      "status": "DEFERRED",
+      "reason": "session_create schema discovered (apk_path/type=HEADLESS). Remote instance win11prow online, but no authorized remote workspace APK-copy path supplied or established. Local prior HTTP artifact is not assumed available on remote. No session created; no user input copied or edited."
+    },
+    "defects": [],
+    "limitations": [
+      "No active class tab/selection positive test",
+      "No connected/paused debugger positive test",
+      "No raw MCP isError flag capture",
+      "No GUI edits/persistence/reopen test",
+      "No isolated HEADLESS rename acceptance",
+      "No input file hash/stat captured from remote GUI; no claim of filesystem-level immutability"
+    ]
+  }
+}

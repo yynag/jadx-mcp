@@ -1,0 +1,156 @@
+{
+  "historical_only": true,
+  "current_support_note": "Earlier artifact/product evidence, not latest package acceptance. Current full-JDK rerun: httpclient-jdk21-validation-20261110.json.",
+  "date": "2026-11-10",
+  "scope": "GUI only, not full four-module test rerun",
+  "cause_status": "User failure not reproduced; old artifact also accepts offline port. Generic catch hid persistence/activation failures; stage diagnosis improved.",
+  "tests": {
+    "tests": 97,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "isolated_runs": {
+    "before": {
+      "status": "PASS",
+      "failure_injection": false,
+      "gui_exit": 0,
+      "master_exits": [
+        143,
+        143
+      ],
+      "checks": [
+        {
+          "check": "invalid port rejected inline",
+          "passed": true
+        },
+        {
+          "check": "offline destination still acknowledges saved settings Applied!",
+          "passed": true
+        },
+        {
+          "check": "offline HTTP is not a settings failure",
+          "passed": true
+        },
+        {
+          "check": "offline destination enters bounded backoff",
+          "passed": true
+        },
+        {
+          "check": "service started later recovers without another Apply",
+          "passed": true
+        },
+        {
+          "check": "business command succeeds on newly started destination",
+          "passed": true
+        },
+        {
+          "check": "cycle 0 switch back to existing service succeeds",
+          "passed": true
+        },
+        {
+          "check": "cycle 0 switch to other existing service succeeds",
+          "passed": true
+        },
+        {
+          "check": "cycle 1 switch back to existing service succeeds",
+          "passed": true
+        },
+        {
+          "check": "cycle 1 switch to other existing service succeeds",
+          "passed": true
+        }
+      ],
+      "owned_processes_reaped": true
+    },
+    "after": {
+      "status": "PASS",
+      "failure_injection": false,
+      "gui_exit": 0,
+      "master_exits": [
+        143,
+        143
+      ],
+      "checks": [
+        {
+          "check": "invalid port rejected inline",
+          "passed": true
+        },
+        {
+          "check": "offline destination still acknowledges saved settings Applied!",
+          "passed": true
+        },
+        {
+          "check": "offline HTTP is not a settings failure",
+          "passed": true
+        },
+        {
+          "check": "offline destination enters bounded backoff",
+          "passed": true
+        },
+        {
+          "check": "service started later recovers without another Apply",
+          "passed": true
+        },
+        {
+          "check": "business command succeeds on newly started destination",
+          "passed": true
+        },
+        {
+          "check": "cycle 0 switch back to existing service succeeds",
+          "passed": true
+        },
+        {
+          "check": "cycle 0 switch to other existing service succeeds",
+          "passed": true
+        },
+        {
+          "check": "cycle 1 switch back to existing service succeeds",
+          "passed": true
+        },
+        {
+          "check": "cycle 1 switch to other existing service succeeds",
+          "passed": true
+        }
+      ],
+      "owned_processes_reaped": true
+    },
+    "injected_preferences_failure": {
+      "status": "PASS",
+      "failure_injection": true,
+      "gui_exit": 0,
+      "master_exits": [
+        143
+      ],
+      "checks": [
+        {
+          "check": "invalid port rejected inline",
+          "passed": true
+        },
+        {
+          "check": "actual preferences failure diagnosed without raw detail",
+          "passed": true
+        },
+        {
+          "check": "private exception message not exposed",
+          "passed": true
+        },
+        {
+          "check": "failed save leaves original bridge connected",
+          "passed": true
+        }
+      ],
+      "owned_processes_reaped": true
+    }
+  },
+  "ports": "Fresh random loopback ports, not fixed 8650/9010 to avoid existing services; literal 9010 covered by unit tests",
+  "artifacts": {
+    "jadx-mcp-gui-plugin.jar": "468777e300aacbbd6c1d4d3594769ae00c85766db59b2133f196d548cc906e20",
+    "jadx-mcp.jar": "a0f425c2fce312de6bcba9ec7f5f4a8f32bfd86b53371b6c363b451cc6e14799"
+  },
+  "host_command": "java -jar build/release/jadx-mcp.jar --host 0.0.0.0 --port 9010",
+  "host_evidence": "MasterOptions.parse -> MasterRuntime -> MasterApiServer Netty(host); published --help exit 0",
+  "security": "No general authentication/TLS; trusted LAN/firewall or tunnel only",
+  "logback": "No gui-plugin logback resource; app logging not invoked by GUI plugin",
+  "cleanup": "Owned processes reaped; exact isolated process/input copies deleted after evidence extraction"
+}

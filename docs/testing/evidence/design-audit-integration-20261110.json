@@ -1,0 +1,283 @@
+{
+  "date": "2026-11-10",
+  "status": "DELIVERY_WITH_CONFIRMED_GUI_EDITING_RISK",
+  "build": {
+    "exit": 0,
+    "elapsed_seconds": 144,
+    "arguments": [
+      "--offline",
+      "--no-daemon",
+      "--no-parallel",
+      "--max-workers=1",
+      "-Pkotlin.compiler.execution.strategy=in-process",
+      "--continue",
+      "--rerun-tasks",
+      "test",
+      "releaseArtifacts",
+      "-PjadxGuiDistribution=$JADX_GUI_DISTRIBUTION",
+      ":gui-plugin:compileGuiMenuSmoke"
+    ],
+    "modules": {
+      "protocol": {
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "suites": 2
+      },
+      "analysis": {
+        "tests": 76,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "suites": 14
+      },
+      "app": {
+        "tests": 72,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "suites": 10
+      },
+      "gui-plugin": {
+        "tests": 126,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "suites": 20
+      }
+    },
+    "log_sha256": "ec60760c597730bd6d2ee4e8bad52703f1868ad3e72f7e8ca28fbd4b55ba7053",
+    "artifacts": {
+      "jadx-mcp-gui-plugin.jar": "ceeb7c4925d80d58e7c048590bec6f5c3751224718ca8b2305b62a71079c80aa",
+      "jadx-mcp.jar": "aa0631e754773ee730880a8b155fa6a4b8c735d325588e7fe9db94181536a588"
+    }
+  },
+  "test_total": 289,
+  "critical_native_gui": {
+    "status": "PASS",
+    "checks": 62,
+    "all_passed": true,
+    "observed_gui_descriptors": [
+      {
+        "session_key_sha256": "00cdf2aee22c0d56e0a1834e0fe625c841d03d271af2d9badc4bb440008440df",
+        "backend": "GUI",
+        "name": "sample.jar",
+        "project_epoch": 2,
+        "state": "READY"
+      },
+      {
+        "session_key_sha256": "ce88805e2c56708f11b8cc5453c2855dcc6695bf83ba3c1ff3f5f0e54c7a7412",
+        "backend": "GUI",
+        "name": "app-armeabi-v7a-release.apk",
+        "project_epoch": 2,
+        "state": "READY"
+      },
+      {
+        "session_key_sha256": "86d0c9a9fd6aa32cd44ddcb08c5bc11d49330d6a94a868eaa4e80cf6706887b8",
+        "backend": "GUI",
+        "name": "app-armeabi-v7a-release.apk",
+        "project_epoch": 2,
+        "state": "READY"
+      },
+      {
+        "session_key_sha256": "12f7573bdb252cd6d68dff02972cb58b5915cb958da4c896bcb30348f09153a5",
+        "backend": "GUI",
+        "name": "sample.jar",
+        "project_epoch": 2,
+        "state": "READY"
+      },
+      {
+        "session_key_sha256": "0e38eca96b9613c08bbc069e78bd69b58f759139ec27d685eaa7c17dda4cdab6",
+        "backend": "GUI",
+        "name": "sample.jar",
+        "project_epoch": 2,
+        "state": "READY"
+      },
+      {
+        "session_key_sha256": "472e7f8037190e66f3f692ce68bd10fe55dbfaa7d74fbb89b08ec11c2f0b4d8a",
+        "backend": "GUI",
+        "name": "same-epoch.jar",
+        "project_epoch": 2,
+        "state": "READY"
+      },
+      {
+        "session_key_sha256": "7ef41fb98bdc1fbfda29f47a57281dacdbf52e1874da8b356c203216878bf31d",
+        "backend": "GUI",
+        "name": "sample.jar",
+        "project_epoch": 2,
+        "state": "READY"
+      },
+      {
+        "session_key_sha256": "c7af9bfc34455199be02de297ce94bc816821f049448620a0433306120de2eae",
+        "backend": "GUI",
+        "name": "auxiliary.jar (+1 file)",
+        "project_epoch": 2,
+        "state": "READY"
+      },
+      {
+        "session_key_sha256": "02c8e6849e1e6ef5eed6e72c20096e6599721a359d66f2a733e533f4f7b5f42c",
+        "backend": "GUI",
+        "name": "sample.jar",
+        "project_epoch": 2,
+        "state": "READY"
+      },
+      {
+        "session_key_sha256": "7613ec3e1c52dedc5daacb8ab410d008ec6006a3be88de7bf0c0af2ee3339cd2",
+        "backend": "GUI",
+        "name": "sample.jar",
+        "project_epoch": 2,
+        "state": "READY"
+      },
+      {
+        "session_key_sha256": "ce1e809c9d845cb22dcb560a87fb758c0a4de55e35e87303f5e59a8d7fd78076",
+        "backend": "GUI",
+        "name": "sample.jar",
+        "project_epoch": 2,
+        "state": "READY"
+      }
+    ],
+    "same_apk_source_comparison": [
+      {
+        "target": "JAVA",
+        "gui_sha256": "b398f56a7669a7e47d9a3817aac7377dc5aa13efb2f62cd68e3e104ea1084def",
+        "headless_sha256": "b398f56a7669a7e47d9a3817aac7377dc5aa13efb2f62cd68e3e104ea1084def",
+        "equal": true
+      },
+      {
+        "target": "METHOD",
+        "gui_sha256": "a0c8cec85095a4eaf9b62ed2895268bf77ed54fa7d2f2ccbcb331517e77b4c21",
+        "headless_sha256": "a0c8cec85095a4eaf9b62ed2895268bf77ed54fa7d2f2ccbcb331517e77b4c21",
+        "equal": true
+      }
+    ],
+    "owned_processes_reaped": true
+  },
+  "apk_rename": {
+    "status": "PASS",
+    "checks": 40,
+    "owned_processes_reaped": true
+  },
+  "confirmed_failure": {
+    "scenario": "copied sample.jar consecutive native rename/readback",
+    "status": "FAIL",
+    "completed_assertions": 32,
+    "failure": "rename: MCP operation failed (INTERNAL)",
+    "detail": "Cycle 1 FIELD rename returned INTERNAL after CLASS/METHOD readback/restoration; native host log contains concurrent class-loading errors. Not a passing editing acceptance.",
+    "owned_processes_reaped": true
+  },
+  "other_completed_current_package_checks": {
+    "live_status": 53,
+    "sample_acceptance": 56,
+    "apk_gui_headless": 66,
+    "ipv4_ipv6_port_switch": 10,
+    "save_failure": 4,
+    "headless_http": {
+      "PASS": 62,
+      "NO_OBJECT": 2,
+      "FAIL": 0
+    },
+    "logging_configurations": 7,
+    "cli_cases": 5
+  },
+  "currently_running_python_smokes": [],
+  "limits": [
+    "Existing user GUI/Master instances untouched and not updated",
+    "No attached paused debugger/device",
+    "Not exhaustive parameters or races",
+    "APKM/split naming unit tested; no real split/APKM acceptance",
+    "CI static only; no YAML parser installed; no remote CI"
+  ],
+  "cleanup": {
+    "removed_owned_roots": [
+      ".agent/tmp/integration-20261110",
+      "build/gui-rename-smoke/1794292030738582000",
+      "build/gui-rename-smoke/1794292040811513000",
+      "build/gui-rename-smoke/1794292197838671000",
+      "build/gui-rename-smoke/1794292325988508000",
+      "build/gui-rename-smoke/1794292676513193000",
+      "build/gui-rename-smoke/1794292923857882000",
+      "build/gui-rename-smoke/1794293286665576000",
+      "build/gui-rename-smoke/1794293294460712000",
+      "build/smoke/apk-e2e-20261110T142733-548ccd36",
+      "build/smoke/apk-e2e-20261110T144829-031f7812",
+      "build/smoke/gui-acceptance-720475f7b638",
+      "build/smoke/gui-acceptance-d8ab9a3b38a1",
+      "build/smoke/gui-acceptance-d970d911ff26",
+      "build/smoke/gui-acceptance-e827736c9449",
+      "build/smoke/live-status-7093f7246ad2",
+      "build/smoke/live-status-7ff604f34556",
+      "build/smoke/port-switch-0a6de04f23d0",
+      "build/smoke/port-switch-6bfa6f44473d",
+      "build/smoke/port-switch-79bb836f3f1e",
+      "build/smoke/port-switch-934465ec542b",
+      "build/smoke/session-identity-1f953eeec4d2",
+      "build/smoke/session-identity-22d80510e276",
+      "build/smoke/session-identity-2c230f62c9fa",
+      "build/smoke/session-identity-9f8c5e426120"
+    ],
+    "removed_file_count": 3201,
+    "removed_bytes": 557201833,
+    "active_owned_jvms_before_cleanup": [],
+    "artifacts_preserved_sha256": {
+      "jadx-mcp-gui-plugin.jar": "ceeb7c4925d80d58e7c048590bec6f5c3751224718ca8b2305b62a71079c80aa",
+      "jadx-mcp.jar": "aa0631e754773ee730880a8b155fa6a4b8c735d325588e7fe9db94181536a588"
+    },
+    "protected": [
+      "external original APK",
+      "existing user GUI/Master and Preferences",
+      "root runtime JARs/logs",
+      "module build outputs and project Gradle caches",
+      "unrelated existing smoke runs, native user projects and .agent/sources"
+    ],
+    "all_exact_owned_roots_removed": true
+  },
+  "static_checks": {
+    "text_files_including_untracked": 202,
+    "python_ast_files": 8,
+    "json_files": 18,
+    "local_links": 176,
+    "excluded_private_paths": [
+      "opencode.jsonc"
+    ],
+    "format_and_link_failures": [],
+    "historical_narrative_findings": [],
+    "ci_static": {
+      "jdk21": true,
+      "serial_tests": true,
+      "both_packages": true,
+      "release_depends_on_tests": true,
+      "artifact_failure": true,
+      "bounded_job": true,
+      "tag_release": true,
+      "full_yaml_parse": "not available; no installation"
+    },
+    "git_diff_check_exit": 0,
+    "artifacts": {
+      "jadx-mcp-gui-plugin.jar": {
+        "sha256": "ceeb7c4925d80d58e7c048590bec6f5c3751224718ca8b2305b62a71079c80aa",
+        "bytes": 2820737
+      },
+      "jadx-mcp.jar": {
+        "sha256": "aa0631e754773ee730880a8b155fa6a4b8c735d325588e7fe9db94181536a588",
+        "bytes": 30031736
+      }
+    }
+  },
+  "package_integrity": [
+    {
+      "name": "jadx-mcp-gui-plugin.jar",
+      "sha256": "ceeb7c4925d80d58e7c048590bec6f5c3751224718ca8b2305b62a71079c80aa",
+      "crc_ok": true,
+      "manifest_main": null,
+      "gui_provider": "com.yyang.jadxmcp.runtime.JadxMcpGuiPlugin"
+    },
+    {
+      "name": "jadx-mcp.jar",
+      "sha256": "aa0631e754773ee730880a8b155fa6a4b8c735d325588e7fe9db94181536a588",
+      "crc_ok": true,
+      "manifest_main": "Main-Class: com.yyang.jadxmcp.bootstrap.MasterMain",
+      "gui_provider": null
+    }
+  ]
+}

@@ -1,0 +1,1096 @@
+{
+  "historical_only": true,
+  "excerpt_note": "Historical excerpt; assertion/call arrays are partial. Aggregate outcomes describe the original run, not a new execution or the retained subset.",
+  "current_support_note": "Original before/after outcomes below are unchanged. Stale-position injection is covered by formal JadxSourceServiceTest and GuiQueryAdapterTest; the ordinary GUI smoke host does not inject this fault. See ../README.md and smoke-five-file-validation-20261109.json.",
+  "fresh_final_verification": false,
+  "original_record_sha256": "9856b35e4c4ecd6376805084c278735b469edcdb31b40ca9b29e1712e6a2c694",
+  "record": {
+    "date": "2026-11-09",
+    "regression_before": {
+      "log": "method-regression-before.log",
+      "tests": 1,
+      "failures": 1,
+      "test": "JadxSourceServiceTest.methodSliceUsesCurrentCodeMetadataNotMutableNativeDefinitionPosition"
+    },
+    "build_command": "./gradlew --offline --no-parallel --max-workers=1 --rerun-tasks test :app:shadowJar :gui-plugin:shadowJar",
+    "junit_modules": {
+      "protocol": {
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "analysis": {
+        "tests": 68,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "app": {
+        "tests": 52,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "gui-plugin": {
+        "tests": 80,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "junit_total": {
+      "tests": 212,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "artifacts": {
+      "app/build/libs/jadx-mcp.jar": {
+        "sha256": "c6425f81863b744aefd3f3c3ce07c182562267e9508f3eaf101b461cc1d14b55",
+        "bytes": 30008310,
+        "entry": "META-INF/MANIFEST.MF",
+        "entry_content": {
+          "redacted_chars": 77,
+          "sha256": "0735d8617a8e78abe99957b04856ead0db15622ff586b0b8814286a466e387e1"
+        }
+      },
+      "gui-plugin/build/libs/jadx-mcp-gui-plugin.jar": {
+        "sha256": "5ec917a285e969937aa21fed44152f296f1ea9fd260ea9f722a527c5b42adaf2",
+        "bytes": 2776914,
+        "entry": "META-INF/services/jadx.api.plugins.JadxPlugin",
+        "entry_content": "com.yyang.jadxmcp.runtime.JadxMcpGuiPlugin"
+      }
+    },
+    "help_exit": 0,
+    "real_mcp_before": {
+      "label": "before",
+      "input_sha256": "df3d1ed4bfb024a36c06d938da9d3fba4a7805f61c9f037daee11542e4d67ebb",
+      "master_sha256": "a54e8330233e5d882634f20da201d26083c74a8f0ea60254e8b1e3560d007303",
+      "plugin_sha256": "75c8cb7e6192fa2c9e1015cf85d2d0e41b8f211ae57930300fcef0b7e7702376",
+      "assertions": [
+        {
+          "check": "isolated ASK/null project ownership",
+          "passed": true
+        },
+        {
+          "check": "meta_summary real GUI chain",
+          "passed": true
+        },
+        {
+          "check": "search real GUI chain",
+          "passed": true
+        },
+        {
+          "check": "xref real GUI chain",
+          "passed": true
+        },
+        {
+          "check": "decompile real GUI chain",
+          "passed": true
+        },
+        {
+          "check": "get_method_by_name success envelope",
+          "passed": true
+        },
+        {
+          "check": "old package wrong adjacent declaration reproduced",
+          "passed": true
+        },
+        {
+          "check": "old package returns onBackPressed for onCreate",
+          "passed": true
+        },
+        {
+          "check": "owned GUI MCP session closed",
+          "passed": true
+        }
+      ],
+      "session_id_redacted": true,
+      "epoch": 2,
+      "status": "PASS",
+      "gui_exit_code": 143,
+      "master_exit_code": 143,
+      "all_owned_processes_reaped": true,
+      "calls": [
+        {
+          "operation": "session_list",
+          "elapsed_ms": 34,
+          "is_error": false,
+          "wire_sha256": "43b5293210587c8a871c1a31df295382b928ff933bdb810fe767140086c5be2e"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 9,
+          "is_error": false,
+          "wire_sha256": "bd4e006597b28850d4ae7aa535ddeab17beac415068796166b1ca23e7201d5c3"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 16,
+          "is_error": false,
+          "wire_sha256": "155ccdde99ff984ec15781afa181e91d4ac7e42abe82d8d5b36d393f92ed0218"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 7,
+          "is_error": false,
+          "wire_sha256": "1e7bc6862e4dc80035824e03ff7fa235e6cf9aff6eb9d14e16e0786d4c6c51fd"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "e0610ec02608bbddb0a4de8fb45a8a75554fc2844e765ac2f1b9a63a1ea4f1ff"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 7,
+          "is_error": false,
+          "wire_sha256": "3d36d231dfe432875321ba41f16ec11ffa8fd6f5f5c5eb896f33684d68f3911b"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "f8ff7f8f861d3c90c3d80eecdeb24fe573879972207e0f8e819fd6770e96441f"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "c8aa6345eb2d8d5e86051b82d1f6c0cbb9d3059a609791f395a9b35f833bf950"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "1fbefc9164c627000079c60b5c0beda9dab6972e7e16de79fee91ad6991f6abf"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "dd44bf0efea85038bf703d08490c5efa0a78a93b569eca40476995c572824005"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 13,
+          "is_error": false,
+          "wire_sha256": "0eb71d2750a273d5b0878825f159d5f292cbe5c64e1d58e196827eb8172dfb13"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 7,
+          "is_error": false,
+          "wire_sha256": "1805d3ac708a602351b598281ae53557f07300e3ec4022774fbece1e0ed39b6f"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 7,
+          "is_error": false,
+          "wire_sha256": "92907245d2a0f544d533f073c457a50e7ea05ea5fb8b740564b66f6a7eccd9ec"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 7,
+          "is_error": false,
+          "wire_sha256": "cb3cb2997cc2bd37c1a4a6386f17b8cff70112b2638eba03cce102dd08b157a0"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 9,
+          "is_error": false,
+          "wire_sha256": "f35d9921903cd733ea172f81531452b90d9540e0af64b7f2f0e4776ebf61ea30"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "061a337f9217cc2e20c657b285c0ae33587b011b4b899f48699cb7df46d6f079"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "2de44cc68c6fced6d1894bf6bb97448104229424d9d7bf7a3363deb436c9fd74"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 8,
+          "is_error": false,
+          "wire_sha256": "206f86aa66a39e61fc6370301daf70a789dc2d4ae2983993d59c64a1b18bd740"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 9,
+          "is_error": false,
+          "wire_sha256": "453b6fe5ea8f81725dfc27d12056052eda24808dfcdd64633cc0efe501a83891"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 8,
+          "is_error": false,
+          "wire_sha256": "87253268cda29afc3a39826f0d4f8d5a57694f71e5a0124b62afc1fbd7ddfd1b"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 7,
+          "is_error": false,
+          "wire_sha256": "f0c1781fe9ac26d46943aaf6c287ae722fe3070ff64dc76172031d90e920b274"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 7,
+          "is_error": false,
+          "wire_sha256": "016f63f2fc4091d080825f34670d87c348b2b51f00c63901629ef5f485a4fcbb"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "10729a81007fb7294413a87d7a1eac20190386851306a230f2d67bb8d31ba75d"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 8,
+          "is_error": false,
+          "wire_sha256": "70455e92872cf943109edc11103944d76f6920f26c0e5a101ecc81fed91c8afd"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 8,
+          "is_error": false,
+          "wire_sha256": "03d31848f2ee49a78fc5674cf3ff95986a6adbe57cab6c69c1380628e7d7ba8b"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 7,
+          "is_error": false,
+          "wire_sha256": "ca29128804d3df0c22a7d54902df63136930ca7e2152a00e62fff66acda9e753"
+        },
+        {
+          "operation": "meta_summary",
+          "elapsed_ms": 97,
+          "is_error": false,
+          "wire_sha256": "9a92b416e6e0645b9c3ff390b3008fd738e13a66c7743e72389bd94ef75b322b"
+        },
+        {
+          "operation": "search",
+          "elapsed_ms": 45,
+          "is_error": false,
+          "wire_sha256": "c79dd86a6207a48ab856f3fed65aef9085c07fc7b9dc49b87f870e669e9a8e64"
+        },
+        {
+          "operation": "xref",
+          "elapsed_ms": 41,
+          "is_error": false,
+          "wire_sha256": "b4673e17d0c127b39b563c737ecf77c7514632c4e27dc743e24c20273c54f1a6"
+        },
+        {
+          "operation": "decompile",
+          "elapsed_ms": 458,
+          "is_error": false,
+          "wire_sha256": "66d4676284bfa0ab2dbcb67d094d2ec2ca441f2751ceac36937a74cb76cd76ca"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 33,
+          "is_error": false,
+          "wire_sha256": "62e23dc66bfe011b90a6a8d680ffa068ac1697b66e812a7c092a31e78a1c129d"
+        },
+        {
+          "operation": "session_close",
+          "elapsed_ms": 8,
+          "is_error": false,
+          "wire_sha256": "403a5e59abde46beaab4267a942a25db6a217e39cf614b6b53c0e76fdae186f1"
+        }
+      ]
+    },
+    "real_mcp_after": {
+      "label": "after-verified",
+      "input_sha256": "df3d1ed4bfb024a36c06d938da9d3fba4a7805f61c9f037daee11542e4d67ebb",
+      "master_sha256": "c6425f81863b744aefd3f3c3ce07c182562267e9508f3eaf101b461cc1d14b55",
+      "plugin_sha256": "5ec917a285e969937aa21fed44152f296f1ea9fd260ea9f722a527c5b42adaf2",
+      "assertions": [
+        {
+          "check": "isolated ASK/null project ownership",
+          "passed": true
+        },
+        {
+          "check": "meta_summary real GUI chain",
+          "passed": true
+        },
+        {
+          "check": "search real GUI chain",
+          "passed": true
+        },
+        {
+          "check": "xref real GUI chain",
+          "passed": true
+        },
+        {
+          "check": "decompile real GUI chain",
+          "passed": true
+        },
+        {
+          "check": "get_method_by_name success envelope",
+          "passed": true
+        },
+        {
+          "check": "fixed declaration",
+          "passed": true
+        },
+        {
+          "check": "repeated query identity and source",
+          "passed": true
+        },
+        {
+          "check": "repeated query identity and source",
+          "passed": true
+        },
+        {
+          "check": "repeated query identity and source",
+          "passed": true
+        },
+        {
+          "check": "repeated query identity and source",
+          "passed": true
+        },
+        {
+          "check": "adjacent method exact source onBackPressed numbered=False",
+          "passed": true
+        },
+        {
+          "check": "adjacent method exact source onBackPressed numbered=True",
+          "passed": true
+        },
+        {
+          "check": "adjacent method exact source onCreate numbered=False",
+          "passed": true
+        },
+        {
+          "check": "adjacent method exact source onCreate numbered=True",
+          "passed": true
+        },
+        {
+          "check": "adjacent method exact source onDestroy numbered=False",
+          "passed": true
+        },
+        {
+          "check": "adjacent method exact source onDestroy numbered=True",
+          "passed": true
+        },
+        {
+          "check": "adjacent method exact source onNewIntent numbered=False",
+          "passed": true
+        },
+        {
+          "check": "adjacent method exact source onNewIntent numbered=True",
+          "passed": true
+        },
+        {
+          "check": "global unqualified ambiguity and raw isError=true",
+          "passed": true
+        },
+        {
+          "check": "same-class constructor overload requires descriptor",
+          "passed": true
+        },
+        {
+          "check": "exact overloaded constructor (Landroid/content/Context;)V",
+          "passed": true
+        },
+        {
+          "check": "exact overloaded constructor (Landroid/content/Context;Landroid/util/AttributeSet;)V",
+          "passed": true
+        },
+        {
+          "check": "exact overloaded constructor (Landroid/content/Context;Landroid/util/AttributeSet;I)V",
+          "passed": true
+        },
+        {
+          "check": "inner-class constructor identity <PRIVATE_SYMBOL>",
+          "passed": true
+        },
+        {
+          "check": "inner-class constructor identity <PRIVATE_SYMBOL>",
+          "passed": true
+        },
+        {
+          "check": "isolated native alias source generation reset",
+          "passed": true
+        },
+        {
+          "check": "alias/raw-owner method identity <PRIVATE_SYMBOL>",
+          "passed": true
+        },
+        {
+          "check": "alias/raw-owner method identity <PRIVATE_SYMBOL>",
+          "passed": true
+        },
+        {
+          "check": "restored native alias source generation reset",
+          "passed": true
+        },
+        {
+          "check": "restored method source and alias removal",
+          "passed": true
+        },
+        {
+          "check": "post-rename repeated query identity",
+          "passed": true
+        },
+        {
+          "check": "post-rename repeated query identity",
+          "passed": true
+        },
+        {
+          "check": "repeated method query runtime cache hits",
+          "passed": true
+        },
+        {
+          "check": "zero project comment edits",
+          "passed": true
+        },
+        {
+          "check": "owned GUI MCP session closed",
+          "passed": true
+        }
+      ],
+      "session_id_redacted": true,
+      "epoch": 2,
+      "cache_stats": {
+        "version": 1,
+        "operation": "get_cache_stats",
+        "result": {
+          "entries": 1,
+          "hits": 2,
+          "misses": 1,
+          "stored_bytes": 83,
+          "original_bytes": 83
+        }
+      },
+      "status": "PASS",
+      "gui_exit_code": 143,
+      "master_exit_code": 143,
+      "all_owned_processes_reaped": true,
+      "calls": [
+        {
+          "operation": "session_list",
+          "elapsed_ms": 33,
+          "is_error": false,
+          "wire_sha256": "ef477748c686933be2d984d0fc69e89d0b942fce291f5c788024d61641f2e00d"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 8,
+          "is_error": false,
+          "wire_sha256": "43b5293210587c8a871c1a31df295382b928ff933bdb810fe767140086c5be2e"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 9,
+          "is_error": false,
+          "wire_sha256": "bd4e006597b28850d4ae7aa535ddeab17beac415068796166b1ca23e7201d5c3"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "155ccdde99ff984ec15781afa181e91d4ac7e42abe82d8d5b36d393f92ed0218"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "1e7bc6862e4dc80035824e03ff7fa235e6cf9aff6eb9d14e16e0786d4c6c51fd"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "e0610ec02608bbddb0a4de8fb45a8a75554fc2844e765ac2f1b9a63a1ea4f1ff"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "3d36d231dfe432875321ba41f16ec11ffa8fd6f5f5c5eb896f33684d68f3911b"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "f8ff7f8f861d3c90c3d80eecdeb24fe573879972207e0f8e819fd6770e96441f"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 5,
+          "is_error": false,
+          "wire_sha256": "c8aa6345eb2d8d5e86051b82d1f6c0cbb9d3059a609791f395a9b35f833bf950"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 7,
+          "is_error": false,
+          "wire_sha256": "1fbefc9164c627000079c60b5c0beda9dab6972e7e16de79fee91ad6991f6abf"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "dd44bf0efea85038bf703d08490c5efa0a78a93b569eca40476995c572824005"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "0eb71d2750a273d5b0878825f159d5f292cbe5c64e1d58e196827eb8172dfb13"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "1805d3ac708a602351b598281ae53557f07300e3ec4022774fbece1e0ed39b6f"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 7,
+          "is_error": false,
+          "wire_sha256": "92907245d2a0f544d533f073c457a50e7ea05ea5fb8b740564b66f6a7eccd9ec"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "cb3cb2997cc2bd37c1a4a6386f17b8cff70112b2638eba03cce102dd08b157a0"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "f35d9921903cd733ea172f81531452b90d9540e0af64b7f2f0e4776ebf61ea30"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "061a337f9217cc2e20c657b285c0ae33587b011b4b899f48699cb7df46d6f079"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "2de44cc68c6fced6d1894bf6bb97448104229424d9d7bf7a3363deb436c9fd74"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 5,
+          "is_error": false,
+          "wire_sha256": "206f86aa66a39e61fc6370301daf70a789dc2d4ae2983993d59c64a1b18bd740"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "453b6fe5ea8f81725dfc27d12056052eda24808dfcdd64633cc0efe501a83891"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 8,
+          "is_error": false,
+          "wire_sha256": "87253268cda29afc3a39826f0d4f8d5a57694f71e5a0124b62afc1fbd7ddfd1b"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 7,
+          "is_error": false,
+          "wire_sha256": "9278f9ccc51fba76f6d1de2b03c710317b08c61ad8fb39464c579a6afdb9452b"
+        },
+        {
+          "operation": "meta_summary",
+          "elapsed_ms": 88,
+          "is_error": false,
+          "wire_sha256": "c88c9afdec807b3728956c6fda1117fddbc8aa00ba097d8692337cd161623a56"
+        },
+        {
+          "operation": "search",
+          "elapsed_ms": 38,
+          "is_error": false,
+          "wire_sha256": "e404ef627090656eb6a84b02442201e040098603dcad8683463b8d278134578c"
+        },
+        {
+          "operation": "xref",
+          "elapsed_ms": 31,
+          "is_error": false,
+          "wire_sha256": "7958d42604c2845f98258f42ba7deecdbb8b7e0cf27cf3e2a1adae71e95e2834"
+        },
+        {
+          "operation": "decompile",
+          "elapsed_ms": 395,
+          "is_error": false,
+          "wire_sha256": "0402517aceac484a271d8d6068cb1e122b99f464ec4ca8201c7564cfc0644855"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 15,
+          "is_error": false,
+          "wire_sha256": "5b7e72d451c6bf2c63a3bc85ecec49ac5ddf49d39cf81395e884ff077dba99c8"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 12,
+          "is_error": false,
+          "wire_sha256": "5a88607eee9a3257fafe1f6312accf558c9daa65c34cbd2323a7b7c34c9e389e"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 10,
+          "is_error": false,
+          "wire_sha256": "4b5dcc9e611106f97a3a1e4a172a1b38da40369094d709b95c66a0a327100ef9"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 11,
+          "is_error": false,
+          "wire_sha256": "7d439b6e7add576743cc4635391bffad24a77f1df74b0de8df4b1ccd95586881"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 11,
+          "is_error": false,
+          "wire_sha256": "5dac3d2944da49525df18643e80f1baa7d4b894ac8def05aa287dc0b0c40616b"
+        },
+        {
+          "operation": "decompile",
+          "elapsed_ms": 13,
+          "is_error": false,
+          "wire_sha256": "92203f0e70548d8e7c1e63e92a3541e1e898276ce2c18edefef422d3cc9b66e7"
+        },
+        {
+          "operation": "decompile",
+          "elapsed_ms": 12,
+          "is_error": false,
+          "wire_sha256": "fa221512d082d43074f65f7bfdd878562b4507d9918484b627e4611174b7221d"
+        },
+        {
+          "operation": "decompile",
+          "elapsed_ms": 11,
+          "is_error": false,
+          "wire_sha256": "8c5be4292df45876e65b1dc96c140317037b55925061466589ee349f29d7eb57"
+        },
+        {
+          "operation": "decompile",
+          "elapsed_ms": 12,
+          "is_error": false,
+          "wire_sha256": "ca7841974a183bc87687d8b44ae6ab6f09736d611e76b47a7737544f52a89df8"
+        },
+        {
+          "operation": "decompile",
+          "elapsed_ms": 12,
+          "is_error": false,
+          "wire_sha256": "4d447e0c0ea71e6cbe1d54f44bf21b44d34fea8c62b7013c583b53164d978d31"
+        },
+        {
+          "operation": "decompile",
+          "elapsed_ms": 14,
+          "is_error": false,
+          "wire_sha256": "e771fa6802301d4657228d5a4f7c172946293db169c735dc2b069dc0b989ccbe"
+        },
+        {
+          "operation": "decompile",
+          "elapsed_ms": 12,
+          "is_error": false,
+          "wire_sha256": "78a6d7f19c07ce5574fa40ceaeec2ce4fe68f5836e6dc08721105f05fdf1cf59"
+        },
+        {
+          "operation": "decompile",
+          "elapsed_ms": 11,
+          "is_error": false,
+          "wire_sha256": "fe1d976dd5d49bd36ba53c67523065a8e303068c931866d64edde55e4138e632"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 5803,
+          "is_error": true,
+          "wire_sha256": "853b948a60396e54d68f0159b2caa8e13992516d62955ab83747d9d8079ce826"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 13,
+          "is_error": true,
+          "wire_sha256": "f14ee45ba068ad9298b1582a74922f555af7f25ded16c75d81fdb2fac7071532"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 19,
+          "is_error": false,
+          "wire_sha256": "da1167ea6f3ba2bf0c3d59fb5d7108fa8bb329ba60854e0e6706e34d2ed5639a"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 13,
+          "is_error": false,
+          "wire_sha256": "e46a1591d3f61a6595ac3eb4eb651895353da0eaa23cb61ac928da1653d3c69c"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 12,
+          "is_error": false,
+          "wire_sha256": "420850b487db01fcd29c31f5cbc598f8d094fd225bc2f1301c3d79c47346e459"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 13,
+          "is_error": false,
+          "wire_sha256": "d1857985b30d01906e80c7a5d0d7786fd2ff5680b3bf77b63d5b80fd7ce89589"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 11,
+          "is_error": false,
+          "wire_sha256": "0ea5e7bf6dc55f65045d91118d264efddfb3d203237b58e3fbaeee17f0ee282b"
+        },
+        {
+          "operation": "clear_cache",
+          "elapsed_ms": 623,
+          "is_error": false,
+          "wire_sha256": "6598846555e03ed371b5b6bf74d2bc73441d9f746466d29687553ee7e561e07f"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 43,
+          "is_error": false,
+          "wire_sha256": "cca58afeeedcbaff76da6e49698c42e43eded1a211e3b85bc4ba8c6a705b2070"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 11,
+          "is_error": false,
+          "wire_sha256": "55139ab30805625300c782e0ea26ff54d3bd66985842d54aeae4544fb6f6b884"
+        },
+        {
+          "operation": "clear_cache",
+          "elapsed_ms": 15,
+          "is_error": false,
+          "wire_sha256": "a25a48e9453bf130e6bc08bc47aec521f6852f994702f7cacd6204938616eba7"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 40,
+          "is_error": false,
+          "wire_sha256": "9313c692c30c85ae7b0c9576369d2243f76bf1207d109e1fef9c53f686ab73e8"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 9,
+          "is_error": false,
+          "wire_sha256": "052b2c56fba54d466f20b936ab07bb7fac1707519e8cebd5dd8d4b24abdcb5ec"
+        },
+        {
+          "operation": "get_method_by_name",
+          "elapsed_ms": 11,
+          "is_error": false,
+          "wire_sha256": "65773ab0f3236d7cb22bd3762c6850fca04fe0362a2e3385c57f9d74cd0265d1"
+        },
+        {
+          "operation": "get_cache_stats",
+          "elapsed_ms": 10,
+          "is_error": false,
+          "wire_sha256": "2cb2d04afa2f2b553303622739813473f4fa6ec5dcc33d5a15f536e5d4d4180c"
+        },
+        {
+          "operation": "list_comments",
+          "elapsed_ms": 24,
+          "is_error": false,
+          "wire_sha256": "a6b321c32dec41afeb8201a4d6d55bb11834d257df7ee69e52081cab21823ef7"
+        },
+        {
+          "operation": "session_close",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "8276b9bae5bd6e9c1a38033903b6e8ffe88faff5a3db94319ff9a5f6122adc76"
+        }
+      ]
+    },
+    "additional_attempts": [
+      {
+        "status": "FAIL",
+        "error": "AssertionError('restored method source and alias removal')",
+        "all_owned_processes_reaped": true,
+        "assertions": [
+          {
+            "check": "isolated ASK/null project ownership",
+            "passed": true
+          },
+          {
+            "check": "meta_summary real GUI chain",
+            "passed": true
+          },
+          {
+            "check": "search real GUI chain",
+            "passed": true
+          },
+          {
+            "check": "xref real GUI chain",
+            "passed": true
+          },
+          {
+            "check": "decompile real GUI chain",
+            "passed": true
+          },
+          {
+            "check": "get_method_by_name success envelope",
+            "passed": true
+          },
+          {
+            "check": "fixed declaration",
+            "passed": true
+          },
+          {
+            "check": "repeated query identity and source",
+            "passed": true
+          },
+          {
+            "check": "repeated query identity and source",
+            "passed": true
+          },
+          {
+            "check": "repeated query identity and source",
+            "passed": true
+          },
+          {
+            "check": "repeated query identity and source",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onBackPressed numbered=False",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onBackPressed numbered=True",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onCreate numbered=False",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onCreate numbered=True",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onDestroy numbered=False",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onDestroy numbered=True",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onNewIntent numbered=False",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onNewIntent numbered=True",
+            "passed": true
+          },
+          {
+            "check": "global unqualified ambiguity and raw isError=true",
+            "passed": true
+          },
+          {
+            "check": "same-class constructor overload requires descriptor",
+            "passed": true
+          },
+          {
+            "check": "exact overloaded constructor (Landroid/content/Context;)V",
+            "passed": true
+          },
+          {
+            "check": "exact overloaded constructor (Landroid/content/Context;Landroid/util/AttributeSet;)V",
+            "passed": true
+          },
+          {
+            "check": "exact overloaded constructor (Landroid/content/Context;Landroid/util/AttributeSet;I)V",
+            "passed": true
+          },
+          {
+            "check": "inner-class constructor identity <PRIVATE_SYMBOL>",
+            "passed": true
+          },
+          {
+            "check": "inner-class constructor identity <PRIVATE_SYMBOL>",
+            "passed": true
+          },
+          {
+            "check": "isolated class alias applied without persistence",
+            "passed": true
+          },
+          {
+            "check": "isolated method alias applied without persistence",
+            "passed": true
+          },
+          {
+            "check": "alias/raw-owner method identity <PRIVATE_SYMBOL>",
+            "passed": true
+          },
+          {
+            "check": "alias/raw-owner method identity <PRIVATE_SYMBOL>",
+            "passed": true
+          },
+          {
+            "check": "restore method alias",
+            "passed": true
+          },
+          {
+            "check": "restore class alias",
+            "passed": true
+          },
+          {
+            "check": "restored method source and alias removal",
+            "passed": false
+          }
+        ]
+      },
+      {
+        "status": "FAIL",
+        "error": "AssertionError('restore class alias')",
+        "all_owned_processes_reaped": true,
+        "assertions": [
+          {
+            "check": "isolated ASK/null project ownership",
+            "passed": true
+          },
+          {
+            "check": "meta_summary real GUI chain",
+            "passed": true
+          },
+          {
+            "check": "search real GUI chain",
+            "passed": true
+          },
+          {
+            "check": "xref real GUI chain",
+            "passed": true
+          },
+          {
+            "check": "decompile real GUI chain",
+            "passed": true
+          },
+          {
+            "check": "get_method_by_name success envelope",
+            "passed": true
+          },
+          {
+            "check": "fixed declaration",
+            "passed": true
+          },
+          {
+            "check": "repeated query identity and source",
+            "passed": true
+          },
+          {
+            "check": "repeated query identity and source",
+            "passed": true
+          },
+          {
+            "check": "repeated query identity and source",
+            "passed": true
+          },
+          {
+            "check": "repeated query identity and source",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onBackPressed numbered=False",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onBackPressed numbered=True",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onCreate numbered=False",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onCreate numbered=True",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onDestroy numbered=False",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onDestroy numbered=True",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onNewIntent numbered=False",
+            "passed": true
+          },
+          {
+            "check": "adjacent method exact source onNewIntent numbered=True",
+            "passed": true
+          },
+          {
+            "check": "global unqualified ambiguity and raw isError=true",
+            "passed": true
+          },
+          {
+            "check": "same-class constructor overload requires descriptor",
+            "passed": true
+          },
+          {
+            "check": "exact overloaded constructor (Landroid/content/Context;)V",
+            "passed": true
+          },
+          {
+            "check": "exact overloaded constructor (Landroid/content/Context;Landroid/util/AttributeSet;)V",
+            "passed": true
+          },
+          {
+            "check": "exact overloaded constructor (Landroid/content/Context;Landroid/util/AttributeSet;I)V",
+            "passed": true
+          },
+          {
+            "check": "inner-class constructor identity <PRIVATE_SYMBOL>",
+            "passed": true
+          },
+          {
+            "check": "inner-class constructor identity <PRIVATE_SYMBOL>",
+            "passed": true
+          },
+          {
+            "check": "isolated class alias applied without persistence",
+            "passed": true
+          },
+          {
+            "check": "restore class alias",
+            "passed": false
+          }
+        ]
+      }
+    ],
+    "additional_attempt_explanation": {
+      "redacted_chars": 437,
+      "sha256": "ce2488c8bb2b197e7af942593043fa56315acb92d90d17b2b4e5c3793e8989c8"
+    },
+    "isError_validation": "Raw MCP CallToolResult flags captured: false on successful requests, true on deliberately ambiguous method requests.",
+    "deployment": {
+      "existing_master_restarted": false,
+      "existing_gui_reinstalled_or_reloaded": false,
+      "existing_gui_session": "b229c0f6-3e02-4f49-8e43-dabb3a460b47",
+      "existing_epoch": 2,
+      "current_user_deployment": "unchanged old version",
+      "user_project_edited": false
+    },
+    "limitations": [
+      "Debugger connected/paused positive paths still unavailable; no attach or APK execution.",
+      "The deterministic live regression sets only the native transient method definition offset to reproduce the observed stale-offset condition; no project codeData/rename is used for that injection.",
+      "Native GUI rename returns project-application acknowledgement before asynchronous editor/code refresh completion; completion/readback instability remains outside this method-slicing fix. Final live alias checks use transient native aliases, not a claimed passing GUI rename transaction."
+    ]
+  }
+}

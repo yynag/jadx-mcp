@@ -1,0 +1,138 @@
+{
+  "historical_only": true,
+  "logs": [
+    {
+      "retired_name": "gui-ip-port-build-20261109.log",
+      "bytes": 3038,
+      "sha256": "76c3999d6e15571868c1fb7115c750abd8a5362cd3e2ff7d2c17697c98c0c911",
+      "completion_markers": [
+        "BUILD SUCCESSFUL in 30s"
+      ]
+    },
+    {
+      "retired_name": "gui-ip-port-forced-build-20261109.log",
+      "bytes": 3750,
+      "sha256": "b8ef943f028571996f53611143ffff1a8111be5128fbbc6d2474123470087151",
+      "completion_markers": [
+        "BUILD SUCCESSFUL in 1m 15s"
+      ]
+    },
+    {
+      "retired_name": "gui-ip-port-master-build-20261109.log",
+      "bytes": 1271,
+      "sha256": "f3bf1252dd205d3fffe82e44aa215febf09c4b5c02010e8873bd9647d64b8a04",
+      "completion_markers": [
+        "BUILD SUCCESSFUL in 16s"
+      ]
+    },
+    {
+      "retired_name": "gui-ip-port-smoke-20261109.log",
+      "bytes": 3630,
+      "sha256": "8d215bd8557a01b54bdbfc3259b190e9becf3a84dec98754b21d3e32fa628824",
+      "completion_markers": []
+    },
+    {
+      "retired_name": "gui-live-status-build-20261109.log",
+      "bytes": 5572,
+      "sha256": "10b4dc88a14f5689554d7a65a0402c88cd11f6bc0b313402dcbe484b87d47075",
+      "completion_markers": [
+        "BUILD SUCCESSFUL in 1m 45s"
+      ]
+    },
+    {
+      "retired_name": "gui-live-status-smoke-20261109.log",
+      "bytes": 2625,
+      "sha256": "59bab241ad8f2095dc02a95019c2c27e5fd9d6f2e5fbc7e4b62f8ec5e43dd5ac",
+      "completion_markers": []
+    },
+    {
+      "retired_name": "gui-unified-menu-build-20261109.log",
+      "bytes": 4730,
+      "sha256": "3616cc9a12a9be2f73c6b40d8b10034163fbd63d3cd70dfcccdde48f52c298fa",
+      "completion_markers": [
+        "BUILD SUCCESSFUL in 1m 47s"
+      ]
+    },
+    {
+      "retired_name": "gui-unified-menu-smoke-20261109.log",
+      "bytes": 4652,
+      "sha256": "232e2ae2a0bc152567c8456383b7e3930e7cff11646aa217b000e4dfb5333afa",
+      "completion_markers": []
+    }
+  ],
+  "note": "No original log contents retained; markers are observations, not a current build result.",
+  "retired_temporary_logs": [
+    {
+      "retired_name": "ip-port-final-integration.log",
+      "bytes": 66,
+      "sha256": "7936bc52a011f5a8bdf4e6799d12fa597fb11efcbec7fd9626774b563dec4e24",
+      "completion_markers": []
+    },
+    {
+      "retired_name": "ip-port-integration.log",
+      "bytes": 699,
+      "sha256": "75554bb90747ae045b19c0d8bc36e2c1a82cde2b695dd0d6c0d23eb52445bba1",
+      "completion_markers": []
+    },
+    {
+      "retired_name": "live-status-build.log",
+      "bytes": 7171,
+      "sha256": "e87f532fa3b914e20962bbb79818e8a14d894ec48e195893dfd8065467d53298",
+      "completion_markers": [
+        "BUILD FAILED in 1m 53s"
+      ]
+    },
+    {
+      "retired_name": "live-status-final-integration.log",
+      "bytes": 93,
+      "sha256": "1dba314166a1fc98d236597b43453bdf78dd8e144fa5fdfb7b7941982551d5b0",
+      "completion_markers": []
+    },
+    {
+      "retired_name": "live-status-final-method-integration.log",
+      "bytes": 93,
+      "sha256": "369e00940b4acaa8543880e5fdf1ffcb138ef04d52403567f00b1107a39824ba",
+      "completion_markers": []
+    },
+    {
+      "retired_name": "live-status-gui-smoke-build.log",
+      "bytes": 3062,
+      "sha256": "742596b1a51edd804204fa14d2e7f9beb07fefc9ab26e29d650f984793360f22",
+      "completion_markers": [
+        "BUILD SUCCESSFUL in 27s"
+      ]
+    },
+    {
+      "retired_name": "live-status-integration-rerun.log",
+      "bytes": 396,
+      "sha256": "b510a4dd9440662f3d4efdd4bb9c7900476a80b8f54b4c6347ef9eb4fcfd7a26",
+      "completion_markers": []
+    },
+    {
+      "retired_name": "live-status-integration.log",
+      "bytes": 508,
+      "sha256": "f69177588114d0e187a3c954c2ca40b0d04f98aaeed65816c220da565122da1c",
+      "completion_markers": []
+    },
+    {
+      "retired_name": "unified-menu-build.log",
+      "bytes": 4327,
+      "sha256": "1b223755e857e457f5949274a690901c117df818ce3a8e07bcafe0375297ad14",
+      "completion_markers": [
+        "BUILD SUCCESSFUL in 1m 50s"
+      ]
+    },
+    {
+      "retired_name": "unified-menu-final-integration.log",
+      "bytes": 71,
+      "sha256": "6077aa6a5cda9ad2aa4c0413c53df9786f00cea96e1a400b5062844536c39c5d",
+      "completion_markers": []
+    },
+    {
+      "retired_name": "unified-menu-integration.log",
+      "bytes": 563,
+      "sha256": "fc4a4287f466fd0f94c8c981377606a468a947a3d443f552e2d3658be605d878",
+      "completion_markers": []
+    }
+  ]
+}

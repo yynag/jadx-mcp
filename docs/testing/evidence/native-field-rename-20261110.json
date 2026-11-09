@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-10",
+  "status": "PASS_SCOPED_FIELD_RENAME_FIX",
+  "tests": {"protocol": 15, "analysis": 76, "app": 72, "gui-plugin": 128, "total": 291, "failures": 0, "errors": 0, "skipped": 0},
+  "build": {"arguments": "--offline --no-daemon --no-parallel --max-workers=1 -Pkotlin.compiler.execution.strategy=in-process --rerun-tasks test releaseArtifacts", "seconds": 126, "executed_tasks": 23, "log": "build/field-rename-release.log"},
+  "artifacts": {
+    "build/release/jadx-mcp-gui-plugin.jar": "3130fe27a8e03a5ae9ae82d818c5ba46a96d571adcf0175e396ad98a7d7d7a2f",
+    "build/release/jadx-mcp.jar": "b0cb0c3f2b8dde740392101587d5aa5fe2dd98719ba0bc3a48f5be2552b4e9ec"
+  },
+  "root_cause": {
+    "actual_exception": "ArrayIndexOutOfBoundsException: Index 131961 out of bounds for length 895 at jadx.plugins.input.java.data.DataReader.readU2",
+    "plugin_stack": "NativeGuiCodeDataBinding.apply -> JavaClass.unload -> ClassNode.unloadCode -> ClassNode.deepUnload -> ClassNode.load -> JavaClassData.getAttributes",
+    "host_stack": "RenameService.refreshClasses -> JClass.reload -> JavaClass.reload -> ClassNode.reloadCode -> ProcessClass.process -> ClassNode.deepUnload",
+    "native_mechanism": "JADX 1.5.6 JavaClass.reload/load synchronized; ClassNode.decompile synchronized; ProcessClass.process holds ClassInfo; JavaClass.unload and ClassNode.deepUnload not synchronized for the full input reread",
+    "fix": "NativeClassInvalidation.unload follows JavaClass -> ClassNode -> ClassInfo lock order for the whole native unload; used by NativeGuiCodeDataBinding and JadxSourceService",
+    "not_used": ["sleep", "edit retry", "global lock across EDT/event wait"],
+    "stack_evidence": "build/field-rename-evidence/native-failure-stack.txt"
+  },
+  "regressions": {
+    "deterministic": "BorrowedRuntimeTest.invalidationCannotDeepUnloadWhileNativeJavaClassReloadOwnsItsMonitor: failed before production fix, passed after; checks both unload paths against all three native monitors",
+    "native_field_identity": "GuiProjectDataIntegrationTest.twoFieldRenameReadbackRestoreCyclesKeepCurrentNativeFieldIdentity",
+    "baseline_field": {"status": "FAIL", "checks": 0, "native_errors": 0, "evidence": "build/field-rename-evidence/baseline.json"},
+    "diagnostic_field": {"status": "FAIL", "checks": 0, "native_errors": 2, "evidence": "build/field-rename-evidence/diagnostic.json"},
+    "fixed_staged_field": {"status": "PASS", "checks": 13, "native_errors": 0, "evidence": "build/field-rename-evidence/field.json"},
+    "fixed_staged_all": {"status": "PASS", "checks": 39, "native_errors": 0, "evidence": "build/field-rename-evidence/all.json"},
+    "final_release_all": {"status": "PASS", "checks": 39, "native_errors": 0, "evidence": "build/field-rename-evidence/final-release-all.json"}
+  },
+  "reproduction": "python3.12 -B gui-plugin/src/guiSmoke/python/rename_readback.py --java-home <JDK21> --distribution <jadx-1.5.6-all.jar> --target-kind FIELD --cycles 2 (original consecutive path: --target-kind ALL --cycles 2)",
+  "cleanup": "Only owned smoke roots removed after bounded evidence capture; all owned smoke processes reaped",
+  "limits": ["Not exhaustive GUI editing/race acceptance", "No attached paused debugger/device", "No new APK or multi-GUI identity matrix", "Existing user instances not updated"]
+}
