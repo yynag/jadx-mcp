@@ -2,17 +2,20 @@ name: Build & Release
 
 on:
   push:
+    branches: ['**']
     tags:
       - 'v*'
+  pull_request:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build-and-test:
     name: Build & Test
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -30,50 +33,38 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Unit & Integration Tests
-        run: ./gradlew test --info
+        run: ./gradlew --no-daemon --no-parallel --max-workers=1 test
 
-      - name: Build Shadow Fat-JAR
-        run: ./gradlew :app:shadowJar
+      - name: Build both installable Shadow JARs
+        run: ./gradlew --no-daemon --no-parallel --max-workers=1 releaseArtifacts
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: jadx-core-mcp-jar
-          path: app/build/libs/app-all.jar
+          name: jadx-mcp-release
+          path: build/release/*.jar
+          if-no-files-found: error
 
   release:
     name: Create GitHub Release
     needs: build-and-test
     if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
+      - name: Download tested release artifacts
+        uses: actions/download-artifact@v4
         with:
-          java-version: '21'
-          distribution: 'temurin'
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Build Shadow Fat-JAR
-        run: ./gradlew :app:shadowJar
-
-      - name: Prepare Release Asset
-        run: |
-          mkdir -p release-assets
-          cp app/build/libs/app-all.jar release-assets/jadx-core-mcp-${{ github.ref_name }}.jar
+          name: jadx-mcp-release
+          path: release-assets
 
       - name: Publish Release to GitHub
         uses: softprops/action-gh-release@v2
         with:
-          files: release-assets/jadx-core-mcp-${{ github.ref_name }}.jar
+          files: release-assets/*.jar
+          fail_on_unmatched_files: true
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

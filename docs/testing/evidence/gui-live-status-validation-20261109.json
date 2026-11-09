@@ -1,0 +1,336 @@
+{
+  "historical_only": true,
+  "current_support_note": "Original outcomes and assertion labels below are historical, unchanged. The old multi-observer cleanup label did not prove two listener removals; the current driver checks the single owned observer and only fresh status output. Separate gui_settings.py was merged into gui_live_status.py; see smoke-five-file-validation-20261109.json.",
+  "fresh_final_verification": false,
+  "original_record_sha256": "d8852e9d19c65529c3cd994d54a5e841094b34044dcfb4c47df4900696bbf185",
+  "record": {
+    "date": "2026-11-09",
+    "tests": {
+      "protocol": {
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "analysis": {
+        "tests": 68,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "app": {
+        "tests": 52,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "gui-plugin": {
+        "tests": 89,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "total_tests": 221,
+    "build": "BUILD SUCCESSFUL in 1m 45s; 24 actionable tasks: 24 executed",
+    "artifacts": {
+      "app/build/libs/jadx-mcp.jar": "c6425f81863b744aefd3f3c3ce07c182562267e9508f3eaf101b461cc1d14b55",
+      "gui-plugin/build/libs/jadx-mcp-gui-plugin.jar": "6436979a75e273bf400ffa7ac1e004efc48bd0647d1d3c79a805cd03b50df1f4"
+    },
+    "integration": {
+      "assertions": [
+        {
+          "check": "registration/poll/heartbeat excluded at idle",
+          "passed": true
+        },
+        {
+          "check": "meta_summary success",
+          "passed": true
+        },
+        {
+          "check": "real GUI timer refreshes received business counter",
+          "passed": true
+        },
+        {
+          "check": "real 5/10 second expiry with no traffic",
+          "passed": true
+        },
+        {
+          "check": "real Swing timer returns all three idle windows to zero",
+          "passed": true
+        },
+        {
+          "check": "status menu restored after real host menu reset",
+          "passed": true
+        },
+        {
+          "check": "meta_class success",
+          "passed": true
+        },
+        {
+          "check": "search success",
+          "passed": true
+        },
+        {
+          "check": "decompile success",
+          "passed": true
+        },
+        {
+          "check": "get_method_by_name success",
+          "passed": true
+        },
+        {
+          "check": "real GUI named method resolves correct declaration",
+          "passed": true
+        },
+        {
+          "check": "add_comment success",
+          "passed": true
+        },
+        {
+          "check": "completion delivered but acknowledgement deliberately lost",
+          "passed": true
+        },
+        {
+          "check": "visible reconnect state during real Master outage",
+          "passed": true
+        },
+        {
+          "check": "GUI automatically recovers after actual Master kill/restart",
+          "passed": true
+        },
+        {
+          "check": "fresh generation empty: no automatic command replay",
+          "passed": true
+        },
+        {
+          "check": "list_comments success",
+          "passed": true
+        },
+        {
+          "check": "uncertain completion edit remains exactly once after reconnection",
+          "passed": true
+        },
+        {
+          "check": "proxy observed exactly one edit completion across lost acknowledgement and restart",
+          "passed": true
+        },
+        {
+          "check": "add_comment success",
+          "passed": true
+        },
+        {
+          "check": "list_comments success",
+          "passed": true
+        },
+        {
+          "check": "isolated edit restored after reconnect without modifying original input",
+          "passed": true
+        },
+        {
+          "check": "meta_summary success",
+          "passed": true
+        },
+        {
+          "check": "HEADLESS session_create through MCP",
+          "passed": true
+        },
+        {
+          "check": "HEADLESS meta_summary core chain",
+          "passed": true
+        },
+        {
+          "check": "HEADLESS search core chain",
+          "passed": true
+        },
+        {
+          "check": "HEADLESS decompile core chain",
+          "passed": true
+        },
+        {
+          "check": "HEADLESS decompile core chain",
+          "passed": true
+        },
+        {
+          "check": "session_close success",
+          "passed": true
+        },
+        {
+          "check": "explicit session_close remains disabled",
+          "passed": true
+        },
+        {
+          "check": "explicitly closed GUI session never auto-resurrects",
+          "passed": true
+        },
+        {
+          "check": "unload stops captured Swing timer and removes both menu observers",
+          "passed": true
+        },
+        {
+          "check": "plugin unload disposes owned live status window",
+          "passed": true
+        },
+        {
+          "check": "isolated analysis/edit input remains byte-identical",
+          "passed": true
+        }
+      ],
+      "status": "PASS",
+      "gui_exit": 0,
+      "master_exit": 143,
+      "all_owned_processes_reaped": true,
+      "mcp_calls": [
+        {
+          "operation": "session_list",
+          "elapsed_ms": 33,
+          "is_error": false,
+          "wire_sha256": "43b5293210587c8a871c1a31df295382b928ff933bdb810fe767140086c5be2e"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 15,
+          "is_error": false,
+          "wire_sha256": "bd4e006597b28850d4ae7aa535ddeab17beac415068796166b1ca23e7201d5c3"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 18,
+          "is_error": false,
+          "wire_sha256": "155ccdde99ff984ec15781afa181e91d4ac7e42abe82d8d5b36d393f92ed0218"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 10,
+          "is_error": false,
+          "wire_sha256": "1e7bc6862e4dc80035824e03ff7fa235e6cf9aff6eb9d14e16e0786d4c6c51fd"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 17,
+          "is_error": false,
+          "wire_sha256": "e0610ec02608bbddb0a4de8fb45a8a75554fc2844e765ac2f1b9a63a1ea4f1ff"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 14,
+          "is_error": false,
+          "wire_sha256": "ea50281daad1262bae224807cb7f66c5c8d39730f489271b8dc9af037a86aadf"
+        },
+        {
+          "operation": "list_comments",
+          "elapsed_ms": 51,
+          "is_error": false,
+          "wire_sha256": "4fc9b1e1067e1ef0c7049ff208379b49a727534818dd2de1818d285c90740eb6"
+        },
+        {
+          "operation": "add_comment",
+          "elapsed_ms": 23,
+          "is_error": false,
+          "wire_sha256": "59d21b06db838f94d7179cae946dc35c8d6932390120ef12d78a76d67ed11efc"
+        },
+        {
+          "operation": "list_comments",
+          "elapsed_ms": 19,
+          "is_error": false,
+          "wire_sha256": "c0b5185e3230465edb048c237f615b161a0a875ff09c89b830ca9785e539831b"
+        },
+        {
+          "operation": "meta_summary",
+          "elapsed_ms": 22,
+          "is_error": false,
+          "wire_sha256": "1e0045a57fac6c934036e36f767d18cfca269eee1d26e3b58d70c658b52bc686"
+        },
+        {
+          "operation": "session_create",
+          "elapsed_ms": 1271,
+          "is_error": false,
+          "wire_sha256": "70e3f41e0d0835587511d3b8b530fb70b7401b325ea8145776ce6c74000cb375"
+        },
+        {
+          "operation": "meta_summary",
+          "elapsed_ms": 22,
+          "is_error": false,
+          "wire_sha256": "be3b7386124174e7815f55546f1a1a18f7e8018ba1d8f2d3919211a06b64e375"
+        },
+        {
+          "operation": "search",
+          "elapsed_ms": 22,
+          "is_error": false,
+          "wire_sha256": "4cfdd8cfaa3f3c60a7fede9df623dd55d9a2dd8a2563a74c0af282ce70dfe50a"
+        },
+        {
+          "operation": "decompile",
+          "elapsed_ms": 103,
+          "is_error": false,
+          "wire_sha256": "05f2d432a167bbfe7dff585709732f065eabc1aba16afc51f4e4d93900f5d91d"
+        },
+        {
+          "operation": "decompile",
+          "elapsed_ms": 13,
+          "is_error": false,
+          "wire_sha256": "8a30b895e90f07fd027b73986123439a6c1740c9c14bf84e4ad6ec7bfdd1310b"
+        },
+        {
+          "operation": "session_close",
+          "elapsed_ms": 10,
+          "is_error": false,
+          "wire_sha256": "836c73097a9385e34d23fc764bf0c72a3163218bc897d5921e95b2e0763e7e38"
+        },
+        {
+          "operation": "session_close",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "4cb8f7705c3c73e569da21e821f35acbdac174647a7c73c21f1abe50fd395bca"
+        },
+        {
+          "operation": "session_list",
+          "elapsed_ms": 6,
+          "is_error": false,
+          "wire_sha256": "206f86aa66a39e61fc6370301daf70a789dc2d4ae2983993d59c64a1b18bd740"
+        }
+      ]
+    },
+    "attempts": [
+      {
+        "status": "FAIL",
+        "error": "AssertionError('proxy observed exactly one edit completion across lost acknowledgement and restart')",
+        "all_owned_processes_reaped": true
+      },
+      {
+        "status": "FAIL",
+        "error": "AssertionError('HEADLESS get_method_by_name core chain')",
+        "all_owned_processes_reaped": true
+      },
+      {
+        "status": "PASS",
+        "error": null,
+        "all_owned_processes_reaped": true
+      },
+      {
+        "status": "PASS",
+        "error": null,
+        "all_owned_processes_reaped": true
+      }
+    ],
+    "live_user_readonly_check": {
+      "session_id_redacted": true,
+      "state": "READY",
+      "project_epoch": 2,
+      "summary_classes_count": 4733,
+      "operations_used": [
+        "session_list",
+        "session_get",
+        "meta_summary"
+      ],
+      "did_restart_or_install": false
+    },
+    "limits": [
+      "No paused-device debugger positive path",
+      "Not every tool manually rerun",
+      "Sample JAR core integration, not exhaustive APK integration",
+      "MCP wire rows in integration evidence are from final restarted Master; pre-restart checks are assertions and GUI log",
+      "Actual kill/restart test uses a local forwarding proxy; normal GUI HTTP transport and published Master remain real"
+    ]
+  }
+}

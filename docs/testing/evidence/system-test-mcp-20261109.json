@@ -1,0 +1,213 @@
+{
+  "historical_only": true,
+  "fresh_final_verification": false,
+  "original_record_sha256": "c9824ecc29cc8f133bd30dfda24135e94c02426d1bdbef428634b93def1fad7e",
+  "record": {
+    "date": "2026-11-09",
+    "execution": "Real JADX MCP tools through functions.execute; existing GUI plus isolated local GUI and HEADLESS sessions on authorized APK copy. No REST/mock.",
+    "existing_gui": {
+      "session_id_redacted": true,
+      "backend": "GUI",
+      "epoch": 2,
+      "initial_final_state": "READY",
+      "project_edited": false,
+      "cache_clear": "Previously performed once during prior authorized smoke; source re-computed. No additional clear on this session during current round."
+    },
+    "headless": {
+      "created_sessions": [
+        "8a399043-0f17-4c12-b7aa-5257b24d4378",
+        "d9003e1d-6883-4b2b-92e4-b7703e035364",
+        "e34c1b72-0bc9-4a1c-96e7-5090c8e790f4",
+        "6ac6047b-0b19-464b-8c9a-e7e3098074ef",
+        "dce01f48-e56f-4071-8d3e-a9b251ae6423"
+      ],
+      "input_redacted": true,
+      "summary": {
+        "classes_count": 4733,
+        "main_package": "<PRIVATE_SYMBOL>",
+        "main_activity": "<PRIVATE_SYMBOL>"
+      },
+      "all_owned_sessions_closed": true
+    },
+    "isolated_gui": {
+      "session_ids": [
+        "48ebe4f3-7ed4-409c-adf1-20db8645d69a",
+        "ea917c73-4da9-4af7-af17-a24a448009b7",
+        "dd97f92b-8a8c-4381-8e63-206e6b197e6f",
+        "c766695c-a78c-4528-82ac-686b28aa8292",
+        "697d1a0b-be61-4de8-b12c-000d6a860b78"
+      ],
+      "stable_session_id": "dd97f92b-8a8c-4381-8e63-206e6b197e6f",
+      "input_redacted": true,
+      "save_option": "ASK",
+      "project_path": null,
+      "initial_ready_epoch": 2,
+      "unload_reconnect_epoch": 4,
+      "final_session_closed": true,
+      "all_owned_sessions_closed": true,
+      "host_processes_terminated": true,
+      "isolated_copy_only": true
+    },
+    "tool_matrix": {
+      "session_create": {
+        "HEADLESS": "SUCCESS valid APK, default/deobf and deobf=false; invalid path NOT_FOUND. GUI session provided by real host callback; standalone management create is not GUI operation.",
+        "GUI": "SUCCESS real host registered; repeated clean reconnect generated fresh session; direct GUI create N/A"
+      },
+      "session_list": {
+        "HEADLESS": "SUCCESS included GUI and HEADLESS; final list contains only original GUI",
+        "GUI": "SUCCESS original plus isolated sessions then cleanup"
+      },
+      "session_get": {
+        "HEADLESS": "SUCCESS READY/epoch/capabilities",
+        "GUI": "SUCCESS READY, ASK/null-path verified by isolated host; post-reconnect READY epoch 4"
+      },
+      "session_close": {
+        "HEADLESS": "SUCCESS clear_cache=false and true; deadline-killed session became CLOSED",
+        "GUI": "SUCCESS isolated session closed; unload/reconnect lifecycle exercised without closing original GUI"
+      },
+      "meta_summary": {
+        "HEADLESS": "SUCCESS 4,733 classes; deobf=true and false",
+        "GUI": "SUCCESS same core counts/main package/activity (isolated deobf=false)"
+      },
+      "meta_manifest": {
+        "HEADLESS": "SUCCESS XML and all ACTIVITY/SERVICE/RECEIVER/PROVIDER exported filters; invalid only_exported without type INVALID_ARGUMENT",
+        "GUI": "SUCCESS ACTIVITY exported filter in prior real GUI smoke; XML/all filters not repeated in isolated GUI"
+      },
+      "meta_class": {
+        "HEADLESS": "SUCCESS named class, package, main_app, offsets/end pagination; missing/simple alias NOT_FOUND",
+        "GUI": "SUCCESS class-level methods/fields snapshots before and after restore"
+      },
+      "decompile": {
+        "HEADLESS": "SUCCESS JAVA/SMALI/METHOD/MAIN_ACTIVITY, slim and line-number variants; SMALI rejects source-only options; exact method verified",
+        "GUI": "SUCCESS JAVA/METHOD/SMALI and exact method in existing GUI; isolated GUI edit readback; method exact checks"
+      },
+      "resource": {
+        "HEADLESS": "SUCCESS LIST/FILE XML+binary/STRINGS paging/ID numeric and hex; symbolic @string/name INVALID_ARGUMENT as contract requires numeric ID",
+        "GUI": "SUCCESS LIST/STRINGS/ID and binary resource across existing/isolated GUI evidence; XML FILE read positively covered on HEADLESS, not separately repeated on GUI"
+      },
+      "search": {
+        "HEADLESS": "SUCCESS CLASS/STRING/CODE/METHOD_NAME/FIELD/COMMENT; DEX_CONSTANTS and SOURCE_TEXT; bounded and zero-source budgets",
+        "GUI": "SUCCESS CLASS/METHOD_NAME and DEX/SOURCE_TEXT search in earlier GUI smoke"
+      },
+      "xref": {
+        "HEADLESS": "SUCCESS CLASS/METHOD/FIELD, pagination/snippets; no-reference method gives empty set",
+        "GUI": "SUCCESS CLASS/METHOD in prior GUI smoke"
+      },
+      "rename": {
+        "HEADLESS": "SUCCESS CLASS/METHOD/FIELD apply/readback/restore; applied=true persisted=false",
+        "GUI": "SUCCESS CLASS/METHOD/FIELD apply/readback/restore; persisted=false; restored aliases absent (method alias was checked in method-specific output)"
+      },
+      "fetch_current_class": {
+        "HEADLESS": "UNSUPPORTED verified",
+        "GUI": "SUCCESS isolated GUI before and after reconnect; named RefreshableView"
+      },
+      "get_selected_text": {
+        "HEADLESS": "UNSUPPORTED verified",
+        "GUI": "SUCCESS isolated selection returned 'package <PRIVATE_SYMBOL>' before and after reconnect"
+      },
+      "get_method_by_name": {
+        "HEADLESS": "UNSUPPORTED verified",
+        "GUI": "FIXED ARTIFACT SUCCESS: shared exact-method metadata extraction; real isolated GUI/MCP before/after verified. User deployment unchanged old version; see method-source-identity-fix-20261109.json"
+      },
+      "get_main_application_classes_names": {
+        "HEADLESS": "UNSUPPORTED verified",
+        "GUI": "SUCCESS 21 class names"
+      },
+      "get_main_application_classes_code": {
+        "HEADLESS": "UNSUPPORTED verified",
+        "GUI": "SUCCESS count=1 paged class source; full 21-name API verified"
+      },
+      "get_package_tree": {
+        "HEADLESS": "UNSUPPORTED verified",
+        "GUI": "SUCCESS package data includes app package"
+      },
+      "get_cache_stats": {
+        "HEADLESS": "UNSUPPORTED verified",
+        "GUI": "SUCCESS runtime stats; isolated clear 3 entries to 0, recompute 1 miss/6141 bytes"
+      },
+      "clear_cache": {
+        "HEADLESS": "UNSUPPORTED verified",
+        "GUI": "SUCCESS isolated cache cleared and regenerated; original GUI prior clear documented, not repeated"
+      },
+      "rename_package": {
+        "HEADLESS": "UNSUPPORTED verified",
+        "GUI": "SUCCESS isolated rename 2 classes, source path changed, restored, source and metadata returned to original"
+      },
+      "rename_variable": {
+        "HEADLESS": "UNSUPPORTED verified",
+        "GUI": "SUCCESS exact method descriptor/reg=5/ssa=0; changed to mcpSmokeBundle and restored to bundle"
+      },
+      "add_comment": {
+        "HEADLESS": "UNSUPPORTED verified",
+        "GUI": "SUCCESS class/method/field and line/instruction comment add/update/delete. All five styles verified via list_comments. Empty-comment no-anchor request deletes all class comments."
+      },
+      "list_comments": {
+        "HEADLESS": "UNSUPPORTED verified",
+        "GUI": "SUCCESS class-scoped comment readback and zero residual comments"
+      },
+      "debug_get_threads": {
+        "HEADLESS": "UNSUPPORTED verified",
+        "GUI": "NEGATIVE only: DISCONNECTED debugger; positive unavailable without connected paused target"
+      },
+      "debug_get_stack_frames": {
+        "HEADLESS": "UNSUPPORTED verified",
+        "GUI": "NEGATIVE only: DISCONNECTED debugger; positive unavailable without connected paused target"
+      },
+      "debug_get_variables": {
+        "HEADLESS": "UNSUPPORTED verified",
+        "GUI": "NEGATIVE only: DISCONNECTED debugger; positive unavailable without connected paused target"
+      }
+    },
+    "edit_cycles": {
+      "headless_rename_class_method_field": "Each alias appeared in appropriate source/metadata then restored; persisted=false.",
+      "gui_rename_class": "SystemTestRefreshableView seen in fetch_current_class, decompile, metadata; restored and absent.",
+      "gui_rename_method": "a()V -> systemTestA readback in fetch/decompile/metadata; restored.",
+      "gui_rename_field": "A:F -> systemTestField readback in fetch/decompile/metadata; restored to A.",
+      "gui_rename_package": "renamed 2; fetch source package and package tree changed; reverse rename restored source path and metadata.",
+      "gui_rename_variable": "onCreate(Bundle) exact descriptor; reported reg 5/ssa 0; readback renamed variable then restored.",
+      "gui_comments": "5 styles each added then replaced; separate replace verified UPDATED; method/class/field comments removed; line anchored at full-source instruction line 89 added then removed; zero comments remained.",
+      "persistence": "All isolated edits reported applied=true persisted=false, host SaveOption ASK and projectPath null; no .jadx project save or original input edits."
+    },
+    "lifecycle_and_timeout": {
+      "headless_timeout": "timeout_ms=1 yielded DEADLINE_EXCEEDED, worker terminal, owning HEADLESS session CLOSED. New sessions worked; no master restart.",
+      "headless_isolation": "temporary class alias visible in mutated session only; other same-APK session still original; restored.",
+      "gui_unload_reconnect": "isolated plugin listener unload removed GUI session; stale ID CLOSED. Reload created new READY epoch 4 session. Old epoch 2 request CONFLICT. Reconnected context/selection succeeded.",
+      "close_cleanup": "All self-created HEADLESS/GUI sessions closed; final session_list contains only user's original READY GUI. Owned GUI harness JVMs terminated; no WorkerMain for test sessions remains."
+    },
+    "negative_cases": "invalid argument/scope, stale epoch, missing session/class, missing resource ID, symbolic ID input, unsupported GUI-only on HEADLESS, smali source-only option, manifest exported filter requirement, disconnected debugger. Code Mode hides raw isError; subsequent isolated method-fix MCP client captured raw false on success and true on ambiguous methods.",
+    "confirmed_product_defect": {
+      "status": "FIXED_IN_BUILT_ARTIFACTS_VERIFIED_NOT_DEPLOYED_TO_USER_INSTANCE",
+      "operation": "GUI get_method_by_name",
+      "minimum_repro": {
+        "backend": "GUI",
+        "class_name_redacted": true,
+        "method_name": "onCreate",
+        "method_signature_redacted": true
+      },
+      "observed": "Initial real GUI requests returned method_name onCreate and method_signature onCreate(Landroid/os/Bundle;)V but onBackPressed source; adjacent direct METHOD calls could be correct. Subsequent deterministic same-APK GUI/MCP regression confirmed stale MethodNode.defPosition in the shared source extractor, not distinct per-tool slicing algorithms.",
+      "impact": "get_method_by_name response metadata and source snippet disagree; callers may analyze wrong method.",
+      "repair": {
+        "redacted_chars": 539,
+        "sha256": "b67108c0932b7a25a207b7b78292cc0321e2599e2451951f50e45e542d306f97"
+      },
+      "repair_evidence": ".agent/data/method-source-identity-fix-20261109.json"
+    },
+    "other_observations": [
+      "Initial incomplete GUI harnesses produced host init/load errors and temporary edit attempts; replaced with real MainWindow.open same-APK copy, SaveOption ASK and null projectPath, then clean full edit/reconnect validation. Harness-only failures are not product findings.",
+      "Package query package_name=renamed package returns original/raw package class names although package tree/source path reflect alias package; preserved as an alias-query behavior observation, not confirmed defect.",
+      "Unconnected debugger only; no attach/evaluate/device operations.",
+      "Initial matrix made no product-code changes. Subsequent method-source fix changed shared analysis and GUI query code, added regressions, built both JARs and verified isolated GUI/MCP. No user Master restart, installed-plugin replacement or original GUI project edit."
+    ],
+    "limitations": [
+      "No connected+paused debugger for positive debug success",
+      "Code Mode tool wrappers hide raw isError, but subsequent isolated real Streamable HTTP MCP repair regression captured false on success and true on ambiguous methods",
+      "GUI-only capability was tested on real GUI; GUI management operations are not applicable",
+      "Some analysis parameter permutations were representative, not exhaustive Cartesian products",
+      "Separate native GUI asynchronous rename/readback instability was encountered during repair validation; final method-query alias tests seed transient native aliases and do not claim this unrelated completion risk fixed"
+    ],
+    "evidence_sources": {
+      "headless_raw_attempt_log": "<retired temporary evidence> (97 bounded real tool requests; HEADLESS/GUI_USER) ",
+      "harness_and_apk": "<retired temporary evidence>"
+    }
+  }
+}

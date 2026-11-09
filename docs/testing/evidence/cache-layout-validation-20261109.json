@@ -1,0 +1,38 @@
+{
+  "historical_only": true,
+  "fresh_final_verification": false,
+  "retired_report_sha256": "1bba142546875fa81891f1ad8e0a30cd4f5f272eefe9de328cccd324947193f8",
+  "environment": {
+    "os": "macOS",
+    "jdk": "Temurin OpenJDK 21.0.12.1+1-LTS"
+  },
+  "rounds": [
+    {
+      "scope": "pre-suffix full suite",
+      "tests": 203,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "modules": {
+        "protocol": 12,
+        "analysis": 67,
+        "app": 51,
+        "gui-plugin": 73
+      }
+    },
+    {
+      "scope": "suffix app-only",
+      "tests": 52,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "packaging_and_help_recorded": true
+    }
+  ],
+  "failed_attempt": {
+    "scope": "initial incremental app attempt",
+    "tests": 51,
+    "failures": 29
+  },
+  "provenance_limit": "Counts transcribed from the retired historical narrative, not re-read from overwritten test outputs or re-executed."
+}

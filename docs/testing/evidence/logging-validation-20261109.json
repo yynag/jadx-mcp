@@ -1,0 +1,215 @@
+{
+  "date": "2026-11-09",
+  "scope": "isolated packaged logging acceptance, copied checked-in sample.jar",
+  "command": "python3.12 -B app/src/test/python/logging_acceptance.py",
+  "passed": true,
+  "cli_cases": 5,
+  "levels": [
+    {
+      "requested": "DEFAULT",
+      "effective": "INFO",
+      "passed": true,
+      "seconds": 4.46,
+      "console_sha256": "3a3c6922a07100610e4c444fc1ff0903ce5cb5e2c09351333a6980e3fc27f5a8",
+      "console_lines": 14,
+      "worker_log_sha256": "c519d6bb2e5c7b34161a1863647a4d01aa119c0fef51d64e1d8c336bffe03135",
+      "lifecycle_counts": {
+        "MCP client connected": 2,
+        "MCP client exited": 2,
+        "GUI registered": 1,
+        "GUI closed": 1,
+        "Session opened": 1,
+        "Session closed": 1,
+        "HTTP server started": 1,
+        "HTTP server stopped": 1
+      },
+      "live_worker_level_flag_verified": true,
+      "examples": [
+        "HTTP server started",
+        "MCP client connected sdkSessionId=<id> semantics=initialized-session",
+        "Session opened sessionId=<id> backend=HEADLESS state=READY",
+        "GUI registered sessionId=<id> backend=GUI state=READY",
+        "GUI closed sessionId=<id> backend=GUI reason=explicit-close code=CLOSED",
+        "Session closed sessionId=<id> backend=HEADLESS reason=explicit-close code=CLOSED",
+        "MCP client exited sdkSessionId=<id> semantics=transport-session-closed",
+        "HTTP server stopped"
+      ],
+      "sensitive_checks": "token, absolute scratch path, source, payload, comment, selection absent"
+    },
+    {
+      "requested": "TRACE",
+      "effective": "TRACE",
+      "passed": true,
+      "seconds": 4.69,
+      "console_sha256": "d6dc4448c0ea8c70bab7619b22afe55b471fe6e1a749172b3da35f57831983a9",
+      "console_lines": 44,
+      "worker_log_sha256": "a7f0780fcd1028c3c2508d01ae74ca85b72bc10fd810cf9d299618a05a6dfcb3",
+      "lifecycle_counts": {
+        "MCP client connected": 2,
+        "MCP client exited": 2,
+        "GUI registered": 1,
+        "GUI closed": 1,
+        "Session opened": 1,
+        "Session closed": 1,
+        "HTTP server started": 1,
+        "HTTP server stopped": 1
+      },
+      "live_worker_level_flag_verified": true,
+      "examples": [
+        "HTTP server started",
+        "Request started requestId=<id> operation=session_list",
+        "Request completed requestId=<id> operation=session_list elapsedMs=<ms>",
+        "MCP client connected sdkSessionId=<id> semantics=initialized-session",
+        "Request started requestId=create-check operation=session_create",
+        "Session opened sessionId=<id> backend=HEADLESS state=READY",
+        "Request completed requestId=create-check operation=session_create elapsedMs=<ms>",
+        "Request started requestId=<id> operation=meta_summary",
+        "Request completed requestId=<id> operation=meta_summary elapsedMs=<ms>",
+        "Request started requestId=<id> operation=decompile",
+        "Request completed requestId=<id> operation=decompile elapsedMs=<ms>",
+        "Request started requestId=<id> operation=add_comment"
+      ],
+      "sensitive_checks": "token, absolute scratch path, source, payload, comment, selection absent"
+    },
+    {
+      "requested": "DEBUG",
+      "effective": "DEBUG",
+      "passed": true,
+      "seconds": 5.57,
+      "console_sha256": "9463f53bc7674f981124aa2c4fa04c3771cfc03d60921f001331be1c49335ebe",
+      "console_lines": 44,
+      "worker_log_sha256": "fa59787f109b0a27c127782c3f3c9b73aa1dc8a098cba788b8c07e08a710fd95",
+      "lifecycle_counts": {
+        "MCP client connected": 2,
+        "MCP client exited": 2,
+        "GUI registered": 1,
+        "GUI closed": 1,
+        "Session opened": 1,
+        "Session closed": 1,
+        "HTTP server started": 1,
+        "HTTP server stopped": 1
+      },
+      "live_worker_level_flag_verified": true,
+      "examples": [
+        "HTTP server started",
+        "Request started requestId=<id> operation=session_list",
+        "Request completed requestId=<id> operation=session_list elapsedMs=<ms>",
+        "MCP client connected sdkSessionId=<id> semantics=initialized-session",
+        "Request started requestId=create-check operation=session_create",
+        "Session opened sessionId=<id> backend=HEADLESS state=READY",
+        "Request completed requestId=create-check operation=session_create elapsedMs=<ms>",
+        "Request started requestId=<id> operation=meta_summary",
+        "Request completed requestId=<id> operation=meta_summary elapsedMs=<ms>",
+        "Request started requestId=<id> operation=decompile",
+        "Request completed requestId=<id> operation=decompile elapsedMs=<ms>",
+        "Request started requestId=<id> operation=add_comment"
+      ],
+      "sensitive_checks": "token, absolute scratch path, source, payload, comment, selection absent"
+    },
+    {
+      "requested": "INFO",
+      "effective": "INFO",
+      "passed": true,
+      "seconds": 4.05,
+      "console_sha256": "760c54320d5711bd269f8babf4e7364137d35515726d1c917ad1d3db58e7a39e",
+      "console_lines": 14,
+      "worker_log_sha256": "2b3cf31635bc91a8b57427d2b67645ecb077d83d1a9af009e0ef28b04829255d",
+      "lifecycle_counts": {
+        "MCP client connected": 2,
+        "MCP client exited": 2,
+        "GUI registered": 1,
+        "GUI closed": 1,
+        "Session opened": 1,
+        "Session closed": 1,
+        "HTTP server started": 1,
+        "HTTP server stopped": 1
+      },
+      "live_worker_level_flag_verified": true,
+      "examples": [
+        "HTTP server started",
+        "MCP client connected sdkSessionId=<id> semantics=initialized-session",
+        "Session opened sessionId=<id> backend=HEADLESS state=READY",
+        "GUI registered sessionId=<id> backend=GUI state=READY",
+        "GUI closed sessionId=<id> backend=GUI reason=explicit-close code=CLOSED",
+        "Session closed sessionId=<id> backend=HEADLESS reason=explicit-close code=CLOSED",
+        "MCP client exited sdkSessionId=<id> semantics=transport-session-closed",
+        "HTTP server stopped"
+      ],
+      "sensitive_checks": "token, absolute scratch path, source, payload, comment, selection absent"
+    },
+    {
+      "requested": "WARN",
+      "effective": "WARN",
+      "passed": true,
+      "seconds": 4.39,
+      "console_sha256": "be0f8d89a928e5372497967fff9dd22a8c156f984621361a2448e51153d95373",
+      "console_lines": 3,
+      "worker_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "lifecycle_counts": {
+        "MCP client connected": 0,
+        "MCP client exited": 0,
+        "GUI registered": 0,
+        "GUI closed": 0,
+        "Session opened": 0,
+        "Session closed": 0,
+        "HTTP server started": 0,
+        "HTTP server stopped": 0
+      },
+      "live_worker_level_flag_verified": true,
+      "examples": [],
+      "sensitive_checks": "token, absolute scratch path, source, payload, comment, selection absent"
+    },
+    {
+      "requested": "ERROR",
+      "effective": "ERROR",
+      "passed": true,
+      "seconds": 4.32,
+      "console_sha256": "81b0e4bf657b202b4c74a8212d6990b691ffa58e6982fe45f0cd45b7850c4f9c",
+      "console_lines": 1,
+      "worker_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "lifecycle_counts": {
+        "MCP client connected": 0,
+        "MCP client exited": 0,
+        "GUI registered": 0,
+        "GUI closed": 0,
+        "Session opened": 0,
+        "Session closed": 0,
+        "HTTP server started": 0,
+        "HTTP server stopped": 0
+      },
+      "live_worker_level_flag_verified": true,
+      "examples": [],
+      "sensitive_checks": "token, absolute scratch path, source, payload, comment, selection absent"
+    },
+    {
+      "requested": "OFF",
+      "effective": "OFF",
+      "passed": true,
+      "seconds": 4.14,
+      "console_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "console_lines": 0,
+      "worker_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "lifecycle_counts": {
+        "MCP client connected": 0,
+        "MCP client exited": 0,
+        "GUI registered": 0,
+        "GUI closed": 0,
+        "Session opened": 0,
+        "Session closed": 0,
+        "HTTP server started": 0,
+        "HTTP server stopped": 0
+      },
+      "live_worker_level_flag_verified": true,
+      "examples": [],
+      "sensitive_checks": "token, absolute scratch path, source, payload, comment, selection absent"
+    }
+  ],
+  "root_jars_unchanged": true,
+  "cleanup": "all owned process groups reaped; unique scratch removed",
+  "limits": [
+    "GUI channel fixture, not a native GUI window",
+    "no APK/device/debugger/rename matrix rerun",
+    "silent MCP session has no SDK default idle timeout; exit recorded on DELETE/transport close/shutdown",
+    "dependency logs restricted to WARN+; DEBUG/TRACE apply to application diagnostics"
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "historical_only": true,
+  "fresh_final_verification": false,
+  "original_record_sha256": "afbf68e35a13d6a2479aeb45303790a9148a2a75eed0e31e1f3510db259ed84a",
+  "record": {
+    "scope": "GUI module only, not four-module full rerun; no bridge/network/protocol changes",
+    "tests": {
+      "tests": 94,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integration": {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "repeated clicks focus exactly one non-modal unified window",
+          "passed": true
+        },
+        {
+          "check": "unified window stays non-modal",
+          "passed": true
+        },
+        {
+          "check": "network maintenance excluded",
+          "passed": true
+        },
+        {
+          "check": "URL rejected by numeric IP field",
+          "passed": true
+        },
+        {
+          "check": "non-numeric port rejected inline",
+          "passed": true
+        },
+        {
+          "check": "Cancel restores both fields after invalid input",
+          "passed": true
+        },
+        {
+          "check": "Apply keeps same unified window open",
+          "passed": true
+        },
+        {
+          "check": "background preferences save and bridge reconfiguration acknowledged",
+          "passed": true
+        },
+        {
+          "check": "Cancel restores successfully applied master URL",
+          "passed": true
+        },
+        {
+          "check": "MCP business request succeeds after Apply",
+          "passed": true
+        },
+        {
+          "check": "live timer refresh remains compatible with configuration Apply",
+          "passed": true
+        },
+        {
+          "check": "rolling live refresh expires 5-second count",
+          "passed": true
+        },
+        {
+          "check": "closing unified window stops timer",
+          "passed": true
+        },
+        {
+          "check": "single menu restored after actual MainWindow reset",
+          "passed": true
+        },
+        {
+          "check": "unload disposes unified window",
+          "passed": true
+        },
+        {
+          "check": "unload stops timer and removes menu listener",
+          "passed": true
+        }
+      ],
+      "exits": {
+        "gui": 0,
+        "master": 143
+      },
+      "all_owned_processes_reaped": true
+    },
+    "attempts": [
+      {
+        "status": "FAIL",
+        "checks": [
+          {
+            "error": "RuntimeError(\"Readiness timeout: URLError(ConnectionRefusedError(61, 'Connection refused'))\")"
+          }
+        ],
+        "exits": {
+          "gui": null,
+          "master": 1
+        },
+        "all_owned_processes_reaped": true
+      },
+      {
+        "status": "PASS",
+        "checks": [
+          {
+            "check": "repeated clicks focus exactly one non-modal unified window",
+            "passed": true
+          },
+          {
+            "check": "unified window stays non-modal",
+            "passed": true
+          },
+          {
+            "check": "network maintenance excluded",
+            "passed": true
+          },
+          {
+            "check": "URL rejected by numeric IP field",
+            "passed": true
+          },
+          {
+            "check": "non-numeric port rejected inline",
+            "passed": true
+          },
+          {
+            "check": "Cancel restores both fields after invalid input",
+            "passed": true
+          },
+          {
+            "check": "Apply keeps same unified window open",
+            "passed": true
+          },
+          {
+            "check": "background preferences save and bridge reconfiguration acknowledged",
+            "passed": true
+          },
+          {
+            "check": "Cancel restores successfully applied master URL",
+            "passed": true
+          },
+          {
+            "check": "MCP business request succeeds after Apply",
+            "passed": true
+          },
+          {
+            "check": "live timer refresh remains compatible with configuration Apply",
+            "passed": true
+          },
+          {
+            "check": "rolling live refresh expires 5-second count",
+            "passed": true
+          },
+          {
+            "check": "closing unified window stops timer",
+            "passed": true
+          },
+          {
+            "check": "single menu restored after actual MainWindow reset",
+            "passed": true
+          },
+          {
+            "check": "unload disposes unified window",
+            "passed": true
+          },
+          {
+            "check": "unload stops timer and removes menu listener",
+            "passed": true
+          }
+        ],
+        "exits": {
+          "gui": 0,
+          "master": 143
+        },
+        "all_owned_processes_reaped": true
+      }
+    ],
+    "plugin_sha256": "7037b505e97af32bca354e3f014effde4eed75d7ec82c0b014efb65eb515936b"
+  }
+}

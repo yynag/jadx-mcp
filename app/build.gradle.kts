@@ -18,6 +18,8 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":protocol"))
+    implementation(project(":analysis"))
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation(libs.junit.jupiter.engine)
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
@@ -45,7 +47,16 @@ java {
 }
 
 application {
-    mainClass.set("com.yyang.jadx_server.MainKt")
+    // The rewritten runtime is the sole executable artifact.
+    mainClass.set("com.yyang.jadxmcp.bootstrap.MasterMain")
+}
+
+tasks.register<JavaExec>("runRewrite") {
+    group = "application"
+    description = "Run the rewritten master with real isolated JADX workers"
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("com.yyang.jadxmcp.bootstrap.MasterMain")
+    javaLauncher.set(javaToolchains.launcherFor { languageVersion.set(JavaLanguageVersion.of(21)) })
 }
 
 tasks.named<Test>("test") {
@@ -53,6 +64,15 @@ tasks.named<Test>("test") {
     maxHeapSize = "4G"
 }
 
+tasks.named<Jar>("jar") {
+    // Keep the thin JAR for internal consumers, separate from the release artifact.
+    archiveBaseName.set("jadx-mcp")
+    archiveClassifier.set("plain")
+}
+
 tasks.withType<ShadowJar> {
+    archiveBaseName.set("jadx-mcp")
+    archiveClassifier.set("")
+    archiveFileName.set("jadx-mcp.jar")
     mergeServiceFiles()
 }

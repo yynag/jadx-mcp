@@ -1,5 +1,5 @@
 /*
- * JADX Headless Server (jadx-core-mcp) root settings configuration file.
+ * jadx-mcp root settings configuration file.
  * Defines multi-module inclusion rules and global Gradle plugin repository mirrors.
  */
 
@@ -19,5 +19,5 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 
-rootProject.name = "jadx-core-mcp"
-include("app")
+rootProject.name = "jadx-mcp"
+include("app", "gui-plugin", "protocol", "analysis")

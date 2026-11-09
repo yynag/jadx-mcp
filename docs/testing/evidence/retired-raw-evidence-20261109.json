@@ -1,0 +1,462 @@
+{
+  "historical_only": true,
+  "records": [
+    {
+      "retired_path": ".agent/tmp/apk-e2e-20261109T122620-c0d64bf6/input/app-armeabi-v7a-release.apk.jadx_mcp_cache/e2e-evidence-0ffcf44f/report-raw.json",
+      "bytes": 349912,
+      "sha256": "1282f6a4379da6b4f7cb0cd8ffaacee3092497824fbc7c03681bdc492010dce6",
+      "status": null,
+      "check_count": 63,
+      "call_count": 37,
+      "operations": {
+        "session_create": 2,
+        "meta_summary": 4,
+        "meta_manifest": 4,
+        "meta_class": 3,
+        "decompile": 10,
+        "search": 4,
+        "xref": 1,
+        "rename": 1,
+        "resource": 3,
+        "fetch_current_class": 1,
+        "session_close": 4
+      },
+      "owned_processes_reaped": null,
+      "alive_after_master_shutdown": [],
+      "check_status_counts": {
+        "PASS": 59,
+        "NO_OBJECT": 3,
+        "FAIL": 1
+      },
+      "failed_checks": [
+        {
+          "name": "resource_r_string_java",
+          "status": "FAIL",
+          "error": "decompile: HTTP 404 {'code': 'NOT_FOUND', 'message': 'Class has no generated source', 'retryable': False}",
+          "elapsed_ms": 17
+        },
+        {
+          "name": "bounded_deadline",
+          "status": "PASS",
+          "code": "DEADLINE_EXCEEDED",
+          "elapsed_ms": 10,
+          "error": "search: HTTP 504 {'code': 'DEADLINE_EXCEEDED', 'message': 'Call deadline exceeded', 'retryable': False}"
+        }
+      ]
+    },
+    {
+      "retired_path": ".agent/tmp/apk-e2e-20261109T122620-c0d64bf6/input/app-armeabi-v7a-release.apk.jadx_mcp_cache/e2e-evidence-46160708/report-raw.json",
+      "bytes": 346260,
+      "sha256": "06cfbad213ff8ae26177b197316c3a4371b0a635128109270c619cf39adfe707",
+      "status": null,
+      "check_count": 58,
+      "call_count": 36,
+      "operations": {
+        "session_create": 2,
+        "meta_summary": 4,
+        "meta_manifest": 4,
+        "meta_class": 3,
+        "decompile": 9,
+        "search": 4,
+        "xref": 1,
+        "rename": 1,
+        "resource": 3,
+        "fetch_current_class": 1,
+        "session_close": 4
+      },
+      "owned_processes_reaped": null,
+      "alive_after_master_shutdown": [],
+      "check_status_counts": {
+        "PASS": 55,
+        "NO_OBJECT": 2,
+        "FAIL": 1
+      },
+      "failed_checks": [
+        {
+          "name": "bounded_deadline",
+          "status": "PASS",
+          "code": "DEADLINE_EXCEEDED",
+          "elapsed_ms": 14,
+          "error": "search: HTTP 504 {'code': 'DEADLINE_EXCEEDED', 'message': 'Call deadline exceeded', 'retryable': False}"
+        },
+        {
+          "name": "all_worker_generated_files_contained_in_input_cache",
+          "status": "FAIL",
+          "escaped_files": [
+            "master-cwd-aeaa2d07/logs/error.log",
+            "master-cwd-aeaa2d07/logs/server.log"
+          ]
+        }
+      ]
+    },
+    {
+      "retired_path": ".agent/tmp/apk-e2e-20261109T122620-c0d64bf6/input/app-armeabi-v7a-release.apk.jadx_mcp_cache/e2e-evidence-857a7d09/report-raw.json",
+      "bytes": 350687,
+      "sha256": "cab7a63c14c3f3122a9381304b14804ea3db7fa83b70b678fa8387afa0ac3cab",
+      "status": null,
+      "check_count": 64,
+      "call_count": 38,
+      "operations": {
+        "session_create": 2,
+        "meta_summary": 4,
+        "meta_manifest": 4,
+        "meta_class": 3,
+        "decompile": 10,
+        "search": 4,
+        "xref": 1,
+        "rename": 1,
+        "resource": 4,
+        "fetch_current_class": 1,
+        "session_close": 4
+      },
+      "owned_processes_reaped": null,
+      "alive_after_master_shutdown": [],
+      "check_status_counts": {
+        "PASS": 60,
+        "NO_OBJECT": 4
+      },
+      "failed_checks": [
+        {
+          "name": "bounded_deadline",
+          "status": "PASS",
+          "code": "DEADLINE_EXCEEDED",
+          "elapsed_ms": 8,
+          "error": "search: HTTP 504 {'code': 'DEADLINE_EXCEEDED', 'message': 'Call deadline exceeded', 'retryable': False}"
+        }
+      ]
+    },
+    {
+      "retired_path": ".agent/tmp/system-test-20261109/calls.jsonl",
+      "bytes": 255434,
+      "sha256": "aa0a51b551b669274b650becce24a9cf64fb0f5d7f4fbe8d3d95e69925b1dca7",
+      "status": null,
+      "check_count": 0,
+      "call_count": 97,
+      "operations": {
+        "session_get": 1,
+        "meta_summary": 1,
+        "meta_class": 11,
+        "meta_manifest": 6,
+        "resource": 11,
+        "decompile": 16,
+        "search": 19,
+        "xref": 4,
+        "fetch_current_class": 1,
+        "get_selected_text": 1,
+        "get_method_by_name": 1,
+        "get_main_application_classes_names": 1,
+        "get_main_application_classes_code": 2,
+        "get_package_tree": 1,
+        "get_cache_stats": 4,
+        "clear_cache": 2,
+        "rename_package": 1,
+        "rename_variable": 1,
+        "add_comment": 1,
+        "list_comments": 2,
+        "debug_get_threads": 1,
+        "debug_get_stack_frames": 1,
+        "debug_get_variables": 1,
+        "rename": 6,
+        "session_create": 1
+      },
+      "owned_processes_reaped": null,
+      "alive_after_master_shutdown": null,
+      "check_status_counts": {},
+      "failed_checks": []
+    },
+    {
+      "retired_path": ".agent/tmp/system-test-20261109/method-fix/after/evidence.json",
+      "bytes": 72479,
+      "sha256": "0390dc476b76f210b672bea46e4222ff99cb24633d74faacfd7760729a54e189",
+      "status": "FAIL",
+      "check_count": 34,
+      "call_count": 55,
+      "operations": {
+        "session_list": 23,
+        "session_get": 1,
+        "meta_summary": 1,
+        "search": 1,
+        "xref": 1,
+        "decompile": 9,
+        "get_method_by_name": 15,
+        "rename": 4
+      },
+      "owned_processes_reaped": true,
+      "alive_after_master_shutdown": null,
+      "check_status_counts": {
+        "True": 33,
+        "False": 1
+      },
+      "failed_checks": [
+        {
+          "check": "restored method source and alias removal",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "retired_path": ".agent/tmp/system-test-20261109/method-fix/after-final/evidence.json",
+      "bytes": 66856,
+      "sha256": "4f14a1e22e1dd256743532d40d7274e0100926cdbd47ef4b34e647d8813f489f",
+      "status": "FAIL",
+      "check_count": 29,
+      "call_count": 51,
+      "operations": {
+        "session_list": 24,
+        "session_get": 1,
+        "meta_summary": 1,
+        "search": 1,
+        "xref": 1,
+        "decompile": 9,
+        "get_method_by_name": 12,
+        "rename": 2
+      },
+      "owned_processes_reaped": true,
+      "alive_after_master_shutdown": null,
+      "check_status_counts": {
+        "True": 28,
+        "False": 1
+      },
+      "failed_checks": [
+        {
+          "check": "restore class alias",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "retired_path": ".agent/tmp/system-test-20261109/method-fix/after-verified/evidence.json",
+      "bytes": 73345,
+      "sha256": "d90c8e8e67a18e3b893ba3bb6d101ecfd594936984d77157ff52de05fa6e1d16",
+      "status": "PASS",
+      "check_count": 37,
+      "call_count": 57,
+      "operations": {
+        "session_list": 22,
+        "session_get": 1,
+        "meta_summary": 1,
+        "search": 1,
+        "xref": 1,
+        "decompile": 9,
+        "get_method_by_name": 17,
+        "clear_cache": 2,
+        "get_cache_stats": 1,
+        "list_comments": 1,
+        "session_close": 1
+      },
+      "owned_processes_reaped": true,
+      "alive_after_master_shutdown": null,
+      "check_status_counts": {
+        "True": 37
+      },
+      "failed_checks": []
+    },
+    {
+      "retired_path": ".agent/tmp/system-test-20261109/method-fix/before/evidence.json",
+      "bytes": 39846,
+      "sha256": "c3aef3c1a1014b43184f346ee9e38b3909acc1abbcdb6c290539fd0ea3c9687b",
+      "status": "PASS",
+      "check_count": 10,
+      "call_count": 33,
+      "operations": {
+        "session_list": 26,
+        "session_get": 1,
+        "meta_summary": 1,
+        "search": 1,
+        "xref": 1,
+        "decompile": 1,
+        "get_method_by_name": 1,
+        "session_close": 1
+      },
+      "owned_processes_reaped": true,
+      "alive_after_master_shutdown": null,
+      "check_status_counts": {
+        "True": 10
+      },
+      "failed_checks": []
+    },
+    {
+      "retired_path": ".agent/tmp/system-test-20261109/method-fix-build-summary.json",
+      "bytes": 1340,
+      "sha256": "0732fe62e379fef97cbb9de5c210b2782bf7e442f0ca2df3e9928811dbfbfabd",
+      "status": null,
+      "check_count": 0,
+      "call_count": 0,
+      "operations": {},
+      "owned_processes_reaped": null,
+      "alive_after_master_shutdown": null,
+      "check_status_counts": {},
+      "failed_checks": []
+    },
+    {
+      "retired_path": ".agent/tmp/live-status-integration/evidence.json",
+      "bytes": 6904,
+      "sha256": "96b2bef74cc12c29a3b3c867304d953a6f6f66d92862374b297f07a96160ddff",
+      "status": "FAIL",
+      "check_count": 16,
+      "call_count": 5,
+      "operations": {
+        "session_list": 4,
+        "list_comments": 1
+      },
+      "owned_processes_reaped": true,
+      "alive_after_master_shutdown": null,
+      "check_status_counts": {
+        "True": 15,
+        "False": 1
+      },
+      "failed_checks": [
+        {
+          "check": "proxy observed exactly one edit completion across lost acknowledgement and restart",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "retired_path": ".agent/tmp/live-status-integration-213640/evidence.json",
+      "bytes": 15189,
+      "sha256": "a903cf2e6c9a0d43c747110e3cbd286136709092b0af6530f2b34459cc60ea0d",
+      "status": "FAIL",
+      "check_count": 22,
+      "call_count": 12,
+      "operations": {
+        "session_list": 5,
+        "list_comments": 1,
+        "meta_summary": 2,
+        "session_create": 1,
+        "search": 1,
+        "decompile": 1,
+        "get_method_by_name": 1
+      },
+      "owned_processes_reaped": true,
+      "alive_after_master_shutdown": null,
+      "check_status_counts": {
+        "True": 21,
+        "False": 1
+      },
+      "failed_checks": [
+        {
+          "check": "HEADLESS get_method_by_name core chain",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "retired_path": ".agent/tmp/live-status-integration-213929/evidence.json",
+      "bytes": 19698,
+      "sha256": "6a7b3ac3245c1bac49f394e549fbd625bed97e33bf19aa3a96219c3b2eb17735",
+      "status": "PASS",
+      "check_count": 32,
+      "call_count": 18,
+      "operations": {
+        "session_list": 7,
+        "list_comments": 2,
+        "add_comment": 1,
+        "meta_summary": 2,
+        "session_create": 1,
+        "search": 1,
+        "decompile": 2,
+        "session_close": 2
+      },
+      "owned_processes_reaped": true,
+      "alive_after_master_shutdown": null,
+      "check_status_counts": {
+        "True": 32
+      },
+      "failed_checks": []
+    },
+    {
+      "retired_path": ".agent/tmp/live-status-integration-214042/evidence.json",
+      "bytes": 19882,
+      "sha256": "1cd54da8a96419ca88852a595d3d72b43d014ea22723a5f78239cc4e8423f30e",
+      "status": "PASS",
+      "check_count": 34,
+      "call_count": 18,
+      "operations": {
+        "session_list": 7,
+        "list_comments": 2,
+        "add_comment": 1,
+        "meta_summary": 2,
+        "session_create": 1,
+        "search": 1,
+        "decompile": 2,
+        "session_close": 2
+      },
+      "owned_processes_reaped": true,
+      "alive_after_master_shutdown": null,
+      "check_status_counts": {
+        "True": 34
+      },
+      "failed_checks": []
+    },
+    {
+      "retired_path": ".agent/tmp/ip-port-222313/evidence.json",
+      "bytes": 255,
+      "sha256": "ae169f0b17f58cbb77aa7115b83804d11147015de6cb602de6282af60c994b32",
+      "status": "FAIL",
+      "check_count": 1,
+      "call_count": 0,
+      "operations": {},
+      "owned_processes_reaped": true,
+      "alive_after_master_shutdown": null,
+      "check_status_counts": {
+        "unspecified": 1
+      },
+      "failed_checks": [
+        {
+          "error": "RuntimeError(\"Readiness timeout: URLError(ConnectionRefusedError(61, 'Connection refused'))\")"
+        }
+      ]
+    },
+    {
+      "retired_path": ".agent/tmp/ip-port-222456/evidence.json",
+      "bytes": 1657,
+      "sha256": "e10309cc1b2b990deb09d27d05b6194ca32acdc15fcddb0301ef99e4e08fdeb6",
+      "status": "PASS",
+      "check_count": 16,
+      "call_count": 0,
+      "operations": {},
+      "owned_processes_reaped": true,
+      "alive_after_master_shutdown": null,
+      "check_status_counts": {
+        "True": 16
+      },
+      "failed_checks": []
+    },
+    {
+      "retired_path": ".agent/tmp/unified-menu-220534/evidence.json",
+      "bytes": 255,
+      "sha256": "ae169f0b17f58cbb77aa7115b83804d11147015de6cb602de6282af60c994b32",
+      "status": "FAIL",
+      "check_count": 1,
+      "call_count": 0,
+      "operations": {},
+      "owned_processes_reaped": true,
+      "alive_after_master_shutdown": null,
+      "check_status_counts": {
+        "unspecified": 1
+      },
+      "failed_checks": [
+        {
+          "error": "RuntimeError(\"Readiness timeout: URLError(ConnectionRefusedError(61, 'Connection refused'))\")"
+        }
+      ]
+    },
+    {
+      "retired_path": ".agent/tmp/unified-menu-220937/evidence.json",
+      "bytes": 1387,
+      "sha256": "891298135db56899989df177d947a41eb83e7dc7d7a84ed8c81cf7323e8651bb",
+      "status": "PASS",
+      "check_count": 13,
+      "call_count": 0,
+      "operations": {},
+      "owned_processes_reaped": true,
+      "alive_after_master_shutdown": null,
+      "check_status_counts": {
+        "True": 13
+      },
+      "failed_checks": []
+    }
+  ],
+  "policy": "Only bounded outcomes, counts and hashes retained; no source responses, credentials or APKs."
+}
