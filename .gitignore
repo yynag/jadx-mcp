@@ -32,3 +32,50 @@ NOTE.md
 # Python smoke-driver bytecode is regenerated locally.
 __pycache__/
 *.py[cod]
+
+# Local credentials and environment files (the example is safe to share).
+.env
+.env.*
+!.env.example
+credentials.json
+credentials
+service-account*.json
+google-services.json
+signing.properties
+keystore.properties
+.netrc
+.npmrc
+.pypirc
+
+# Private keys and Android signing stores.
+*.key
+*.pem
+*.p8
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+
+# Potentially private reverse-engineering inputs.
+*.apk
+*.apks
+*.xapk
+*.aab
+*.aar
+*.dex
+*.odex
+*.vdex
+*.jar
+!/gradle/wrapper/gradle-wrapper.jar
+!/app/src/test/resources/sample.jar
+
+# JADX projects, generated caches and designated local analysis directories.
+*.jadx
+*.jadx_mcp_cache/
+/jadx-input/
+/jadx-output/
+/decompiled/

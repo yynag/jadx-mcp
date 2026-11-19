@@ -160,7 +160,9 @@ def scenario(java, scratch, requested):
             require("MCP client connected" not in raw_file.read_text(), "HTTP is not MCP client")
             peer = Peer(base)
             peer.initialize()
-            require(len(peer.exchange("tools/list", {})["result"]["tools"]) == 26, "26 MCP tools")
+            tools = peer.exchange("tools/list", {})["result"]["tools"]
+            require(len(tools) == 25 and all(tool["name"] != "get_main_application_classes_names" for tool in tools),
+                    "25 MCP tools; REST-only operation excluded")
             peer.tool("session_list", {})
             opened = peer.tool("session_create", {"apk_path": str(fixture), "request_id": "create-check"})
             sid = opened["session_id"]
@@ -193,6 +195,9 @@ def scenario(java, scratch, requested):
             require(status == 200 and "token" in lease, "isolated GUI registration")
             sensitive.append(lease["token"])
             gid = lease["session_id"]
+            status, _, conflict = request(base, "/api/get_selected_text", {
+                "session_id": gid, "project_epoch": 1, "request_id": "epoch-conflict-check"})
+            require(status == 409 and conflict["error"]["code"] == "CONFLICT", "epoch conflict classification")
             for _ in range(2):
                 require(request(base, "/gui/heartbeat", {"lease": lease, "project_epoch": 0})[0] == 200, "GUI heartbeat")
             with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
@@ -229,7 +234,13 @@ def scenario(java, scratch, requested):
         require(console.count(marker) == (count if lifecycle else 0), "console lifecycle exactly once: " + marker)
     require(("Request started" in console) == (level in ("TRACE", "DEBUG")), "DEBUG request visibility")
     require(("Session open failed" in console) == (level != "OFF"), "ERROR visibility")
-    require(("Request rejected" in console) == (level in ("TRACE", "DEBUG", "INFO", "WARN")), "WARN visibility")
+    rejected = [line for line in console.splitlines() if "Request rejected" in line]
+    unsupported = [line for line in rejected if "operation=add_comment code=UNSUPPORTED" in line]
+    conflict = [line for line in rejected if "requestId=epoch-conflict-check operation=get_selected_text code=CONFLICT" in line]
+    require(len(unsupported) == (1 if level in ("TRACE", "DEBUG") else 0) and
+            all(" DEBUG " in line for line in unsupported), "ordinary client rejection DEBUG visibility")
+    require(len(conflict) == (1 if level in ("TRACE", "DEBUG", "INFO", "WARN") else 0) and
+            all(" WARN " in line for line in conflict), "epoch conflict WARN visibility")
     require(("Worker started" in worker_log) == lifecycle, "worker inherits selected level")
     if level == "OFF":
         require(not console.strip(), "OFF console empty")
@@ -265,11 +276,14 @@ def main():
     require(sys.version_info[:2] == (3, 12), "use python3.12")
     java = str(Path(os.environ.get("JAVA_HOME", "")) / "bin/java") if os.environ.get("JAVA_HOME") else shutil.which("java")
     require(java and JAR.is_file(), "existing full JDK 21 and releaseArtifacts required")
-    scratch = ROOT / "build" / ("logging-smoke-" + uuid.uuid4().hex)
-    scratch.mkdir(parents=True)
-    before = {path.name: digest(path) for path in ROOT.glob("*.jar")}
+    build = ROOT / "build"
+    require(build.resolve().is_relative_to(ROOT), "scratch parent must be repository-local")
+    scratch = build / ("logging-smoke-" + uuid.uuid4().hex)
+    scratch.mkdir()
+    scratch_stat = scratch.lstat()
     results = []
     try:
+        before = {path.name: digest(path) for path in ROOT.glob("*.jar")}
         for args in (["--help"], ["-h"], ["--log-level=BAD"], ["--log-level", "BAD"], ["--log-level="]):
             result = subprocess.run([java, "-jar", str(JAR), *args], cwd=scratch, capture_output=True, timeout=15)
             help_case = args[0] in ("--help", "-h")
@@ -287,12 +301,18 @@ def main():
                              "silent MCP session has no SDK default idle timeout; exit recorded on DELETE/transport close/shutdown",
                              "dependency logs restricted to WARN+; DEBUG/TRACE apply to application diagnostics"]}
         report['artifact_sha256'] = digest(JAR)
-        summary.write_text(json.dumps(report, indent=2) + "\n")
+        with summary.open("x") as output:
+            output.write(json.dumps(report, indent=2) + "\n")
         print(json.dumps({"passed": True, "levels": len(results), "evidence": str(summary.relative_to(ROOT))}))
     finally:
         # Every scenario reaps its group in finally before this exact owned subtree is removed.
-        shutil.rmtree(scratch)
-        signal.alarm(0)
+        try:
+            current = scratch.lstat()
+            require(not scratch.is_symlink() and (current.st_dev, current.st_ino) ==
+                    (scratch_stat.st_dev, scratch_stat.st_ino), "scratch identity changed; refusing cleanup")
+            shutil.rmtree(scratch)
+        finally:
+            signal.alarm(0)
 
 
 if __name__ == "__main__":

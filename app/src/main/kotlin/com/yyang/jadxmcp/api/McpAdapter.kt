@@ -11,11 +11,19 @@ import kotlinx.coroutines.runInterruptible
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.jsonObject
+import java.util.Properties
+
+private val productVersion: String = Properties().apply {
+    requireNotNull(McpAdapter::class.java.getResourceAsStream("/jadx-mcp-version.properties")) {
+        "Missing generated product version resource"
+    }.use { load(it) }
+}.getProperty("version")?.takeIf { it.isNotBlank() }
+    ?: error("Missing product version")
 
 /** Real SDK tool registration; the SDK owns JSON-RPC and Streamable HTTP session semantics. */
 class McpAdapter(private val registry: CommandRegistry, private val status: ServerStatus = ServerStatus()) {
     fun createServer(): Server = Server(
-        serverInfo = Implementation(name = "jadx-mcp", version = "3.0.0"),
+        serverInfo = Implementation(name = "jadx-mcp", version = productVersion),
         options = ServerOptions(capabilities = ServerCapabilities(tools = ServerCapabilities.Tools())),
         instructions = "Use session_create or session_list, then meta_summary, targeted search, xref, and decompile. " +
             "Use exact uppercase enum values. GUI-only tools require a GUI session. " +

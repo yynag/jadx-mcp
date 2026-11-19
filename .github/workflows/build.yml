@@ -2,14 +2,15 @@ name: Build & Release
 
 on:
   push:
-    branches: ['**']
     tags:
       - 'v*'
-  pull_request:
-  workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   build-and-test:
@@ -19,6 +20,43 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+
+      - name: Validate release tag and version
+        env:
+          RELEASE_REF: ${{ github.ref }}
+        run: |
+          if [[ ! "$RELEASE_REF" =~ ^refs/tags/v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
+            echo "Release tag must have the stable format vMAJOR.MINOR.PATCH" >&2
+            exit 1
+          fi
+
+          version=$(awk '
+            /^[[:space:]]*[#!]/ { next }
+            index($0, "\\") {
+              print "Escapes and continuations are not supported in gradle.properties" > "/dev/stderr"
+              invalid = 1
+              exit 1
+            }
+            /^[[:space:]]*version([[:space:]=:]|$)/ {
+              count++
+              value = $0
+              sub(/^[[:space:]]*version[[:space:]]*/, "", value)
+              sub(/^[=:][[:space:]]*/, "", value)
+            }
+            END {
+              if (invalid) exit 1
+              if (count != 1) {
+                print "gradle.properties must define exactly one version" > "/dev/stderr"
+                exit 1
+              }
+              print value
+            }
+          ' gradle.properties)
+
+          if [[ "$RELEASE_REF" != "refs/tags/v$version" ]]; then
+            echo "Release tag does not match the version in gradle.properties" >&2
+            exit 1
+          fi
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4
@@ -38,17 +76,27 @@ jobs:
       - name: Build both installable Shadow JARs
         run: ./gradlew --no-daemon --no-parallel --max-workers=1 releaseArtifacts
 
+      - name: Verify release files and generate checksums
+        working-directory: build/release
+        run: |
+          test -s jadx-mcp.jar
+          test -s jadx-mcp-gui-plugin.jar
+          sha256sum jadx-mcp.jar jadx-mcp-gui-plugin.jar > SHA256SUMS
+
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
           name: jadx-mcp-release
-          path: build/release/*.jar
+          path: |
+            build/release/jadx-mcp.jar
+            build/release/jadx-mcp-gui-plugin.jar
+            build/release/SHA256SUMS
           if-no-files-found: error
 
   release:
     name: Create GitHub Release
     needs: build-and-test
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -60,10 +108,21 @@ jobs:
           name: jadx-mcp-release
           path: release-assets
 
+      - name: Verify downloaded release artifacts
+        working-directory: release-assets
+        run: |
+          test -s jadx-mcp.jar
+          test -s jadx-mcp-gui-plugin.jar
+          test -s SHA256SUMS
+          sha256sum --check SHA256SUMS
+
       - name: Publish Release to GitHub
         uses: softprops/action-gh-release@v2
         with:
-          files: release-assets/*.jar
+          files: |
+            release-assets/jadx-mcp.jar
+            release-assets/jadx-mcp-gui-plugin.jar
+            release-assets/SHA256SUMS
           fail_on_unmatched_files: true
           generate_release_notes: true
         env:

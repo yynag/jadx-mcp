@@ -95,7 +95,7 @@
       "failed_checks": [],
       "original_evidence_sha256": "ada0097c626bf203931768f92b8d6196f5b9fc4602aa32624bee306a9be9a2a1",
       "driver_sha256": "9151eb21c40aab98296d2c8e31a68b77cdfddade4ccc6cb1a67080a9c2e8f73e",
-      "input_sha256": "df3d1ed4bfb024a36c06d938da9d3fba4a7805f61c9f037daee11542e4d67ebb",
+      "input_sha256": "REDACTED_PRIVATE_OR_UNVERIFIED_INPUT_SHA256",
       "fixture": "authorized copied APK",
       "gui_exit": 0,
       "master_exit": 143,
@@ -443,7 +443,7 @@
       }
     ],
     "driver_sha256": "556117b02f7d6873d4d031ff54d3748fd85a9d2c059650030b1ce684ea5685e7",
-    "input_sha256": "df3d1ed4bfb024a36c06d938da9d3fba4a7805f61c9f037daee11542e4d67ebb",
+    "input_sha256": "REDACTED_PRIVATE_OR_UNVERIFIED_INPUT_SHA256",
     "raw_report_sha256": "6e324b17c2eb08d2deb7979b006a105c3cbdecc1bbf8aa4031ecf2bb98f75136",
     "summary_sha256": "2275f17901f0caa17d2bad0690c0f84cc1ca01288a84f3b56390b5920345c355",
     "relative_path_publish_exit": 0,

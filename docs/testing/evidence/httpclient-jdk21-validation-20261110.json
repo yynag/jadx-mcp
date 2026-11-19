@@ -42,7 +42,7 @@
     {
       "label": "apk-acceptance", "driver": "scripts/smoke/gui_acceptance.py", "status": "PASS", "checks": 58,
       "raw_evidence_sha256": "412c6327fcbef96cf29b52ad8567a05bdcc0bf23eaa9ea2dc57c2986eef4da30",
-      "input_sha256": "df3d1ed4bfb024a36c06d938da9d3fba4a7805f61c9f037daee11542e4d67ebb",
+      "input_sha256": "REDACTED_PRIVATE_OR_UNVERIFIED_INPUT_SHA256",
       "fixture": "Temporary private JSON discovered via actual meta_summary.main_activity and meta_class.methods descriptor on an authorized workspace APK copy; discovery session closed and Master reaped",
       "original_unchanged": "SHA256, inode, size and mtime checked before/after discovery; original hash rechecked at final cleanup",
       "all_owned_processes_reaped": true,
@@ -65,7 +65,7 @@
   "cleanup": {
     "status": "COMPLETE",
     "all_owned_processes_reaped": true,
-    "original_apk_sha256_rechecked": "df3d1ed4bfb024a36c06d938da9d3fba4a7805f61c9f037daee11542e4d67ebb",
+    "original_apk_sha256_rechecked": "REDACTED_PRIVATE_OR_UNVERIFIED_INPUT_SHA256",
     "removed_owned_trees": ["build/smoke/live-status-cb548be2e975", "build/smoke/port-switch-489f02931410", "build/smoke/port-switch-177ba7d950ce", "build/smoke/gui-acceptance-9c475d306412", ".agent/tmp/httpclient-gui-verification"],
     "retained": "Formal source/tests, current minimal evidence, release packages and module build/test reports; unrelated prior run trees untouched",
     "raw_records": "Only compact outcomes/hashes retained; raw source-bearing responses/private fixture JSON/copies are removed, not public evidence"

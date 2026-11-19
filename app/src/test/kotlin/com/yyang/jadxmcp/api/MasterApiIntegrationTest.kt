@@ -123,7 +123,11 @@ class MasterApiIntegrationTest {
 
     @Test fun sdkMcpHandshakeSchemasAndToolRoutingWorkOverRealHttp() = Fixture().use { f ->
         val mcp = McpHttpPeer(f)
-        mcp.initialize()
+        val initialization = mcp.initialize()
+        assertEquals("2025-03-26", initialization.get("protocolVersion").asString)
+        val serverInfo = initialization.getAsJsonObject("serverInfo")
+        assertEquals("jadx-mcp", serverInfo.get("name").asString)
+        assertEquals("2.0.0", serverInfo.get("version").asString)
         val tools = mcp.call("tools/list", "{}").getAsJsonObject("result").getAsJsonArray("tools")
         assertEquals(25, tools.size())
         assertFalse(tools.any { it.asJsonObject.get("name").asString == "get_main_application_classes_names" })
@@ -263,13 +267,15 @@ class MasterApiIntegrationTest {
                 .header("MCP-Protocol-Version", "2025-03-26").DELETE().build(), HttpResponse.BodyHandlers.ofString())
             assertEquals(200, response.statusCode(), response.body())
         }
-        fun initialize() {
+        fun initialize(): JsonObject {
             val response = exchange("""{"jsonrpc":"2.0","id":0,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"http-test","version":"1"}}}""")
             assertEquals(200, response.statusCode(), response.body())
             sessionId = response.headers().firstValue("Mcp-Session-Id").orElse(null)
-            assertNotNull(parse(response.body()).getAsJsonObject("result"))
+            val result = parse(response.body()).getAsJsonObject("result")
+            assertNotNull(result)
             val notified = exchange("""{"jsonrpc":"2.0","method":"notifications/initialized"}""")
             assertTrue(notified.statusCode() in 200..299, notified.body())
+            return result
         }
         fun call(method: String, params: String): JsonObject {
             val response = exchange("""{"jsonrpc":"2.0","id":${nextId++},"method":"$method","params":$params}""")

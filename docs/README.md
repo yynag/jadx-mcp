@@ -1,5 +1,7 @@
 # Documentation
 
+[中文](README_zh.md)
+
 - [GUI connection and input-cache usage](usage/gui-and-cache.md)
 - [Testing and isolated smoke commands](testing/README.md)
 - [Validation results and limits](testing/validation.md)

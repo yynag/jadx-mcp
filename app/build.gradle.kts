@@ -32,7 +32,7 @@ dependencies {
     implementation(libs.logback.classic)
     implementation(libs.mcp.kotlin.sdk)
 
-    // WHY: OpenCode type=remote 需要 MCP Streamable HTTP；kotlin-sdk 的 mcpStreamableHttp 依赖 Ktor
+    // WHY: OpenCode type=remote requires MCP Streamable HTTP; kotlin-sdk's mcpStreamableHttp depends on Ktor.
     implementation(libs.ktor.server.netty)
     implementation(libs.ktor.server.sse)
     implementation(libs.ktor.server.content.negotiation)
@@ -54,6 +54,14 @@ application {
 tasks.named<Test>("test") {
     useJUnitPlatform()
     maxHeapSize = "4G"
+}
+
+tasks.processResources {
+    val productVersion = project.version.toString()
+    inputs.property("productVersion", productVersion)
+    from("src/main/version") {
+        expand("productVersion" to productVersion)
+    }
 }
 
 tasks.named<Jar>("jar") {

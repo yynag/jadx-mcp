@@ -3,6 +3,12 @@ plugins {
     alias(libs.plugins.kotlin.jvm) apply false
 }
 
+subprojects {
+    tasks.withType<Jar>().configureEach {
+        manifest.attributes("Implementation-Version" to project.version.toString())
+    }
+}
+
 // One release directory shared by local verification and CI; module outputs remain internal.
 tasks.register<Sync>("releaseArtifacts") {
     dependsOn(":app:shadowJar", ":gui-plugin:shadowJar")

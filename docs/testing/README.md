@@ -1,5 +1,7 @@
 # Tests and isolated smoke runs
 
+[中文](README_zh.md)
+
 Run from the repository root with a full JDK 21. Use one build at a time; in an
 agent harness, dispatch long-running commands in the background with an outer
 timeout. Use the no-JRE JADX 1.5.6 ZIP and explicitly launch both GUI and Server
@@ -37,7 +39,10 @@ Allow a 600-second outer timeout and dispatch in the background. The driver
 creates a unique project-local `build/logging-smoke-<unique>/`, uses random
 loopback ports and copied sample.jar, isolates JVM home/temp/preferences, and
 reaps only its owned process groups before deleting that exact scratch tree.
-It writes a minimal redacted [JSON summary](evidence/logging-validation-20261109.json).
+It writes a minimal redacted JSON summary by default to a fresh
+`build/smoke/logging-<UUID>.json`. Use `--output` to choose another fresh
+repository-local file; existing files are not overwritten. A separate
+[historical summary](evidence/logging-validation-20261109.json) is available.
 It never connects to an existing Master/GUI or replaces root runtime packages.
 
 The seven configurations are no option (default INFO), TRACE, DEBUG (space form),

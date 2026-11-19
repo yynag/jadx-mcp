@@ -3,9 +3,7 @@
   "excerpt_note": "Historical excerpt; operation maps are partial. Aggregate call/check counts describe the original run, not a new execution or the retained subset.",
   "records": [
     {
-      "retired_path": ".agent/tmp/apk-e2e-20261109T122620-c0d64bf6/input/app-armeabi-v7a-release.apk.jadx_mcp_cache/e2e-evidence-0ffcf44f/report-raw.json",
-      "bytes": 349912,
-      "sha256": "1282f6a4379da6b4f7cb0cd8ffaacee3092497824fbc7c03681bdc492010dce6",
+      "retired_path": "<retired-evidence-1>",
       "status": null,
       "check_count": 63,
       "call_count": 37,
@@ -46,9 +44,7 @@
       ]
     },
     {
-      "retired_path": ".agent/tmp/apk-e2e-20261109T122620-c0d64bf6/input/app-armeabi-v7a-release.apk.jadx_mcp_cache/e2e-evidence-46160708/report-raw.json",
-      "bytes": 346260,
-      "sha256": "06cfbad213ff8ae26177b197316c3a4371b0a635128109270c619cf39adfe707",
+      "retired_path": "<retired-evidence-2>",
       "status": null,
       "check_count": 58,
       "call_count": 36,
@@ -83,17 +79,12 @@
         {
           "name": "all_worker_generated_files_contained_in_input_cache",
           "status": "FAIL",
-          "escaped_files": [
-            "master-cwd-aeaa2d07/logs/error.log",
-            "master-cwd-aeaa2d07/logs/server.log"
-          ]
+          "escaped_file_count": 2
         }
       ]
     },
     {
-      "retired_path": ".agent/tmp/apk-e2e-20261109T122620-c0d64bf6/input/app-armeabi-v7a-release.apk.jadx_mcp_cache/e2e-evidence-857a7d09/report-raw.json",
-      "bytes": 350687,
-      "sha256": "cab7a63c14c3f3122a9381304b14804ea3db7fa83b70b678fa8387afa0ac3cab",
+      "retired_path": "<retired-evidence-3>",
       "status": null,
       "check_count": 64,
       "call_count": 38,
@@ -127,9 +118,7 @@
       ]
     },
     {
-      "retired_path": ".agent/tmp/system-test-20261109/calls.jsonl",
-      "bytes": 255434,
-      "sha256": "aa0a51b551b669274b650becce24a9cf64fb0f5d7f4fbe8d3d95e69925b1dca7",
+      "retired_path": "<retired-evidence-4>",
       "status": null,
       "check_count": 0,
       "call_count": 97,
@@ -165,9 +154,7 @@
       "failed_checks": []
     },
     {
-      "retired_path": ".agent/tmp/system-test-20261109/method-fix/after/evidence.json",
-      "bytes": 72479,
-      "sha256": "0390dc476b76f210b672bea46e4222ff99cb24633d74faacfd7760729a54e189",
+      "retired_path": "<retired-evidence-5>",
       "status": "FAIL",
       "check_count": 34,
       "call_count": 55,
@@ -194,9 +181,7 @@
       ]
     },
     {
-      "retired_path": ".agent/tmp/system-test-20261109/method-fix/after-final/evidence.json",
-      "bytes": 66856,
-      "sha256": "4f14a1e22e1dd256743532d40d7274e0100926cdbd47ef4b34e647d8813f489f",
+      "retired_path": "<retired-evidence-6>",
       "status": "FAIL",
       "check_count": 29,
       "call_count": 51,
@@ -223,9 +208,7 @@
       ]
     },
     {
-      "retired_path": ".agent/tmp/system-test-20261109/method-fix/after-verified/evidence.json",
-      "bytes": 73345,
-      "sha256": "d90c8e8e67a18e3b893ba3bb6d101ecfd594936984d77157ff52de05fa6e1d16",
+      "retired_path": "<retired-evidence-7>",
       "status": "PASS",
       "check_count": 37,
       "call_count": 57,
@@ -249,9 +232,7 @@
       "failed_checks": []
     },
     {
-      "retired_path": ".agent/tmp/system-test-20261109/method-fix/before/evidence.json",
-      "bytes": 39846,
-      "sha256": "c3aef3c1a1014b43184f346ee9e38b3909acc1abbcdb6c290539fd0ea3c9687b",
+      "retired_path": "<retired-evidence-8>",
       "status": "PASS",
       "check_count": 10,
       "call_count": 33,
@@ -272,9 +253,7 @@
       "failed_checks": []
     },
     {
-      "retired_path": ".agent/tmp/system-test-20261109/method-fix-build-summary.json",
-      "bytes": 1340,
-      "sha256": "0732fe62e379fef97cbb9de5c210b2782bf7e442f0ca2df3e9928811dbfbfabd",
+      "retired_path": "<retired-evidence-9>",
       "status": null,
       "check_count": 0,
       "call_count": 0,
@@ -285,9 +264,7 @@
       "failed_checks": []
     },
     {
-      "retired_path": ".agent/tmp/live-status-integration/evidence.json",
-      "bytes": 6904,
-      "sha256": "96b2bef74cc12c29a3b3c867304d953a6f6f66d92862374b297f07a96160ddff",
+      "retired_path": "<retired-evidence-10>",
       "status": "FAIL",
       "check_count": 16,
       "call_count": 5,
@@ -309,9 +286,7 @@
       ]
     },
     {
-      "retired_path": ".agent/tmp/live-status-integration-213640/evidence.json",
-      "bytes": 15189,
-      "sha256": "a903cf2e6c9a0d43c747110e3cbd286136709092b0af6530f2b34459cc60ea0d",
+      "retired_path": "<retired-evidence-11>",
       "status": "FAIL",
       "check_count": 22,
       "call_count": 12,
@@ -338,9 +313,7 @@
       ]
     },
     {
-      "retired_path": ".agent/tmp/live-status-integration-213929/evidence.json",
-      "bytes": 19698,
-      "sha256": "6a7b3ac3245c1bac49f394e549fbd625bed97e33bf19aa3a96219c3b2eb17735",
+      "retired_path": "<retired-evidence-12>",
       "status": "PASS",
       "check_count": 32,
       "call_count": 18,
@@ -362,9 +335,7 @@
       "failed_checks": []
     },
     {
-      "retired_path": ".agent/tmp/live-status-integration-214042/evidence.json",
-      "bytes": 19882,
-      "sha256": "1cd54da8a96419ca88852a595d3d72b43d014ea22723a5f78239cc4e8423f30e",
+      "retired_path": "<retired-evidence-13>",
       "status": "PASS",
       "check_count": 34,
       "call_count": 18,
@@ -386,9 +357,7 @@
       "failed_checks": []
     },
     {
-      "retired_path": ".agent/tmp/ip-port-222313/evidence.json",
-      "bytes": 255,
-      "sha256": "ae169f0b17f58cbb77aa7115b83804d11147015de6cb602de6282af60c994b32",
+      "retired_path": "<retired-evidence-14>",
       "status": "FAIL",
       "check_count": 1,
       "call_count": 0,
@@ -405,9 +374,7 @@
       ]
     },
     {
-      "retired_path": ".agent/tmp/ip-port-222456/evidence.json",
-      "bytes": 1657,
-      "sha256": "e10309cc1b2b990deb09d27d05b6194ca32acdc15fcddb0301ef99e4e08fdeb6",
+      "retired_path": "<retired-evidence-15>",
       "status": "PASS",
       "check_count": 16,
       "call_count": 0,
@@ -420,9 +387,7 @@
       "failed_checks": []
     },
     {
-      "retired_path": ".agent/tmp/unified-menu-220534/evidence.json",
-      "bytes": 255,
-      "sha256": "ae169f0b17f58cbb77aa7115b83804d11147015de6cb602de6282af60c994b32",
+      "retired_path": "<retired-evidence-16>",
       "status": "FAIL",
       "check_count": 1,
       "call_count": 0,
@@ -439,9 +404,7 @@
       ]
     },
     {
-      "retired_path": ".agent/tmp/unified-menu-220937/evidence.json",
-      "bytes": 1387,
-      "sha256": "891298135db56899989df177d947a41eb83e7dc7d7a84ed8c81cf7323e8651bb",
+      "retired_path": "<retired-evidence-17>",
       "status": "PASS",
       "check_count": 13,
       "call_count": 0,
@@ -454,5 +417,5 @@
       "failed_checks": []
     }
   ],
-  "policy": "Only bounded outcomes, counts and hashes retained; no source responses, credentials or APKs."
+  "policy": "Only bounded outcomes and counts retained; no raw evidence hashes, paths, source responses, credentials or APKs."
 }

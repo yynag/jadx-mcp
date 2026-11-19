@@ -65,7 +65,7 @@
     "help_exit": 0,
     "real_mcp_before": {
       "label": "before",
-      "input_sha256": "df3d1ed4bfb024a36c06d938da9d3fba4a7805f61c9f037daee11542e4d67ebb",
+      "input_sha256": "REDACTED_PRIVATE_OR_UNVERIFIED_INPUT_SHA256",
       "master_sha256": "a54e8330233e5d882634f20da201d26083c74a8f0ea60254e8b1e3560d007303",
       "plugin_sha256": "75c8cb7e6192fa2c9e1015cf85d2d0e41b8f211ae57930300fcef0b7e7702376",
       "assertions": [
@@ -309,7 +309,7 @@
     },
     "real_mcp_after": {
       "label": "after-verified",
-      "input_sha256": "df3d1ed4bfb024a36c06d938da9d3fba4a7805f61c9f037daee11542e4d67ebb",
+      "input_sha256": "REDACTED_PRIVATE_OR_UNVERIFIED_INPUT_SHA256",
       "master_sha256": "c6425f81863b744aefd3f3c3ce07c182562267e9508f3eaf101b461cc1d14b55",
       "plugin_sha256": "5ec917a285e969937aa21fed44152f296f1ea9fd260ea9f722a527c5b42adaf2",
       "assertions": [

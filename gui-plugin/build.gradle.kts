@@ -60,6 +60,7 @@ tasks.jar {
 tasks.shadowJar {
     archiveBaseName.set("jadx-mcp-gui-plugin")
     archiveClassifier.set("")
+    archiveFileName.set("jadx-mcp-gui-plugin.jar")
     mergeServiceFiles()
 }
 

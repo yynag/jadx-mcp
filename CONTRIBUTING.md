@@ -1,5 +1,7 @@
 # Contributing to jadx-mcp
 
+[中文](CONTRIBUTING_zh.md)
+
 ## Reports and pull requests
 
 - Include Java/OS/JADX versions, reproduction commands, expected/actual behavior
@@ -39,9 +41,9 @@ Reproduce logging checks with
 `python3.12 -B app/src/test/python/logging_acceptance.py` after packaging.
 Revalidate source changes rather than carrying recorded counts forward.
 
-Debugger success paths and all 26 tools' parameter combinations are not fully
-covered. The earlier MCP wrapper's raw `isError` visibility limit remains distinct
-from final direct-client error checks. Actions was checked statically only:
+Debugger success paths and all parameter combinations across the 26 REST operations
+and 25 MCP tools are not fully covered. The earlier MCP wrapper's raw `isError`
+visibility limit remains distinct from final direct-client error checks. Actions was checked statically only:
 no PyYAML/full YAML semantic parse, no remote CI. No commit/push was performed.
 Documentation cleanup and package/help inspection alone are not runtime proof.
 

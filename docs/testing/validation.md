@@ -1,14 +1,20 @@
 # Local acceptance results and limits
 
-## Current offline regression (2026-11-10)
+[中文](validation_zh.md)
 
-The current working tree passed **320/320 tests**: protocol 20, app 96,
+This page records historical local runs against the working trees and artifacts
+available at the time. Counts, tool catalogs, paths and hashes do not establish
+the state of a later checkout or release.
+
+## Offline regression (2026-11-10)
+
+The working tree tested on that date passed **320/320 tests**: protocol 20, app 96,
 analysis 76 and GUI 128; zero failures/errors/skips in 50 JUnit XML files.
 The offline serial `test releaseArtifacts --rerun-tasks` build used JDK 21,
 one worker, disabled toolchain downloads and `-Pkotlin.incremental=false`.
 All 23 tasks executed successfully in 1m 24s; see
 `build/current-verification.log` and each module's `build/test-results/test/`.
-The real-HTTP MCP integration test checks the current **25-tool** catalog.
+The real-HTTP MCP integration test checked the **25-tool** catalog at that time.
 This run did not exercise native GUI smoke, attached debugging or an existing
 service, and did not replace root runtime packages or their logs.
 
@@ -19,7 +25,7 @@ c51af4bb8e2f126b793850a79c92e1fe3f628ba566aca566ce6620d216a2699f  build/release/
 
 ## MCP status and compact tool output (2026-11-10)
 
-The current working tree completed the offline serial command in
+The working tree at that point completed the offline serial command in
 [reproduction](README.md) with **317 tests passed** (protocol 20, app 93,
 analysis 76, GUI 128), zero failures/errors/skips; both release artifacts were
 rebuilt. The 12 `McpOutputTest` projections, two real-HTTP `ServerStatusHttpTest`
@@ -48,12 +54,12 @@ This is a shape/size sample, not a universal compression guarantee. Error text
 remains a small error object and the SDK `isError` flag remains true. The HTTP
 integration assertions verify REST still returns its typed envelope.
 
-The packaged verification harness reaped its owned process. The final artifact
+The packaged verification harness reaped its owned process. The artifact
 hashes and exact module counts for this run are reported in the session closeout;
 no persistent evidence file was added. Native GUI interaction, debugger success,
 and exhaustive analysis of all tool values remain outside this run.
 
-## Current scoped delivery (2026-11-10)
+## Scoped delivery (2026-11-10)
 
 The full offline serial build passed **291/291 tests** (protocol 15, analysis 76,
 app 72, GUI 128), with no failures/errors/skips. Both installable packages are in
@@ -63,7 +69,7 @@ the staged fixed GUI also passed the two-cycle FIELD-only case **13/13**. Both h
 zero native class-loading errors. The deterministic native-monitor regression failed
 before the fix and passed afterwards.
 
-Documentation closeout independently read **46 current JUnit XML files** and
+Documentation closeout independently read **46 then-available JUnit XML files** and
 rehash-verified both release packages; it did **not** run Gradle, JADX or smoke
 scripts. The recorded build completed `test releaseArtifacts` with
 `BUILD SUCCESSFUL in 2m 6s` and **23/23 tasks executed**. These package hashes,
@@ -83,12 +89,12 @@ small archived results were read from `build/field-rename-evidence/`.
 
 Native invalidation shares JADX 1.5.6's lock order: **JavaClass → ClassNode → ClassInfo**.
 `JavaClass.unload()` is not synchronized; its deep unload rereads Java input data
-outside the short `ClassNode.unload()` lock. Both product unload paths now protect
+outside the short `ClassNode.unload()` lock. In that build, both product unload paths protected
 that whole operation against native background reload, without sleeps or edit retries.
 The captured failure was a `DataReader.readU2` bounds error in concurrent deep unload,
 not a harness assertion or rendered-source cache hit.
 
-[Current hashes, reproduction and limits](evidence/native-field-rename-20261110.json).
+[Recorded hashes, reproduction and limits](evidence/native-field-rename-20261110.json).
 Minimal local failure/pass records and the actual native stack are retained in
 `build/field-rename-evidence/`; full build log: `build/field-rename-release.log`.
 Owned smoke processes and scratch inputs/config/cache were cleaned. User windows,
@@ -99,7 +105,7 @@ no attached paused debugger/device was tested.
 
 ## Earlier full-JDK HttpClient acceptance (2026-11-10)
 
-The current uncommitted tree was force-rebuilt offline and serially with full
+The then-uncommitted tree was force-rebuilt offline and serially with full
 Temurin **JDK 21.0.12.1+1** and the actual **JADX 1.5.6** release JAR on macOS.
 **257 tests passed** (protocol **14**, analysis **71**, app **61**, GUI **111**),
 with zero failures/errors/skips. `test releaseArtifacts :gui-plugin:guiMenuSmoke
@@ -126,7 +132,7 @@ a0f425c2fce312de6bcba9ec7f5f4a8f32bfd86b53371b6c363b451cc6e14799  build/release/
 dc21d92abdb080ca1deb13755cb9ce95175ae0b34f0cd603c2d937e821465805  build/release/jadx-mcp-gui-plugin.jar
 ```
 
-[Compact current evidence](evidence/httpclient-jdk21-validation-20261110.json)
+[Compact evidence for that run](evidence/httpclient-jdk21-validation-20261110.json)
 records commands, XML/log hashes, scenario counts and package/source hashes.
 All owned processes were reaped and exact newly generated scratch copies/config/
 logs/private descriptors removed after evidence capture. Existing services/GUI,
@@ -187,7 +193,7 @@ INFO  HTTP server stopped
 
 An initial matrix failed OFF because kotlin-logging printed its default factory
 banner directly to stdout. An isolated diagnostic reproduced it; the startup
-configuration now disables that banner before SDK loading, and the **entire
+configuration was changed to disable that banner before SDK loading, and the **entire
 forced suite/build and complete matrix were rerun successfully**. Earlier attempts
 are recorded, not added to the final pass totals. Existing Kotlin warnings and
 macOS input-method diagnostics from GUI fixture tests remain; they are not Master
@@ -232,10 +238,10 @@ new logging packages are verified separately above.
 
 [Minimal new JSON](evidence/smoke-five-file-validation-20261109.json) records
 commands, hashes, checks, prior failed attempts and cleanup. The sample acceptance
-pass preceded only the final prerequisite/cleanup guards; the independent sample
-and APK acceptance passes used the final driver. One earlier GUI attempt failed
-because its reader reused old visible-window output after unload; the reader now
-uses only the current command's output. The first HTTP publish attempt exposed a
+pass preceded only that round's final prerequisite/cleanup guards; the independent sample
+and APK acceptance passes used that round's final driver. One earlier GUI attempt failed
+because its reader reused old visible-window output after unload; the corrected reader
+used only the active command's output. The first HTTP publish attempt exposed a
 relative-path print error, fixed and rerun successfully. These were driver issues,
 not product failures, and the failed attempts are not counted as passes.
 
@@ -274,16 +280,9 @@ Rename checks performed no sleep or retry between mutation and immediate reads.
 The bounded runs **did not reproduce earlier instability; they do not prove that
 no race exists**. Readiness waits are not rename-readback retries.
 
-Stable evidence (no temporary-directory prerequisite):
-
-- [Minimal final report](../../.agent/data/final-verification-20261109.json)
-- [JUnit counts and original XML hashes](../../.agent/data/final-junit-counts-20261109.json)
-- Original small outcome records: [sample](../../.agent/data/final-sample-gui-mcp-20261109.json),
-  [APK/launcher](../../.agent/data/final-apk-gui-headless-20261109.json),
-  [sample rename](../../.agent/data/final-rename-sample-20261109.json),
-  [APK rename](../../.agent/data/final-rename-apk-20261109.json)
-- [Build/menu/help markers and original log hashes](../../.agent/data/final-build-menu-cli-20261109.json)
-- [Workflow static checks](../../.agent/data/final-workflow-static-20261109.json)
+The local supporting report, JUnit counts, outcome records, build markers and
+workflow checks for this round are not published. The results and limitations
+that can be shared are summarized here; local materials are not linked.
 
 Historical release SHA-256 for that earlier native-GUI round (superseded Master):
 
@@ -302,8 +301,8 @@ These counts belong to earlier working trees, not additional final test runs.
 
 | Scope | Recorded outcome | Evidence / limits |
 |---|---|---|
-| Four-module rebuild before cache suffix update | 203 tests, 0 failures/errors/skips (12/67/51/73) | [Historical cache record](evidence/cache-layout-validation-20261109.json), not the current suite. Initial incremental attempt had 29 app failures before guarded cleanup was corrected. |
-| Cache suffix and worker-log containment | 52 app tests plus app packaging/help | Other modules were not rerun in that round. Current naming is complete filename + `.jadx_mcp_cache`. |
+| Four-module rebuild before cache suffix update | 203 tests, 0 failures/errors/skips (12/67/51/73) | [Historical cache record](evidence/cache-layout-validation-20261109.json), not a later suite. Initial incremental attempt had 29 app failures before guarded cleanup was corrected. |
+| Cache suffix and worker-log containment | 52 app tests plus app packaging/help | Other modules were not rerun in that round. The recorded naming was complete filename + `.jadx_mcp_cache`. |
 | Packaged APK HTTP | 60 PASS, 4 NO_OBJECT, 0 FAIL | [HTTP summary](evidence/apk-headless-http-smoke-20261109.json); real Smali ID→name, not string ID→value; HTTP-only, one APK, no execution/device debugging. |
 | Existing GUI/MCP read-only | 33 attempts: 21 successes, 7 expected rejections, 5 environment-not-ready | [GUI summary](evidence/mcp-gui-smoke-20261109.json); one rejection occurred client-side, 32 reached server; raw isError was not visible through that wrapper. |
 | System matrix | 26 operations classified across HEADLESS/GUI; lifecycle/edit/timeout paths | [Matrix](evidence/system-test-mcp-20261109.json); coverage is not 26 positive end-to-end passes per backend. |
@@ -317,15 +316,15 @@ retain 17 original-record hashes, assertion outcomes and call counts, including
 failed attempts. [Build-log metadata](evidence/build-log-metadata-20261109.json)
 retains original log hashes and completion markers without full log contents.
 
-## Verified changes and scope
+## Changes verified in those rounds and scope
 
-- The single settings window and **Applied!** wording passed the final isolated checks;
+- The single settings window and **Applied!** wording passed that round's final isolated checks;
   do not substitute the older 94-test/16-check record for this evidence.
-- `MAIN_ACTIVITY` uses the manifest model/resolver; final tests and the same-APK
+- `MAIN_ACTIVITY` used the manifest model/resolver in those builds; the recorded tests and same-APK
   GUI/HEADLESS launcher checks passed. This does not exhaust every manifest,
   alias or resource-valued flag combination.
-- `build/release/` is the distribution directory used by the root release task
-  and CI. Do not move JARs while a running service uses them.
+- `build/release/` was the distribution directory used by the root release task
+  and CI in those rounds. Do not move JARs while a running service uses them.
 - The scenario and formal rename harness results above are bounded runtime
   evidence. No release upload, remote CI, commit or push is asserted.
 
@@ -333,7 +332,7 @@ retains original log hashes and completion markers without full log contents.
 
 - Exhaustive large-APK/class/resource validation and APK/device execution.
 - Debugger positive paths with an attached, paused device.
-- Every parameter combination across all 25 MCP tools. Final direct HTTP
+- Every parameter combination across all 25 MCP tools recorded at the time. Direct HTTP
   integration checks cover the actual MCP `tools/list`, raw `isError`, and the
   SDK's `Tool <name> not found` response for hidden/unknown names; the older
   wrapper-based historical smoke record still has its documented visibility limit.

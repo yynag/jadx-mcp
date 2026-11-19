@@ -517,22 +517,17 @@ def publish(root):
         raise ValueError('Expected an owned prepared root under build/smoke')
     latest = json.loads((root / 'latest-run.json').read_text())
     report = json.loads(Path(latest['report']).read_text())
-    session_map = {}
-    def private_symbol(value):
-        return '<symbol-sha256:' + hashlib.sha256(value.encode()).hexdigest()[:12] + '>'
     def params_excerpt(params):
         result = {}
         for key, value in params.items():
             if key == 'session_id':
-                value = session_map.setdefault(value, '<session-' + str(len(session_map) + 1) + '>')
+                value = '<redacted-session>'
             elif key == 'apk_path':
-                value = '<WORKSPACE_COPY>/input/app-armeabi-v7a-release.apk'
-            elif key in ('class_name', 'package_name', 'method_name'):
-                value = private_symbol(value)
-            elif key == 'term':
-                value = '<observed-search-term-sha256:' + hashlib.sha256(value.encode()).hexdigest()[:12] + '>'
+                value = '<authorized-apk>'
+            elif key in ('class_name', 'package_name', 'method_name', 'method_signature', 'term', 'file_name', 'resource_id'):
+                value = '<redacted>'
             elif key == 'target' and isinstance(value, dict):
-                value = {k: private_symbol(v) if k in ('class_name', 'member_name') else v for k, v in value.items()}
+                value = {k: '<redacted>' for k in value}
             result[key] = value
         return result
     calls = []
@@ -561,40 +556,36 @@ def publish(root):
             text = result.get('text', {})
             content = text.get('content', '')
             excerpt = {'chars_returned': len(content), 'total_chars': text.get('total_chars'), 'truncated': text.get('truncated'),
-                       'media_type': text.get('media_type'), 'content_sha256': hashlib.sha256(content.encode()).hexdigest(),
+                       'media_type': text.get('media_type'),
                        'contains_smoke_rename': 'HeadlessSmokeRenamedActivity' in content,
-                       'method_signature': result.get('method_signature')}
+                       'method_signature_redacted': bool(result.get('method_signature'))}
         elif op == 'search':
             excerpt = {'hits_returned': len(result.get('hits', [])), 'stats': result.get('stats'), 'page': result.get('page'), 'string_mode': result.get('string_mode')}
         elif op == 'xref':
-            excerpt = {'references_returned': len(result.get('references', [])), 'page': result.get('page'),
-                       'first_source': {k: private_symbol(v) if k in ('class_name', 'member_name') else v
-                                        for k, v in (result.get('references') or [{}])[0].get('source', {}).items()}}
+            excerpt = {'references_returned': len(result.get('references', [])), 'page': result.get('page')}
         elif op == 'rename':
-            excerpt = {'state': result.get('state'), 'new_name': result.get('new_name')}
+            state = result.get('state') or {}
+            excerpt = {'state': {k: state[k] for k in ('applied', 'persisted') if k in state}}
         elif op == 'resource':
             excerpt = {'action': result.get('action'), 'files_returned': len(result.get('files', [])),
                        'strings_returned': len(result.get('strings', [])), 'page': result.get('page')}
             if result.get('file'):
                 file = result['file']
-                excerpt['file'] = {'name': call['params'].get('file_name'), 'binary': file.get('binary'),
+                excerpt['file'] = {'name': '<redacted>', 'binary': file.get('binary'),
                                    'chars_returned': len((file.get('text') or {}).get('content', ''))}
             if result.get('resource'):
                 resource = result['resource']
-                excerpt['resource'] = {'id_hex': resource.get('id_hex'), 'name': private_symbol(resource['name']) if resource.get('name') else None,
-                                       'has_value': resource.get('value') is not None,
-                                       'value_sha256': hashlib.sha256(resource.get('value', '').encode()).hexdigest()}
+                excerpt['resource'] = {'name_redacted': bool(resource.get('name')),
+                                       'has_value': resource.get('value') is not None}
         elif op == 'session_close':
             excerpt = {'closed': result.get('closed')}
         calls.append({'operation': op, 'request_excerpt': params_excerpt(call['params']), 'http_status': call['http_status'],
-                      'elapsed_ms': call['elapsed_ms'], 'response_excerpt': excerpt,
-                      'raw_response_sha256': hashlib.sha256(json.dumps(body, sort_keys=True).encode()).hexdigest()})
+                      'elapsed_ms': call['elapsed_ms'], 'response_excerpt': excerpt})
+    safe_row_keys = {'name', 'status', 'elapsed_ms', 'code', 'count', 'fields', 'methods', 'references', 'has_name', 'has_value'}
+    rows = [{k: v for k, v in row.items() if k in safe_row_keys} for row in report['rows']]
     output = {'mode': report['mode'], 'artifact_sha256': report['artifact_sha256'], 'driver_sha256': report['driver_sha256'],
-              'input_sha256': report['input_sha256'], 'original_before': report['original_before'], 'original_after': report['original_after'],
-              'elapsed_seconds': report['elapsed_seconds'], 'rows': report['rows'], 'calls': calls,
-              'observed_pids': report['observed_pids'], 'alive_after_master_shutdown': report['alive_after_master_shutdown'],
-              'generated_files_outside_input_cache': report['generated_files_outside_input_cache'],
-              'session_layouts': report.get('session_layouts'), 'preclear_worker_files': report.get('preclear_worker_files'),
+              'elapsed_seconds': report['elapsed_seconds'], 'rows': rows, 'calls': calls,
+              'owned_processes_reaped': not report['alive_after_master_shutdown'],
               'native_warning_summary': 'JADX Java input plugin reports an unparseable bundled Darwin jffi native library; selected DEX analysis still succeeds.' if report.get('native_input_warnings') else None,
                'raw_evidence_location': '<local generated output; not published>',
               'not_covered': ['APK install/execution', 'GUI', 'device debugger', 'all classes/resources exhaustively', 'MCP transport']}

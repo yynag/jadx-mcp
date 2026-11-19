@@ -60,79 +60,68 @@
     "all_passed": true,
     "observed_gui_descriptors": [
       {
-        "session_key_sha256": "00cdf2aee22c0d56e0a1834e0fe625c841d03d271af2d9badc4bb440008440df",
         "backend": "GUI",
-        "name": "sample.jar",
+        "name": "<redacted-session-name>",
         "project_epoch": 2,
         "state": "READY"
       },
       {
-        "session_key_sha256": "ce88805e2c56708f11b8cc5453c2855dcc6695bf83ba3c1ff3f5f0e54c7a7412",
         "backend": "GUI",
-        "name": "app-armeabi-v7a-release.apk",
+        "name": "<redacted-session-name>",
         "project_epoch": 2,
         "state": "READY"
       },
       {
-        "session_key_sha256": "86d0c9a9fd6aa32cd44ddcb08c5bc11d49330d6a94a868eaa4e80cf6706887b8",
         "backend": "GUI",
-        "name": "app-armeabi-v7a-release.apk",
+        "name": "<redacted-session-name>",
         "project_epoch": 2,
         "state": "READY"
       },
       {
-        "session_key_sha256": "12f7573bdb252cd6d68dff02972cb58b5915cb958da4c896bcb30348f09153a5",
         "backend": "GUI",
-        "name": "sample.jar",
+        "name": "<redacted-session-name>",
         "project_epoch": 2,
         "state": "READY"
       },
       {
-        "session_key_sha256": "0e38eca96b9613c08bbc069e78bd69b58f759139ec27d685eaa7c17dda4cdab6",
         "backend": "GUI",
-        "name": "sample.jar",
+        "name": "<redacted-session-name>",
         "project_epoch": 2,
         "state": "READY"
       },
       {
-        "session_key_sha256": "472e7f8037190e66f3f692ce68bd10fe55dbfaa7d74fbb89b08ec11c2f0b4d8a",
         "backend": "GUI",
-        "name": "same-epoch.jar",
+        "name": "<redacted-session-name>",
         "project_epoch": 2,
         "state": "READY"
       },
       {
-        "session_key_sha256": "7ef41fb98bdc1fbfda29f47a57281dacdbf52e1874da8b356c203216878bf31d",
         "backend": "GUI",
-        "name": "sample.jar",
+        "name": "<redacted-session-name>",
         "project_epoch": 2,
         "state": "READY"
       },
       {
-        "session_key_sha256": "c7af9bfc34455199be02de297ce94bc816821f049448620a0433306120de2eae",
         "backend": "GUI",
-        "name": "auxiliary.jar (+1 file)",
+        "name": "<redacted-session-name>",
         "project_epoch": 2,
         "state": "READY"
       },
       {
-        "session_key_sha256": "02c8e6849e1e6ef5eed6e72c20096e6599721a359d66f2a733e533f4f7b5f42c",
         "backend": "GUI",
-        "name": "sample.jar",
+        "name": "<redacted-session-name>",
         "project_epoch": 2,
         "state": "READY"
       },
       {
-        "session_key_sha256": "7613ec3e1c52dedc5daacb8ab410d008ec6006a3be88de7bf0c0af2ee3339cd2",
         "backend": "GUI",
-        "name": "sample.jar",
+        "name": "<redacted-session-name>",
         "project_epoch": 2,
         "state": "READY"
       },
       {
-        "session_key_sha256": "ce1e809c9d845cb22dcb560a87fb758c0a4de55e35e87303f5e59a8d7fd78076",
         "backend": "GUI",
-        "name": "sample.jar",
+        "name": "<redacted-session-name>",
         "project_epoch": 2,
         "state": "READY"
       }
@@ -140,14 +129,10 @@
     "same_apk_source_comparison": [
       {
         "target": "JAVA",
-        "gui_sha256": "b398f56a7669a7e47d9a3817aac7377dc5aa13efb2f62cd68e3e104ea1084def",
-        "headless_sha256": "b398f56a7669a7e47d9a3817aac7377dc5aa13efb2f62cd68e3e104ea1084def",
         "equal": true
       },
       {
         "target": "METHOD",
-        "gui_sha256": "a0c8cec85095a4eaf9b62ed2895268bf77ed54fa7d2f2ccbcb331517e77b4c21",
-        "headless_sha256": "a0c8cec85095a4eaf9b62ed2895268bf77ed54fa7d2f2ccbcb331517e77b4c21",
         "equal": true
       }
     ],

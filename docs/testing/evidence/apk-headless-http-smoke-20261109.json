@@ -1,78 +1,10 @@
 {
   "historical_only": true,
   "fresh_final_verification": false,
-  "original_record_sha256": "a3db808e3dd93f93c463474aee1a3aac6cd1767f3a3271c60896e55a3435a14f",
   "record": {
     "mode": "HEADLESS HTTP packaged JAR",
     "artifact_sha256": "a54e8330233e5d882634f20da201d26083c74a8f0ea60254e8b1e3560d007303",
     "driver_sha256": "86f0f088478b1af4e8bb2c7224fbcecda4da8dc5f036f3f11b57c39ab42ebe70",
-    "input_sha256": "df3d1ed4bfb024a36c06d938da9d3fba4a7805f61c9f037daee11542e4d67ebb",
-    "original_before": {
-      "apk": {
-        "st_dev": 16777225,
-        "st_ino": 7932455,
-        "st_size": 5453995,
-        "st_mode": 33188,
-        "st_mtime_ns": 1794060799552160766,
-        "st_ctime_ns": 1794060800527431302
-      },
-      "sha256": "df3d1ed4bfb024a36c06d938da9d3fba4a7805f61c9f037daee11542e4d67ebb",
-      "parent": {
-        "st_dev": 16777225,
-        "st_ino": 32078,
-        "st_size": 1248,
-        "st_mode": 16832,
-        "st_mtime_ns": 1794060800070770790,
-        "st_ctime_ns": 1794060800070770790
-      },
-      "siblings": {
-        "app-armeabi-v7a-release.apk.jadx": {
-          "exists": false
-        },
-        "app-armeabi-v7a-release.jadx": {
-          "exists": false
-        },
-        "app-armeabi-v7a-release.apk.jadx_mcp_cache": {
-          "exists": false
-        },
-        "app-armeabi-v7a-release.apk_jadx_cache": {
-          "exists": false
-        }
-      }
-    },
-    "original_after": {
-      "apk": {
-        "st_dev": 16777225,
-        "st_ino": 7932455,
-        "st_size": 5453995,
-        "st_mode": 33188,
-        "st_mtime_ns": 1794060799552160766,
-        "st_ctime_ns": 1794060800527431302
-      },
-      "sha256": "df3d1ed4bfb024a36c06d938da9d3fba4a7805f61c9f037daee11542e4d67ebb",
-      "parent": {
-        "st_dev": 16777225,
-        "st_ino": 32078,
-        "st_size": 1248,
-        "st_mode": 16832,
-        "st_mtime_ns": 1794060800070770790,
-        "st_ctime_ns": 1794060800070770790
-      },
-      "siblings": {
-        "app-armeabi-v7a-release.apk.jadx": {
-          "exists": false
-        },
-        "app-armeabi-v7a-release.jadx": {
-          "exists": false
-        },
-        "app-armeabi-v7a-release.apk.jadx_mcp_cache": {
-          "exists": false
-        },
-        "app-armeabi-v7a-release.apk_jadx_cache": {
-          "exists": false
-        }
-      }
-    },
     "elapsed_seconds": 13.504,
     "rows": [
       {
@@ -269,7 +201,6 @@
       {
         "name": "resource_id_from_actual_application_smali",
         "status": "PASS",
-        "resource_id": "0x7f0800a8",
         "has_name": true,
         "has_value": false
       },
@@ -373,8 +304,7 @@
       {
         "name": "master_and_workers_reaped",
         "status": "PASS",
-        "observed": 3,
-        "survivors": []
+        "observed": 3
       },
       {
         "name": "original_apk_hash_and_metadata_unchanged",
@@ -398,8 +328,7 @@
       },
       {
         "name": "all_worker_generated_files_contained_in_input_cache",
-        "status": "PASS",
-        "escaped_files": []
+        "status": "PASS"
       }
     ],
     "calls": [
@@ -418,8 +347,7 @@
           "backend": "HEADLESS",
           "state": "READY",
           "project_epoch": 0
-        },
-        "raw_response_sha256": "912e1441e6cb26cbdb77ee3be9c0f36da40bf32327e819965b9e8681fc505f54"
+        }
       },
       {
         "operation": "meta_summary",
@@ -433,8 +361,7 @@
           "classes_count": 4733,
           "has_main_activity": true,
           "deobf": false
-        },
-        "raw_response_sha256": "a0aef52b1d9129173cf0cc1f296f49fcf6208daa22c1e47d1342d27833b45a7b"
+        }
       },
       {
         "operation": "meta_manifest",
@@ -450,8 +377,7 @@
           "activity_count": 0,
           "has_xml": true,
           "component_type": null
-        },
-        "raw_response_sha256": "aed48b952cad857647bc0afa6cf056d7f032cf7cdc850a1a82d00dfed6ee3394"
+        }
       },
       {
         "operation": "meta_manifest",
@@ -468,8 +394,7 @@
           "activity_count": 54,
           "has_xml": false,
           "component_type": "ACTIVITY"
-        },
-        "raw_response_sha256": "22caf15ae66aace9ab9cace084df656d71ddbcd538587b0b587558c226c4d609"
+        }
       },
       {
         "operation": "meta_manifest",
@@ -487,8 +412,7 @@
           "activity_count": 3,
           "has_xml": false,
           "component_type": "ACTIVITY"
-        },
-        "raw_response_sha256": "f4cbb9aa431e6f57f8d156db4e06924aecb5981e5639988c4f20986183fb42d1"
+        }
       },
       {
         "operation": "meta_class",
@@ -511,8 +435,7 @@
             "count": 21,
             "total": 21
           }
-        },
-        "raw_response_sha256": "6fbe1838249cc3403e74640dca4d3e70796e6853d8093799521568759452d70d"
+        }
       },
       {
         "operation": "meta_class",
@@ -531,8 +454,7 @@
             "offset": 0,
             "count": 0
           }
-        },
-        "raw_response_sha256": "fedad045b5dadb735401028dced07c90f9cd2d5ec71e590d8a80d18932045a9d"
+        }
       },
       {
         "operation": "decompile",
@@ -549,11 +471,9 @@
           "total_chars": 14434,
           "truncated": false,
           "media_type": "text/x-java-source",
-          "content_sha256": "b398f56a7669a7e47d9a3817aac7377dc5aa13efb2f62cd68e3e104ea1084def",
           "contains_smoke_rename": false,
           "method_signature_redacted": true
-        },
-        "raw_response_sha256": "6da48007354d214bc899062ed9ba5c100c02735b5905d827011a81e5bea9cd00"
+        }
       },
       {
         "operation": "decompile",
@@ -570,11 +490,9 @@
           "total_chars": 14434,
           "truncated": false,
           "media_type": "text/x-java-source",
-          "content_sha256": "b398f56a7669a7e47d9a3817aac7377dc5aa13efb2f62cd68e3e104ea1084def",
           "contains_smoke_rename": false,
           "method_signature_redacted": true
-        },
-        "raw_response_sha256": "6da48007354d214bc899062ed9ba5c100c02735b5905d827011a81e5bea9cd00"
+        }
       },
       {
         "operation": "decompile",
@@ -582,7 +500,7 @@
           "session_id_redacted": true,
           "class_name_redacted": true,
           "target": "METHOD",
-          "method_name": "<symbol-sha256:68f6d9236875>",
+          "method_name": "<redacted>",
           "method_signature_redacted": true,
           "timeout_ms": 60000
         },
@@ -593,11 +511,9 @@
           "total_chars": 438,
           "truncated": false,
           "media_type": "text/x-java-source",
-          "content_sha256": "113be4007bdb1aa07c03e1370e4ec3e083cd947ec91afdaac6af7f929970c581",
           "contains_smoke_rename": false,
           "method_signature_redacted": true
-        },
-        "raw_response_sha256": "330989d6583af3eee4efcfc8de43d0d6139b01335b56b315580a0efd349cef92"
+        }
       },
       {
         "operation": "decompile",
@@ -614,18 +530,16 @@
           "total_chars": 22715,
           "truncated": false,
           "media_type": "text/x-smali",
-          "content_sha256": "d06b7b9fb8bafa31b482dea17da4272251f8411b96353f7d23f1496ead4ea6bf",
           "contains_smoke_rename": false,
           "method_signature_redacted": true
-        },
-        "raw_response_sha256": "d2ee5f12b04a5304bdf261aab69c891f9fd06bb3fa9c0a7cf1b135db577ab68f"
+        }
       },
       {
         "operation": "search",
         "request_excerpt": {
           "session_id_redacted": true,
           "scope": "CLASS",
-          "term": "<observed-search-term-sha256:319330645b03>",
+          "term": "<redacted>",
           "package_name_redacted": true,
           "budget": {
             "max_scan": 10000,
@@ -648,15 +562,14 @@
             "total": 1
           },
           "string_mode": null
-        },
-        "raw_response_sha256": "2dcc29b23d825b6472d3ad4db9f41bf718a45558fa18c14d00d960e3f92422e9"
+        }
       },
       {
         "operation": "search",
         "request_excerpt": {
           "session_id_redacted": true,
           "scope": "STRING",
-          "term": "<observed-search-term-sha256:190729707035>",
+          "term": "<redacted>",
           "string_mode": "DEX_CONSTANTS",
           "package_name_redacted": true,
           "budget": {
@@ -680,8 +593,7 @@
             "total": 1
           },
           "string_mode": "DEX_CONSTANTS"
-        },
-        "raw_response_sha256": "883e6790725ab10558d025a97b3dcf59285448ef4fe1374013ceb7361773560d"
+        }
       },
       {
         "operation": "xref",
@@ -705,12 +617,8 @@
             "count": 5,
             "total": 50,
             "next_offset": 5
-          },
-          "first_source": {
-            "class_name_redacted": true
           }
-        },
-        "raw_response_sha256": "d15c40edd124a6e6c000c94323b15dc32bb1ff59b342e0f58cacf21632960f7a"
+        }
       },
       {
         "operation": "rename",
@@ -728,12 +636,10 @@
         "response_excerpt": {
           "state": {
             "applied": true,
-            "persisted": false,
-            "revision": "11170d85-5fd8-4df2-8925-9e649b2e77fd"
+            "persisted": false
           },
           "new_name": "HeadlessSmokeRenamedActivity"
-        },
-        "raw_response_sha256": "f8fda40a4218f77ba25d8449edfce94fc1515c86b4ce0684bd789542e0f8b9ad"
+        }
       },
       {
         "operation": "decompile",
@@ -750,11 +656,9 @@
           "total_chars": 14441,
           "truncated": false,
           "media_type": "text/x-java-source",
-          "content_sha256": "9f8ee07026ff40f1a7dde8ce72e03a266f7209dfbb54380ea0193c10dd80ce4a",
           "contains_smoke_rename": true,
           "method_signature_redacted": true
-        },
-        "raw_response_sha256": "17b69c57bf1b9e9ced24e0f46eb66ba78c3dfe23dded3569b5fefa491c299b4b"
+        }
       },
       {
         "operation": "resource",
@@ -777,8 +681,7 @@
             "count": 671,
             "total": 671
           }
-        },
-        "raw_response_sha256": "10e8190aaf900a933b8f4a81c165f517bcdbd77b10a3bf4e651e7d35806e6c26"
+        }
       },
       {
         "operation": "resource",
@@ -802,8 +705,7 @@
             "total": 135,
             "next_offset": 50
           }
-        },
-        "raw_response_sha256": "f8648d93e5b2d4c9c4be648a68d7de6cb64ca4377c63ceacc7284a1507beede0"
+        }
       },
       {
         "operation": "resource",
@@ -824,12 +726,11 @@
             "count": 0
           },
           "file": {
-            "name": "AndroidManifest.xml",
+            "name": "<redacted>",
             "binary": false,
             "chars_returned": 68407
           }
-        },
-        "raw_response_sha256": "90d02bf2099e37189b19884ec4487635214cfef29e72a1309e4571bce75c1c12"
+        }
       },
       {
         "operation": "decompile",
@@ -846,11 +747,9 @@
           "total_chars": 65,
           "truncated": false,
           "media_type": "text/x-smali",
-          "content_sha256": "d17dd6565dc21bac0fa79fdd8f75aa12914da8c66d5579a5b1c7b110f8268b4d",
           "contains_smoke_rename": false,
           "method_signature_redacted": true
-        },
-        "raw_response_sha256": "9c2785ce98235016aea48418286e832afa2424db2f2cab052307dc75f2dadad2"
+        }
       },
       {
         "operation": "decompile",
@@ -865,15 +764,14 @@
         "response_excerpt": {
           "error_code": "NOT_FOUND",
           "retryable": false
-        },
-        "raw_response_sha256": "183f0732a6dd09efd72a5794531761e652cadd459bed86ab106d315ff00bbf99"
+        }
       },
       {
         "operation": "resource",
         "request_excerpt": {
           "session_id_redacted": true,
           "action": "ID",
-          "resource_id": "0x7f0800a8",
+          "resource_id": "<redacted>",
           "timeout_ms": 60000
         },
         "http_status": 200,
@@ -887,13 +785,10 @@
             "count": 0
           },
           "resource": {
-            "id_hex": "0x7f0800a8",
-            "name": "<symbol-sha256:cf288c726f59>",
-            "has_value": false,
-            "value_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            "name": "<redacted>",
+            "has_value": false
           }
-        },
-        "raw_response_sha256": "a10eb0f7934048bff03766b83f1884d13cfd4418fb2abc39a762b62c313dfc8c"
+        }
       },
       {
         "operation": "meta_summary",
@@ -907,8 +802,7 @@
         "response_excerpt": {
           "error_code": "INVALID_ARGUMENT",
           "retryable": false
-        },
-        "raw_response_sha256": "a24946c0229f45691467bc36434584bc6987f9bc6538cd8c103732cff912910a"
+        }
       },
       {
         "operation": "meta_class",
@@ -924,15 +818,14 @@
         "response_excerpt": {
           "error_code": "INVALID_ARGUMENT",
           "retryable": false
-        },
-        "raw_response_sha256": "68e4a53fcff7b823b55f4344cace4d794d6c9828fc870a1a4288bd2483b97e11"
+        }
       },
       {
         "operation": "search",
         "request_excerpt": {
           "session_id_redacted": true,
           "scope": "class",
-          "term": "<observed-search-term-sha256:ee0874170b7f>",
+          "term": "<redacted>",
           "timeout_ms": 60000
         },
         "http_status": 400,
@@ -940,8 +833,7 @@
         "response_excerpt": {
           "error_code": "INVALID_ARGUMENT",
           "retryable": false
-        },
-        "raw_response_sha256": "4278959019abaeba39d81bd0fe39acba4989096ca22449e42346a01270851788"
+        }
       },
       {
         "operation": "meta_summary",
@@ -954,8 +846,7 @@
         "response_excerpt": {
           "error_code": "INVALID_ARGUMENT",
           "retryable": false
-        },
-        "raw_response_sha256": "b14451de156d9862ab463208d979b2b8dc0c1578383d32ae2e04febaf1c22b29"
+        }
       },
       {
         "operation": "meta_manifest",
@@ -969,8 +860,7 @@
         "response_excerpt": {
           "error_code": "INVALID_ARGUMENT",
           "retryable": false
-        },
-        "raw_response_sha256": "f07efa85e470b3a8346e37cc06d69e29ad11f2a809a4ba344ed9fb27f9e9b915"
+        }
       },
       {
         "operation": "decompile",
@@ -986,8 +876,7 @@
         "response_excerpt": {
           "error_code": "INVALID_ARGUMENT",
           "retryable": false
-        },
-        "raw_response_sha256": "e14e67df3a9fd4734ea2884398cf15e7eeab2c31089ce03a6084ab05c4773368"
+        }
       },
       {
         "operation": "decompile",
@@ -1001,8 +890,7 @@
         "response_excerpt": {
           "error_code": "NOT_FOUND",
           "retryable": false
-        },
-        "raw_response_sha256": "8fd7a306c152ed012d5c851385506440a087f7ed7daeebf17df693d4996689ec"
+        }
       },
       {
         "operation": "fetch_current_class",
@@ -1015,8 +903,7 @@
         "response_excerpt": {
           "error_code": "UNSUPPORTED",
           "retryable": false
-        },
-        "raw_response_sha256": "80a4c7efda34862f7d8c4404c4f2fc8204dea5a3f5ce5d00c7a15cf4ad0fb92d"
+        }
       },
       {
         "operation": "session_create",
@@ -1033,8 +920,7 @@
           "backend": "HEADLESS",
           "state": "READY",
           "project_epoch": 0
-        },
-        "raw_response_sha256": "2f3d72d001e9722f017e52cf4be470bba6fc4c1c99ed83d3571eaf1690ba00be"
+        }
       },
       {
         "operation": "decompile",
@@ -1050,11 +936,9 @@
           "total_chars": 14434,
           "truncated": false,
           "media_type": "text/x-java-source",
-          "content_sha256": "b398f56a7669a7e47d9a3817aac7377dc5aa13efb2f62cd68e3e104ea1084def",
           "contains_smoke_rename": false,
           "method_signature_redacted": true
-        },
-        "raw_response_sha256": "6da48007354d214bc899062ed9ba5c100c02735b5905d827011a81e5bea9cd00"
+        }
       },
       {
         "operation": "session_close",
@@ -1067,8 +951,7 @@
         "elapsed_ms": 413,
         "response_excerpt": {
           "closed": true
-        },
-        "raw_response_sha256": "9a17802e6ddd0133622e07e5d43b8a2c4b6c00172cd5f115f886b67b4eeb98d7"
+        }
       },
       {
         "operation": "meta_summary",
@@ -1082,15 +965,14 @@
           "classes_count": 4733,
           "has_main_activity": true,
           "deobf": false
-        },
-        "raw_response_sha256": "a0aef52b1d9129173cf0cc1f296f49fcf6208daa22c1e47d1342d27833b45a7b"
+        }
       },
       {
         "operation": "search",
         "request_excerpt": {
           "session_id_redacted": true,
           "scope": "CODE",
-          "term": "<observed-search-term-sha256:f8403bc416a0>",
+          "term": "<redacted>",
           "budget": {
             "max_scan": 10000,
             "max_decompile": 10000
@@ -1102,8 +984,7 @@
         "response_excerpt": {
           "error_code": "DEADLINE_EXCEEDED",
           "retryable": false
-        },
-        "raw_response_sha256": "cc2b1b8038fe4ab13615beab22bda1091686ccd3ec6dd375d1da8183f23a8884"
+        }
       },
       {
         "operation": "session_close",
@@ -1116,8 +997,7 @@
         "elapsed_ms": 37,
         "response_excerpt": {
           "closed": true
-        },
-        "raw_response_sha256": "7cebda423e63dd589e50f589b94b1cd181f38e52bd22bf6e2bd42dfd69e0579c"
+        }
       },
       {
         "operation": "session_close",
@@ -1130,8 +1010,7 @@
         "elapsed_ms": 5,
         "response_excerpt": {
           "closed": false
-        },
-        "raw_response_sha256": "c01f083b6004da4a016f9b2c38b5fe9c0b7c4a979903ec3c19452f88c51617b8"
+        }
       },
       {
         "operation": "session_close",
@@ -1144,14 +1023,8 @@
         "elapsed_ms": 4,
         "response_excerpt": {
           "closed": false
-        },
-        "raw_response_sha256": "ee296314375c87aa22b44067761426b9402f973d02b38e859a82107502280cb5"
+        }
       }
-    ],
-    "observed_pids": [
-      6401,
-      6402,
-      6404
     ],
     "alive_after_master_shutdown": [],
     "native_warning_summary": "JADX Java input plugin reports an unparseable bundled Darwin jffi native library; selected DEX analysis still succeeds.",

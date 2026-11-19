@@ -2,7 +2,7 @@
 <configuration>
     <turboFilter class="com.yyang.jadxmcp.bootstrap.DependencyLogFilter" />
 
-    <!-- 定义日志输出目录与格式 -->
+    <!-- Define the log output directory and format. -->
     <property name="LOG_DIR" value="logs" />
     <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
 
@@ -29,7 +29,7 @@
         </encoder>
     </appender>
 
-    <!-- 3. 错误独立文件 Appender (logs/error.log) 专门便于大模型精准定位排查 Exception -->
+    <!-- 3. Separate error file appender (logs/error.log) to help LLMs precisely locate and investigate exceptions. -->
     <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_DIR}/error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -48,7 +48,7 @@
     </appender>
 
 
-    <!-- 根日志配置 -->
+    <!-- Root logger configuration. -->
     <root level="${jadx.mcp.logLevel:-INFO}">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="FILE" />

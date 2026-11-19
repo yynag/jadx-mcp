@@ -1,5 +1,7 @@
 # GUI connection and input-cache usage
 
+[中文](gui-and-cache_zh.md) | English
+
 ## GUI connection
 
 Use the **JADX 1.5.6 ZIP without an embedded JRE** and install a separate **full
@@ -30,15 +32,6 @@ and rolling 10/30/60-second business tool-call totals; it does not prove MCP/too
 readiness. `/mcp` is a protocol endpoint, not a web page; use an MCP client to
 initialize and list tools. See [startup and status checks](../../README.md#install-and-run-the-master-service).[^runtime]
 
-中文：Server 默认仅监听 `127.0.0.1`，远程不可连，改端口不等于开放远程访问。
-可信局域网可使用上述显式 `--host=0.0.0.0 --port=9010 --log-level=INFO` 启动。
-`0.0.0.0` 是监听地址；GUI 与 Server 同机填 `127.0.0.1` 和 `9010`，跨机填
-服务器实际可达 IP 和 `9010`；MCP 客户端填 `http://<server-ip>:9010/mcp`。
-防火墙须允许可信客户端入站 TCP 9010，NAT 公网端口转发是独立条件，改 host
-不保证公网可达。无通用认证/TLS，仅在可信网络与受控防火墙或隧道下使用，
-不要直接裸露公网。`/status` 返回纯文本诊断，会话与调用计数不代表 MCP/工具/GUI 全部就绪；
-`GET /mcp` 不是普通网页检查，应由 MCP 客户端验证初始化和工具列表。[^runtime]
-
 **Plugins → Jadx MCP** opens one non-modal window with connection status,
 5/10/30-second request counts, and separate numeric **IP** and **Port** fields.
 IPv6 is entered without brackets; ports are 1–65535. Do not enter a scheme,
@@ -50,31 +43,20 @@ remote connectivity. A valid offline port still applies successfully and enters
 `RECONNECTING`; starting the Master there later recovers automatically. Save
 failures identify the stage/exception type and leave the connection unchanged;
 activation failure after saving is reported separately. No tokens or raw exception
-messages are displayed.
+messages are displayed. See the
+[port-switch validation](../testing/evidence/gui-port-switch-20261110.json).
 
-中文：`Applied!` 仅确认本地保存及 bridge 启动，不表示服务已连通。有效端口即使
-暂无服务也应应用成功并显示重连，服务上线后自动恢复。保存失败显示保存阶段与
-异常类型且不切换原连接；保存成功但启动失败单独提示，不显示原始异常或凭据。
-专项证据见
-[port-switch validation](../testing/evidence/gui-port-switch-20261110.json)。
-
-### Runtime and offline settings / 运行环境与离线配置
+### Runtime and offline settings
 
 The GUI transport uses JDK `java.net.http.HttpClient` with the full JDK 21 described
-above. 中文：使用无内置 JRE 的 JADX 1.5.6 ZIP，单独安装完整 JDK 21（含运行环境），
-并明确用同一 JDK 启动 JADX 与 Server。
+above.
 
 Settings can be applied **before opening a project**. In `DISABLED: Waiting for
-project`, Apply only saves the address; HTTP transport is created after a project
-is successfully bound. In a remote Windows GUI,
+project`, Apply only saves the address, displays `Applied!` and remains waiting;
+HTTP transport is created after a project is successfully bound. In a remote Windows GUI,
 `127.0.0.1` means that Windows computer, not the Mac running the Master. A wrong
 destination affects connectivity, not whether valid local settings can be saved.
-
-中文：尚未打开项目也可先保存 IP/端口，显示 `Applied!` 并保持 Waiting for
-project；仅在项目绑定后才创建网络 bridge。远端 Windows 的 `127.0.0.1` 指
-Windows 自身；Master 若在 Mac，应填写可达的 Mac 地址，但目标填错不应造成
-保存失败。无项目配置验收见
-[no-project validation](../testing/evidence/gui-no-project-settings-20261110.json)。
+See the [no-project validation](../testing/evidence/gui-no-project-settings-20261110.json).
 
 Counts are unique received business command IDs, not successful completions;
 registration/poll/heartbeat traffic is excluded. They refresh each second and
@@ -98,16 +80,9 @@ MainWindow smoke verified `Waiting for project` and a disabled **Reconnect**
 button. Evidence and artifact hashes are in
 [GUI reconnect validation](../testing/evidence/gui-reconnect-20261110.json).
 
-中文：暂时网络故障仍自动退避重试，Master 重启后自动重新注册。不可重试的协议错误会
-安全显示阶段/原因并停在 `DISABLED`；在同一 **Plugins → Jadx MCP** 窗口点击
-**Reconnect**，仅对当前已绑定项目发起一次新的注册，清除旧错误，不会重放结果未知的
-命令或编辑。没有活动项目或不是终止错误时按钮不可用；无项目时保持
-`Waiting for project` 且不发送 HTTP 请求。显式关闭的会话不会自动恢复。证据见
-[GUI reconnect validation](../testing/evidence/gui-reconnect-20261110.json)。
-
 The linked port/no-project/reconnect records identify their tested artifacts.
-Full-JDK acceptance checks and package hashes:
-[current acceptance](../testing/evidence/httpclient-jdk21-validation-20261110.json).
+Full-JDK acceptance checks and package hashes from November 10, 2026:
+[historical JDK 21 validation](../testing/evidence/httpclient-jdk21-validation-20261110.json).
 
 Master has no general authentication/TLS. Use trusted inputs and clients,
 loopback or a protected tunnel; do not expose its port directly to the Internet.
